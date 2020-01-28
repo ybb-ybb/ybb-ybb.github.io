@@ -64,6 +64,146 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-科学上网" class="post-科学上网 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/01/28/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" data-id="ck5xblo5t00023l5wejhsescc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h1><h2 id="ssh进行端口动态转发"><a href="#ssh进行端口动态转发" class="headerlink" title="ssh进行端口动态转发"></a>ssh进行端口动态转发</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;ip&gt;为本机ip，1080为设置的端口号，可添加参数-v打印一些数据流</span></span><br><span class="line">$ ssh -D &lt;ip&gt;:8080 root@66.152.179.100</span><br><span class="line"><span class="comment"># 查看端口是否打开</span></span><br><span class="line">$ netstat -nat</span><br></pre></td></tr></table></figure>
+
+<p>密码 connect me</p>
+<h2 id="配置浏览器代理设置"><a href="#配置浏览器代理设置" class="headerlink" title="配置浏览器代理设置"></a>配置浏览器代理设置</h2><p>在浏览器中安装Proxy SwitchyOmega扩展，新建PAC情景模式，在PAC网址中粘贴<a href="https://raw.githubusercontent.com/breakwa11/gfw_whitelist/master/proxy.pac" target="_blank" rel="noopener">https://raw.githubusercontent.com/breakwa11/gfw_whitelist/master/proxy.pac</a></p>
+<p>立即更新，应用更改。</p>
+<p>浏览器切换到代理模式后，正常访问外网。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/28/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">
+    <time datetime="2020-01-28T03:27:21.447Z" class="entry-date">
+        2020-01-28
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-服务器使用tensorboard和visdom" class="post-服务器使用tensorboard和visdom post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/">服务器使用tensorboard和visdom</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck5xblo5r00013l5w78tm492m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="服务器使用tensorboard和visdom"><a href="#服务器使用tensorboard和visdom" class="headerlink" title="服务器使用tensorboard和visdom"></a>服务器使用tensorboard和visdom</h1><h2 id="以tensorboard为例："><a href="#以tensorboard为例：" class="headerlink" title="以tensorboard为例："></a>以tensorboard为例：</h2><p>创建容器时开放6006端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)</span></span><br><span class="line">$ docker run -p &lt;ip&gt;:16006:6006 -it -v /data:/workspace/data --runtime=nvidia --net=host --name=temp /bin/bash</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在连接ssh时，将docker容器中的6006端口重新定向到自己机器上</span></span><br><span class="line">$ ssh -p 1001 -L 16006:&lt;ip&gt;:6006 root@10.7.60.40</span><br></pre></td></tr></table></figure>
+
+<p>```</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/">
+    <time datetime="2020-01-28T03:27:21.351Z" class="entry-date">
+        2020-01-28
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-shell脚本" class="post-shell脚本 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2020/01/28/shell%E8%84%9A%E6%9C%AC/">shell脚本</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/shell%E8%84%9A%E6%9C%AC/" data-id="ck5xblo5o00003l5wehdjg4zm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 指定解释器</span></span><br><span class="line"><span class="meta">#</span><span class="bash">！/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 向窗口输出文本</span></span><br><span class="line">echo "Hello world!"</span><br><span class="line">printf "Hello world!"</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">for</span>循环示例,使用变量要加$符号</span></span><br><span class="line">for file in `ls /etc`</span><br><span class="line">do</span><br><span class="line">	echo "$&#123;file&#125;"</span><br><span class="line">done</span><br><span class="line"><span class="meta">#</span><span class="bash"> 双引号和单引号</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 双引号中可以有变量，单引号中的变量是无效的</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span>-else语句</span></span><br><span class="line">if condition1</span><br><span class="line">then</span><br><span class="line">	command1</span><br><span class="line">elif condition2</span><br><span class="line">then</span><br><span class="line">	commed2</span><br><span class="line">else</span><br><span class="line">	command3</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/28/shell%E8%84%9A%E6%9C%AC/">
+    <time datetime="2020-01-28T03:27:21.255Z" class="entry-date">
+        2020-01-28
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-服务器使用说明" class="post-服务器使用说明 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -477,23 +617,23 @@
       <ul>
         
           <li>
+            <a href="/2020/01/28/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/">服务器使用tensorboard和visdom</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/28/shell%E8%84%9A%E6%9C%AC/">shell脚本</a>
+          </li>
+        
+          <li>
             <a href="/2020/01/16/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">服务器使用说明</a>
           </li>
         
           <li>
             <a href="/2020/01/12/docker%E4%BD%BF%E7%94%A8/">docker使用</a>
-          </li>
-        
-          <li>
-            <a href="/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/">OpenPai安装记录</a>
-          </li>
-        
-          <li>
-            <a href="/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/">Ubuntu命令记录</a>
-          </li>
-        
-          <li>
-            <a href="/2020/01/11/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%BA%9BWindows%E8%BD%AF%E4%BB%B6/">推荐一些Windows软件</a>
           </li>
         
       </ul>

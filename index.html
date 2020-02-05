@@ -85,10 +85,11 @@
 
     <div class="entry-content">
       
-        <h1 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h1><h2 id="ssh进行端口动态转发"><a href="#ssh进行端口动态转发" class="headerlink" title="ssh进行端口动态转发"></a>ssh进行端口动态转发</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;ip&gt;为本机ip，1080为设置的端口号，可添加参数-v打印一些数据流</span></span><br><span class="line">$ ssh -D &lt;ip&gt;:8080 root@66.152.179.100</span><br><span class="line"><span class="comment"># 查看端口是否打开</span></span><br><span class="line">$ netstat -nat</span><br></pre></td></tr></table></figure>
+        <h1 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h1><h2 id="ssh进行端口动态转发"><a href="#ssh进行端口动态转发" class="headerlink" title="ssh进行端口动态转发"></a>ssh进行端口动态转发</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地1080端口和服务器动态转发，可添加参数-v打印一些数据流</span></span><br><span class="line">$ ssh -D 1080 root@66.152.179.100</span><br><span class="line"><span class="comment"># 查看端口是否打开</span></span><br><span class="line">$ netstat -nat</span><br></pre></td></tr></table></figure>
 
 <p>密码 connect me</p>
-<p>ssh -D容易把VPS id弄没……仅作为临时使用，长期使用的老老实实换v2ray……</p>
+<p>ssh -D容易把VPS id弄没……仅作为临时使用，长期使用的老老实实换v2ray……  </p>
+<p>不要攻击我的服务器谢谢=_=</p>
 <h2 id="配置浏览器代理设置"><a href="#配置浏览器代理设置" class="headerlink" title="配置浏览器代理设置"></a>配置浏览器代理设置</h2><p>在浏览器中安装Proxy SwitchyOmega扩展，新建PAC情景模式，在PAC网址中粘贴<a href="https://raw.githubusercontent.com/breakwa11/gfw_whitelist/master/proxy.pac" target="_blank" rel="noopener">https://raw.githubusercontent.com/breakwa11/gfw_whitelist/master/proxy.pac</a></p>
 <p>立即更新，应用更改。</p>
 <p>浏览器切换到代理模式后，正常访问外网。</p>

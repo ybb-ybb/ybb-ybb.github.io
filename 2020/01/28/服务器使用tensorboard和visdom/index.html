@@ -84,7 +84,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck5xblo5r00013l5w78tm492m" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck6c74u6s0005oe5wcr0le946" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -92,9 +92,7 @@
       
         <h1 id="服务器使用tensorboard和visdom"><a href="#服务器使用tensorboard和visdom" class="headerlink" title="服务器使用tensorboard和visdom"></a>服务器使用tensorboard和visdom</h1><h2 id="以tensorboard为例："><a href="#以tensorboard为例：" class="headerlink" title="以tensorboard为例："></a>以tensorboard为例：</h2><p>创建容器时开放6006端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)</span></span><br><span class="line">$ docker run -p &lt;ip&gt;:16006:6006 -it -v /data:/workspace/data --runtime=nvidia --net=host --name=temp /bin/bash</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在连接ssh时，将docker容器中的6006端口重新定向到自己机器上</span></span><br><span class="line">$ ssh -p 1001 -L 16006:&lt;ip&gt;:6006 root@10.7.60.40</span><br></pre></td></tr></table></figure>
-
+<p>或者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在连接ssh时，将docker容器中的6006端口重新定向到自己机器上</span></span><br><span class="line">$ ssh -p 1001 -L 16006:&lt;ip&gt;:6006 root@10.7.60.40</span><br></pre></td></tr></table></figure></p>
 <p>```</p>
 
       

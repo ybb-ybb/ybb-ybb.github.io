@@ -6,11 +6,9 @@
   
   <meta name="description" content="OpenPAI安装记录环境准备
 一台master主机和多台worker主机，一台维护机
-
 所有节点不要安装CUDA驱动，具有统一的登录账户和密码
-
 开启ssh功能和ntp功能(互相访问，时间同步)
-部署过程安装docker-ce12$ sudo apt-get -y install docker.i" />
+部署过程安装docker-ce12$ sudo apt-get -y install docker.io " />
   
 
   
@@ -21,12 +19,12 @@
   
   <title>OpenPai安装记录 | 鱼摆摆的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="OpenPAI安装记录环境准备 一台master主机和多台worker主机，一台维护机  所有节点不要安装CUDA驱动，具有统一的登录账户和密码  开启ssh功能和ntp功能(互相访问，时间同步) 部署过程安装docker-ce12$ sudo apt-get -y install docker.io $ sudo docker pull docker.io&#x2F;openpai&#x2F;dev-box:v0.">
+  <meta name="description" content="OpenPAI安装记录环境准备 一台master主机和多台worker主机，一台维护机 所有节点不要安装CUDA驱动，具有统一的登录账户和密码 开启ssh功能和ntp功能(互相访问，时间同步) 部署过程安装docker-ce12$ sudo apt-get -y install docker.io $ sudo docker pull docker.io&#x2F;openpai&#x2F;dev-box:v0.14">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenPai安装记录">
 <meta property="og:url" content="http://yoursite.com/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="鱼摆摆的blog">
-<meta property="og:description" content="OpenPAI安装记录环境准备 一台master主机和多台worker主机，一台维护机  所有节点不要安装CUDA驱动，具有统一的登录账户和密码  开启ssh功能和ntp功能(互相访问，时间同步) 部署过程安装docker-ce12$ sudo apt-get -y install docker.io $ sudo docker pull docker.io&#x2F;openpai&#x2F;dev-box:v0.">
+<meta property="og:description" content="OpenPAI安装记录环境准备 一台master主机和多台worker主机，一台维护机 所有节点不要安装CUDA驱动，具有统一的登录账户和密码 开启ssh功能和ntp功能(互相访问，时间同步) 部署过程安装docker-ce12$ sudo apt-get -y install docker.io $ sudo docker pull docker.io&#x2F;openpai&#x2F;dev-box:v0.14">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-12T05:04:19.431Z">
 <meta property="article:modified_time" content="2020-01-13T14:29:15.843Z">
@@ -89,17 +87,15 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" data-id="ck5ak1ry00000jc5wavzf7wy9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" data-id="ck6c74u830009oe5wcbt2g47q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <h1 id="OpenPAI安装记录"><a href="#OpenPAI安装记录" class="headerlink" title="OpenPAI安装记录"></a>OpenPAI安装记录</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
-<li><p>一台master主机和多台worker主机，一台维护机</p>
-</li>
-<li><p>所有节点不要安装CUDA驱动，具有统一的登录账户和密码</p>
-</li>
+<li>一台master主机和多台worker主机，一台维护机</li>
+<li>所有节点不要安装CUDA驱动，具有统一的登录账户和密码</li>
 <li><p>开启ssh功能和ntp功能(互相访问，时间同步)</p>
 <h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><h3 id="安装docker-ce"><a href="#安装docker-ce" class="headerlink" title="安装docker-ce"></a>安装docker-ce</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get -y install docker.io </span><br><span class="line">$ sudo docker pull docker.io/openpai/dev-box:v0.14.0</span><br></pre></td></tr></table></figure>
 <h3 id="运行dev-box"><a href="#运行dev-box" class="headerlink" title="运行dev-box"></a>运行dev-box</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -itd \</span><br><span class="line">        -e COLUMNS=<span class="variable">$COLUMNS</span> -e LINES=<span class="variable">$LINES</span> -e TERM=<span class="variable">$TERM</span> \</span><br><span class="line">        -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">        -v /pathConfiguration:/cluster-configuration  \</span><br><span class="line">        -v /hadoop-binary:/hadoop-binary  \</span><br><span class="line">        --pid=host \</span><br><span class="line">        --privileged=<span class="literal">true</span> \</span><br><span class="line">        --net=host \</span><br><span class="line">        --name=dev-box \</span><br><span class="line">        docker.io/openpai/dev-box:v0.14.0</span><br></pre></td></tr></table></figure>

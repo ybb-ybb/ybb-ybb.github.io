@@ -113,7 +113,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/16/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-id="ck5gscl5d0000da5wd5xadggu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/16/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-id="ck6c74u6u0006oe5w2l5p7akh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -141,35 +141,30 @@
 <p>passwd 修改登录密码</p>
 <p><img src="https://i.loli.net/2020/01/17/WHwyvCMsSrj2XzZ.png" alt></p>
 <h3 id="为防止端口号重复，请使用自己的端口"><a href="#为防止端口号重复，请使用自己的端口" class="headerlink" title="为防止端口号重复，请使用自己的端口"></a>为防止端口号重复，请使用自己的端口</h3><ul>
-<li>罗金铭 1001— 1050</li>
-<li>田胜景 1051— 1100</li>
-<li>周骏     1101— 1150</li>
-<li>谭红臣 1151— 1200</li>
-<li>孔雨秋 1201— 1250</li>
-<li>陈宝玉 1251— 1300</li>
-<li>张怡     1301— 1350</li>
-<li>田国强 1351— 1400</li>
-<li>王华胜 1401— 1450</li>
-<li>王诗瑶 1451— 1500</li>
-<li>黄骅     1501— 1550</li>
-<li>于冰冰  1551— 1600</li>
-<li>卞瑜昊 1601— 1650</li>
-<li>薛怡     1651— 1700</li>
-<li>肖贺文 1701— 1750</li>
-<li>王艺路 1751— 1800</li>
-<li>陈心慧 1801— 1850</li>
-<li>薛钰洁 1851— 1900</li>
-<li>徐子涵 1901— 1950</li>
-<li>刘斌     1951— 2000<h3 id="调用服务器运行程序"><a href="#调用服务器运行程序" class="headerlink" title="调用服务器运行程序"></a>调用服务器运行程序</h3>连接：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># port为自己的端口号</span></span><br><span class="line">$ ssh -p port root@10.7.60.40</span><br></pre></td></tr></table></figure>
-
+<li>罗金铭 1001—- 1050</li>
+<li>田胜景 1051—- 1100</li>
+<li>周骏     1101—- 1150</li>
+<li>谭红臣 1151—- 1200</li>
+<li>孔雨秋 1201—- 1250</li>
+<li>陈宝玉 1251—- 1300</li>
+<li>张怡     1301—- 1350</li>
+<li>田国强 1351—- 1400</li>
+<li>王华胜 1401—- 1450</li>
+<li>王诗瑶 1451—- 1500</li>
+<li>黄骅     1501—- 1550</li>
+<li>于冰冰  1551—- 1600</li>
+<li>卞瑜昊 1601—- 1650</li>
+<li>薛怡     1651—- 1700</li>
+<li>肖贺文 1701—- 1750</li>
+<li>王艺路 1751—- 1800</li>
+<li>陈心慧 1801—- 1850</li>
+<li>薛钰洁 1851—- 1900</li>
+<li>徐子涵 1901—- 1950</li>
+<li>刘斌     1951—- 2000<h3 id="调用服务器运行程序"><a href="#调用服务器运行程序" class="headerlink" title="调用服务器运行程序"></a>调用服务器运行程序</h3>连接：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># port为自己的端口号</span></span><br><span class="line">$ ssh -p port root@10.7.60.40</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>在服务器中用conda建立自己需要的环境，激活环境：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> activate env_name</span><br></pre></td></tr></table></figure>
-
-<p>文件拷贝</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝文件夹需要添加参数-r</span></span><br><span class="line"><span class="comment"># 电脑中的文件拷贝到容器中，port为端口号</span></span><br><span class="line">$ scp -P port /dir/filename root@10.7.60.40:/dir</span><br><span class="line"><span class="comment"># 容器中的文件拷贝到电脑上</span></span><br><span class="line">$ scp -P port root@10.7.60.40:/dir/filename /dir</span><br></pre></td></tr></table></figure>
-
+<p>在服务器中用conda建立自己需要的环境，激活环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> activate env_name</span><br></pre></td></tr></table></figure></p>
+<p>文件拷贝<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝文件夹需要添加参数-r</span></span><br><span class="line"><span class="comment"># 电脑中的文件拷贝到容器中，port为端口号</span></span><br><span class="line">$ scp -P port /dir/filename root@10.7.60.40:/dir</span><br><span class="line"><span class="comment"># 容器中的文件拷贝到电脑上</span></span><br><span class="line">$ scp -P port root@10.7.60.40:/dir/filename /dir</span><br></pre></td></tr></table></figure></p>
 <p>可以将代码拷贝到服务器内，在容器中用命令运行程序，用vim修改代码或本地改好代码后将代码传到服务器上  </p>
 <p>也可以用Pycharm(必须要专业版)同步本地和容器中的代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File--&gt;Settings--&gt;Project--&gt;Project InterPreter--&gt;小齿轮--&gt;Add--&gt;SSH Interpreter</span><br></pre></td></tr></table></figure>

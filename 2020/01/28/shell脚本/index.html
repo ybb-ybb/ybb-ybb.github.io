@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="shell脚本12345678910111213141516171819202122# 指定解释器#！/bin/bash# 向窗口输出文本echo &#34;Hello world!&#34;printf &#34;Hello world!&#34;# for循环示例,使用变量要加$符号for file in `ls /etc`d" />
+  <meta name="description" content="shell脚本
+12345678910111213141516171819202122# 指定解释器#！/bin/bash# 向窗口输出文本echo &#34;Hello world!&#34;printf &#34;Hello world!&#34;# for循环示例,使用变量要加$符号for file in `ls /etc`" />
   
 
   
@@ -15,12 +16,12 @@
   
   <title>shell脚本 | 鱼摆摆的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="shell脚本12345678910111213141516171819202122# 指定解释器#！&#x2F;bin&#x2F;bash# 向窗口输出文本echo &quot;Hello world!&quot;printf &quot;Hello world!&quot;# for循环示例,使用变量要加$符号for file in &#96;ls &#x2F;etc&#96;do	echo &quot;$&amp;#123;file&amp;#125;&quot;done# 双引号和单引号# 双引号中可以有变量">
+  <meta name="description" content="shell脚本 12345678910111213141516171819202122# 指定解释器#！&#x2F;bin&#x2F;bash# 向窗口输出文本echo &quot;Hello world!&quot;printf &quot;Hello world!&quot;# for循环示例,使用变量要加$符号for file in &#96;ls &#x2F;etc&#96;do	echo &quot;$&amp;#123;file&amp;#125;&quot;done# 双引号和单引号# 双引号中可以有变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell脚本">
 <meta property="og:url" content="http://yoursite.com/2020/01/28/shell%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="鱼摆摆的blog">
-<meta property="og:description" content="shell脚本12345678910111213141516171819202122# 指定解释器#！&#x2F;bin&#x2F;bash# 向窗口输出文本echo &quot;Hello world!&quot;printf &quot;Hello world!&quot;# for循环示例,使用变量要加$符号for file in &#96;ls &#x2F;etc&#96;do	echo &quot;$&amp;#123;file&amp;#125;&quot;done# 双引号和单引号# 双引号中可以有变量">
+<meta property="og:description" content="shell脚本 12345678910111213141516171819202122# 指定解释器#！&#x2F;bin&#x2F;bash# 向窗口输出文本echo &quot;Hello world!&quot;printf &quot;Hello world!&quot;# for循环示例,使用变量要加$符号for file in &#96;ls &#x2F;etc&#96;do	echo &quot;$&amp;#123;file&amp;#125;&quot;done# 双引号和单引号# 双引号中可以有变">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-28T03:27:21.255Z">
 <meta property="article:modified_time" content="2020-01-28T02:53:50.000Z">
@@ -83,13 +84,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/shell%E8%84%9A%E6%9C%AC/" data-id="ck6c8rawa0006w25whuet27lf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/shell%E8%84%9A%E6%9C%AC/" data-id="ck6c8u2cq00064d5w0wyocnpb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 指定解释器</span></span><br><span class="line"><span class="meta">#</span><span class="bash">！/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 向窗口输出文本</span></span><br><span class="line">echo "Hello world!"</span><br><span class="line">printf "Hello world!"</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">for</span>循环示例,使用变量要加$符号</span></span><br><span class="line">for file in `ls /etc`</span><br><span class="line">do</span><br><span class="line">	echo "$&#123;file&#125;"</span><br><span class="line">done</span><br><span class="line"><span class="meta">#</span><span class="bash"> 双引号和单引号</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 双引号中可以有变量，单引号中的变量是无效的</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span>-else语句</span></span><br><span class="line">if condition1</span><br><span class="line">then</span><br><span class="line">	command1</span><br><span class="line">elif condition2</span><br><span class="line">then</span><br><span class="line">	commed2</span><br><span class="line">else</span><br><span class="line">	command3</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+        <h1>shell脚本</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 指定解释器</span></span><br><span class="line"><span class="meta">#</span><span class="bash">！/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 向窗口输出文本</span></span><br><span class="line">echo "Hello world!"</span><br><span class="line">printf "Hello world!"</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">for</span>循环示例,使用变量要加$符号</span></span><br><span class="line">for file in `ls /etc`</span><br><span class="line">do</span><br><span class="line">	echo "$&#123;file&#125;"</span><br><span class="line">done</span><br><span class="line"><span class="meta">#</span><span class="bash"> 双引号和单引号</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 双引号中可以有变量，单引号中的变量是无效的</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span>-else语句</span></span><br><span class="line">if condition1</span><br><span class="line">then</span><br><span class="line">	command1</span><br><span class="line">elif condition2</span><br><span class="line">then</span><br><span class="line">	commed2</span><br><span class="line">else</span><br><span class="line">	command3</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
       
     </div><!-- .entry-content -->

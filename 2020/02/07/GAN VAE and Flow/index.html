@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="前言 GAN，VAE和FLOW的目标是一致的——希望构建一个从隐变量$Z$生成目标数据$X$的模型，其中先验分布$P(z)$通常被设置为高斯分布。我们希望找到一个变换函数$f(x)$，他能建立一个从$z$到$x$的映射：$f:z\to x$，然后在$P(Z)$中随机采样一个点$z’$，通过映射$f$，就可以找到一个新的样本点$x’$。  举个栗子： 如何将均匀分布$U[0,1]$映射成正态分布$N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAN VAE and Flow">
+<meta property="og:url" content="http://yoursite.com/2020/02/07/GAN%20VAE%20and%20Flow/index.html">
+<meta property="og:site_name" content="鱼摆摆的blog">
+<meta property="og:description" content="前言 GAN，VAE和FLOW的目标是一致的——希望构建一个从隐变量$Z$生成目标数据$X$的模型，其中先验分布$P(z)$通常被设置为高斯分布。我们希望找到一个变换函数$f(x)$，他能建立一个从$z$到$x$的映射：$f:z\to x$，然后在$P(Z)$中随机采样一个点$z’$，通过映射$f$，就可以找到一个新的样本点$x’$。  举个栗子： 如何将均匀分布$U[0,1]$映射成正态分布$N">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/02/06/LpCERGiuF4ahBDN.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/07/a8ofIEU4XyZdRL2.png">
+<meta property="article:published_time" content="2020-02-07T13:02:16.651Z">
+<meta property="article:modified_time" content="2020-02-07T13:43:55.778Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/02/06/LpCERGiuF4ahBDN.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/07/GAN%20VAE%20and%20Flow/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>GAN VAE and Flow | 鱼摆摆的blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">鱼摆摆的blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/GAN%20VAE%20and%20Flow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="鱼摆摆的blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GAN VAE and Flow
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-07 21:02:16 / Modified: 21:43:55" itemprop="dateCreated datePublished" datetime="2020-02-07T21:02:16+08:00">2020-02-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>前言</h1>
+<p>GAN，VAE和FLOW的目标是一致的——希望构建一个从隐变量$Z$生成目标数据$X$的模型，其中先验分布$P(z)$通常被设置为高斯分布。我们希望找到一个变换函数$f(x)$，他能建立一个从$z$到$x$的映射：$f:z\to x$，然后在$P(Z)$中随机采样一个点$z’$，通过映射$f$，就可以找到一个新的样本点$x’$。</p>
+<p><img src="https://i.loli.net/2020/02/06/LpCERGiuF4ahBDN.png" alt="image.png"></p>
+<p>举个栗子：</p>
+<p>如何将均匀分布$U[0,1]$映射成正态分布$N(0,1)$？</p>
+<p>将$X \sim U[0,1]$经过函数$Y = f(x)$映射之后，就有$Y\sim N(0,1)$了那么$[x,x+dx]$和$[y,y+dy]$两个区间上的概率应该相等，即：</p>
+<p>$$<br>
+\rho(x) d x=\frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{y^{2}}{2}\right) d y<br>
+$$</p>
+<p>对其进行积分，有：<br>
+$$<br>
+\int_{0}^{x} \rho(t) d t=\int_{-\infty}^{y} \frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{t^{2}}{2}\right) d t=\Phi(y)<br>
+$$<br>
+$$<br>
+y=\Phi^{-1}\left(\int_{0}^{x} \rho(t) d t\right)=f(x)<br>
+$$</p>
+<p>可以看到$Y = f(X)$的解是存在的，但很复杂，无法用初等函数进行显示的表示，因此在大多数情况下，我们都是通过神经网络来拟合这个函数。</p>
+<p>假设我们现在已经有一个映射$f$，我们如何衡量映射$f$构造出来的数据集$f(z_1),f(z_2),…,f(z_n)$，是否和目标数据$X$分布相同？(注：KL和JS距离根据两个概率分布的表达式计算分布的相似度，而我们现在只有从构造的分布采样的数据和真实分布采样的数据，而离散化的KL和JS距离因为图像维度问题，计算量非常大)。在这里GAN采用了一个暴力的办法：训练一个判别器作为两者相似性的度量，而VAE(变分自编码器)和FLOW(流模型)在最大化最大似然。</p>
+<h1>VAE(变分自编码器)</h1>
+<h2 id="VAE的基本思路">VAE的基本思路</h2>
+<p>对于连续随机变量，概率分布$P$和$Q$，KL散度(又称相对熵)的定义为：<br>
+$$<br>
+D_{\mathrm{KL}}(P | Q)=\int_{-\infty}^{\infty} p(x) \ln \frac{p(x)}{q(x)} \mathrm{d} x=E_{x \sim P(x)}[logP(x)-logQ(x)]<br>
+$$<br>
+给定一个概率分布$D$,已知其概率密度函数(连续分布)或概率质量函数()离散分布为$f_D$，以及一个分布参数$\theta$，我们可以从这个分布中抽出一个具有$n$个值的采样$X_1,X_2,…,X_n$，利用$f_D$计算出其似然函数：<br>
+$$<br>
+\mathbf{L}\left(\theta | x_{1}, \ldots, x_{n}\right)=f_{\theta}\left(x_{1}, \ldots, x_{n}\right)<br>
+$$</p>
+<p>若$D$是离散分布，$f_{\theta}$即是在参数为$\theta$时观测到这一采样的概率。若其是连续分布，$f_{\theta}$则为$X_1,X_2,…,X_n$联合分布的概率密度函数在观测值处的取值。一旦我们获得$X_1,X_2,…,X_n$，我们就能求得一个关于$\theta$的估计。最大似然估计会寻找关于的最可能的值（即，在所有可能的取值中，寻找一个值使这个采样的“可能性”最大化）。从数学上来说，我们可以在的所有可能取值中寻找一个值使得似然函数取到最大值。这个使可能性最大的值即称为的最大似然估计。由定义，最大似然估计是样本的函数。</p>
+<p>VAE做最大似然估计，也就是要最大化概率：<br>
+$$<br>
+P(X)=\sum_{i} P\left(X | z_{i} ; \theta\right) P\left(z_{i}\right)<br>
+$$</p>
+<p>这里可以理解为使用积分创造更多的分布，一般选择$P(Z)$服从一个高斯分布，而$p(X|z)$可以是任意分布，例如条件高斯分布或狄拉克分布，理论上讲，这个积分形式的分布可以拟合任意分布。</p>
+<p>但是这里的$P(X)$是积分形式的，很难进行计算。VAE从让人望而生畏的变分和贝叶斯理论出发，推导出了一个很接地气的公式：<br>
+$$<br>
+\log P(X)-\mathcal{D}[Q(z | X) | P(z | X)]=E_{z \sim Q}[\log P(X | z)]-\mathcal{D}[Q(z | X) | P(z)] \tag{1}<br>
+$$<br>
+VAE并没有选择直接去优化$P(X)$，而是选择去优化他的一个变分下界（公式1右端）。</p>
+<p>而VAE的自编码器性质也从这个公式里开始体现出来：我们可以将$\mathcal{D}[Q(z | X) | P(z)]$视作编码器的优化，使由真实数据编码出的隐变量分布$Q(z|X)$去尽量近似$P(z)$（标准高斯分布），而将$E_{z \sim Q}[\log P(X | z)]$视作解码器的优化，使得服从分布$Q$的隐变量$z$解码出的$x$尽可能地服从真是数据分布，而将$\mathcal{D}[Q(z | X) | P(z | X)]$视作误差项。</p>
+<p>但VAE也因为它并没有直接去优化$P(X)$，而选择去优化它的变分下界，使得他只是一个近似模型，无法保证良好的生成效果。</p>
+<h2 id="VAE的优化过程">VAE的优化过程</h2>
+<p>首先要确定概率密度$Q(z|X)$的形式，一般选择正态分布，即$\mathcal{N}\left(\mu, \sigma^{2}\right)$，其中$\mu\left(X ; \theta_{\mu}\right) $和$\sigma^{2}\left(X ; \theta_{\sigma}\right)$通过两个神经网络(编码器)训练出来。公式中的$\mathcal{D}[Q(z | X) | P(z)]$变为$D\left[\mathcal{N}\left(\mu\left(X ; \theta_{\mu}\right), \sigma^{2}\left(X ; \theta_{\sigma}\right)\right) | \mathcal{N}(0, I)\right]$，这个时候就可以通过两个正态分布的KL散度的计算公式来计算这一项。</p>
+<p>对于第一项$E_{z \sim Q}[\log P(X | z)]$，对于一个batch来说，可以在$Q$中采样，然后将单个样本的$\log P(X|z)$求和取平均数作为期望的估计。但这样出现一个问题：把$Q(z|X)$弄丢了，也就是每次训练的时候梯度不传进$Q$里，论文里采用了一个称为重参数化技巧(reparamenterization trick)的方法，如图：</p>
+<p><img src="https://i.loli.net/2020/02/07/a8ofIEU4XyZdRL2.png" alt="image.png"></p>
+<p>至此，整个VAE网络就可以训练了。</p>
+<h2 id="公式推导部分">公式推导部分</h2>
+<p>$$<br>
+\begin{align} \mathcal{D}[Q(z|X)||P(z|X)] &amp;= E_{z \sim Q}[\log Q(z|X) - \log P(z|X)] \ &amp;= E_{z \sim Q}[\log Q(z|X) - \log P(z|X) - \log P(X)] + \log P(X) \end{align}<br>
+$$</p>
+<p>移项得<br>
+$$<br>
+\log P(X)-\mathcal{D}[Q(z | X) | P(z | X)]=E_{z \sim Q}[\log P(X | z)]-\mathcal{D}[Q(z | X) | P(z)]<br>
+$$</p>
+<h1>GAN</h1>
+<p>由于大家都对GAN比较熟悉，本文直接从变分推断的角度去理解GAN。</p>
+<p>不同于VAE将$P(X|z)$选为高斯分布，GAN的选择是：<br>
+$$<br>
+P(x | z)=\delta(x-G(z)), \quad P(x)=\int P(x | z) P(z) d z<br>
+$$<br>
+其中$\delta (x)$是狄拉克函数，$G(z)$为生成器网络。</p>
+<p>在VAE中z被当作是一个隐变量，但在GAN中，狄拉克函数意味着单点分布，即x和z为一一对应的关系。于是在GAN中z没有被当作隐变量处理(不需要考虑后验分布$P(z|x)$)</p>
+<p>判别器的理解：</p>
+<p>在GAN中引入了一个二元的隐变量y来构成联合分布，其中$\tilde{p}(x)为真实样本的分布$：<br>
+$$<br>
+q(x, y)=\left{\begin{array}{l}<br>
+{\tilde{p}(x) p_{1}, y=1} \<br>
+{p(x) p_{0}, y=0}<br>
+\end{array}\right.<br>
+$$<br>
+这里y是图像的真实标签，当图片为真实图片时，y=1，当图片是生成图片时，y=0。</p>
+<p>其中$p_1+p_0=1$描述了一个二元概率分布，比如：从真实样本采集m个样本，从生成样本中采集m个样本，同时传入判别器，则$p_0=p_1=1/2$。在下面讨论中我们直接取$p_0=p_1=1/2$</p>
+<p>另一方面，我们需要使判别器的判别结果尽可能真实，设$p(x,y)=p(y|x)\tilde{p}(x)$，$p(y|x)$为一个条件伯努利分布(判别器的判别结果)。优化目标是$KL(q(x,y)||p(x,y))$：<br>
+$$<br>
+\begin{aligned}<br>
+K L(q(x, y) | p(x, y)) &amp;=\int \tilde{p}(x) p_{1} \log \frac{\tilde{p}(x) p_{1}}{p(1 | x) \tilde{p}(x)} d x+\int p(x) p_{0} \log \frac{p(x) p_{0}}{p(0 | x) \tilde{p}(x)} d x \<br>
+&amp; \sim \int \tilde{p}(x) \log \frac{1}{p(1 | x)} d x+\int p(x) \log \frac{p(x)}{p(0 | x) \tilde{p}(x)} d x<br>
+\end{aligned}<br>
+$$<br>
+一旦成功优化，就有$q(x,y)\to p(x,y)$，对于x求边缘概率分布，有：<br>
+$$<br>
+\frac{1}{2}\tilde{p}(x)+\frac{1}{2}p(x)\to p(1|x)\tilde{p}(x)+p(0|x)\tilde{p}(x)=\tilde{p}(x)<br>
+$$<br>
+即：<br>
+$$<br>
+p(x)\to \tilde{p}(x)<br>
+$$<br>
+这就完成了对模型的构建。</p>
+<p>不太理解为什么要选择这个优化目标……待补充</p>
+<p>现在我们有优化目标：$p(y|x)$和$G(z)$，分别是判别器和生成器($p(x)$由$G(z)$决定)。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/07/Emacs%E7%AC%94%E8%AE%B0/" rel="prev" title="Emacs笔记">
+      <i class="fa fa-chevron-left"></i> Emacs笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">VAE(变分自编码器)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VAE的基本思路"><span class="nav-number">2.1.</span> <span class="nav-text">VAE的基本思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VAE的优化过程"><span class="nav-number">2.2.</span> <span class="nav-text">VAE的优化过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公式推导部分"><span class="nav-number">2.3.</span> <span class="nav-text">公式推导部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">GAN</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

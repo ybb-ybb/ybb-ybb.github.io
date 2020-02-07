@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   
-  <meta name="description" content="Docker基本使用
-docker和nvidia-docker 安装
-略
-安装后查看安装信息和测试docker是否安装正确
-1234$ sudo docker --version$ sudo docker run hello-world# 验证nvidia-docker$ docker run --" />
+  <meta name="description" content="Docker基本使用docker和nvidia-docker 安装略安装后查看安装信息和测试docker是否安装正确1234$ sudo docker --version$ sudo docker run hello-world# 验证nvidia-docker$ docker run --runt" />
   
 
   
@@ -19,12 +15,12 @@ docker和nvidia-docker 安装
   
   <title>docker使用 | 鱼摆摆的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Docker基本使用 docker和nvidia-docker 安装 略 安装后查看安装信息和测试docker是否安装正确 1234$ sudo docker --version$ sudo docker run hello-world# 验证nvidia-docker$ docker run --runtime&#x3D;nvidia --rm nvidia&#x2F;cuda nvidia-smi docker">
+  <meta name="description" content="Docker基本使用docker和nvidia-docker 安装略安装后查看安装信息和测试docker是否安装正确1234$ sudo docker --version$ sudo docker run hello-world# 验证nvidia-docker$ docker run --runtime&#x3D;nvidia --rm nvidia&#x2F;cuda nvidia-smi docker hub链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker使用">
 <meta property="og:url" content="http://yoursite.com/2020/01/12/docker%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="鱼摆摆的blog">
-<meta property="og:description" content="Docker基本使用 docker和nvidia-docker 安装 略 安装后查看安装信息和测试docker是否安装正确 1234$ sudo docker --version$ sudo docker run hello-world# 验证nvidia-docker$ docker run --runtime&#x3D;nvidia --rm nvidia&#x2F;cuda nvidia-smi docker">
+<meta property="og:description" content="Docker基本使用docker和nvidia-docker 安装略安装后查看安装信息和测试docker是否安装正确1234$ sudo docker --version$ sudo docker run hello-world# 验证nvidia-docker$ docker run --runtime&#x3D;nvidia --rm nvidia&#x2F;cuda nvidia-smi docker hub链">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/.com//%E9%80%89%E5%8C%BA_001.png">
 <meta property="og:image" content="http://yoursite.com/.com//%E9%80%89%E5%8C%BA_002.png">
@@ -45,9 +41,9 @@ docker和nvidia-docker 安装
   
   <!-- baidu webmaster push -->
   <script src='//push.zhanzhang.baidu.com/push.js'></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 <body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
     <hgroup>
       <h1 class="site-title">
@@ -90,41 +86,21 @@ docker和nvidia-docker 安装
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/docker%E4%BD%BF%E7%94%A8/" data-id="ck6c8u2ch00044d5w244239wf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/docker%E4%BD%BF%E7%94%A8/" data-id="ck6c92zdt0004gm5wgicefuvk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h1>Docker基本使用</h1>
-<h2 id="docker和nvidia-docker-安装">docker和nvidia-docker 安装</h2>
-<p>略<br>
-安装后查看安装信息和测试docker是否安装正确</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker --version</span><br><span class="line">$ sudo docker run hello-world</span><br><span class="line"><span class="comment"># 验证nvidia-docker</span></span><br><span class="line">$ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi</span><br></pre></td></tr></table></figure>
-<h2 id="docker-hub">docker hub</h2>
-<p><a href="https://hub.docker.com/" target="_blank" rel="noopener">链接:dockerhub</a><br>
-在dockerhub上搜索自己需要的镜像<br>
-<img src="/.com//%E9%80%89%E5%8C%BA_001.png" alt="dockerhub_001"><br>
-选择自己要用的镜像，点进去，点Tags会出现不同的版本<br>
-<img src="/.com//%E9%80%89%E5%8C%BA_002.png" alt="dockerhub_002"><br>
-复制命令，在终端中执行，就可以将镜像下载到本地</p>
-<h2 id="docker基本命令">docker基本命令</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看主机下有多少镜像</span></span><br><span class="line">$ sudo docker images</span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">$ sudo docker rmi &lt;image_id&gt;</span><br><span class="line"><span class="comment"># 查看主机下的容器,不加-a表示查看运行中的容器</span></span><br><span class="line">$ sudo docker ps -a</span><br><span class="line"><span class="comment"># 启动、重启和停止容器</span></span><br><span class="line">$ sudo docker start/restart/stop &lt;container_id&gt;</span><br><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">$ sudo docker attach &lt;container_id&gt;</span><br><span class="line"><span class="comment"># 删除容器(需要先停止容器)</span></span><br><span class="line">$ sudo docker rm &lt;container_id&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="Docker基本使用"><a href="#Docker基本使用" class="headerlink" title="Docker基本使用"></a>Docker基本使用</h1><h2 id="docker和nvidia-docker-安装"><a href="#docker和nvidia-docker-安装" class="headerlink" title="docker和nvidia-docker 安装"></a>docker和nvidia-docker 安装</h2><p>略<br>安装后查看安装信息和测试docker是否安装正确<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker --version</span><br><span class="line">$ sudo docker run hello-world</span><br><span class="line"><span class="comment"># 验证nvidia-docker</span></span><br><span class="line">$ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi</span><br></pre></td></tr></table></figure></p>
+<h2 id="docker-hub"><a href="#docker-hub" class="headerlink" title="docker hub"></a>docker hub</h2><p><a href="https://hub.docker.com/" target="_blank" rel="noopener">链接:dockerhub</a><br>在dockerhub上搜索自己需要的镜像<br><img src="/.com//选区_001.png" alt="dockerhub_001"><br>选择自己要用的镜像，点进去，点Tags会出现不同的版本<br><img src="/.com//选区_002.png" alt="dockerhub_002"><br>复制命令，在终端中执行，就可以将镜像下载到本地</p>
+<h2 id="docker基本命令"><a href="#docker基本命令" class="headerlink" title="docker基本命令"></a>docker基本命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看主机下有多少镜像</span></span><br><span class="line">$ sudo docker images</span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">$ sudo docker rmi &lt;image_id&gt;</span><br><span class="line"><span class="comment"># 查看主机下的容器,不加-a表示查看运行中的容器</span></span><br><span class="line">$ sudo docker ps -a</span><br><span class="line"><span class="comment"># 启动、重启和停止容器</span></span><br><span class="line">$ sudo docker start/restart/stop &lt;container_id&gt;</span><br><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">$ sudo docker attach &lt;container_id&gt;</span><br><span class="line"><span class="comment"># 删除容器(需要先停止容器)</span></span><br><span class="line">$ sudo docker rm &lt;container_id&gt;</span><br></pre></td></tr></table></figure>
 <p>ctrl+d退出并停止容器，ctrl+p+q退出但不停止容器</p>
-<h2 id="根据镜像新建并启动容器">根据镜像新建并启动容器</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -it [options] &lt;image_id&gt; bash</span><br></pre></td></tr></table></figure>
-<p>说明：-it为为容器分配一个输入终端，以交互式模式运行,bash为调用镜像里的bash<br>
-可选选项：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--name 为容器指定名字</span><br><span class="line">-p 端口映射</span><br><span class="line">-v 给容器挂载存储卷</span><br><span class="line">--net 指定容器网络</span><br><span class="line">--runtime&#x3D;nvidia 可调用gpu</span><br></pre></td></tr></table></figure>
-<p>例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -it -p 8022:22 --name=tensorflow --runtime=nvidia -v /home/yu/code:/home --net=host ufoym/deepo bash</span><br></pre></td></tr></table></figure>
-<h2 id="删除所有镜像和容器">删除所有镜像和容器</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker rmi `sudo docker images -q`</span><br><span class="line">$ sudo docker rm `sudo docker ps -a -q`</span><br></pre></td></tr></table></figure>
-<h2 id="导出容器和保存加载镜像">导出容器和保存加载镜像</h2>
-<p>容器导出为镜像</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 容器导出为镜像</span></span><br><span class="line">$ docker commit &lt;continer_name&gt; &lt;image_name&gt;</span><br><span class="line"><span class="comment"># 镜像导出为文件</span></span><br><span class="line">$ docker save image_name&gt; /dir/name.tar</span><br><span class="line"><span class="comment"># 文件导入为镜像</span></span><br><span class="line">$ docker load &lt; /dir/filename</span><br></pre></td></tr></table></figure>
-<h2 id="docker和宿主机的文件拷贝">docker和宿主机的文件拷贝</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker cp &lt;container_name&gt;:/dir/filename /hostdir/</span><br><span class="line">$ docker cp /hostdir/filename &lt;container_name&gt;:/dir</span><br></pre></td></tr></table></figure>
+<h2 id="根据镜像新建并启动容器"><a href="#根据镜像新建并启动容器" class="headerlink" title="根据镜像新建并启动容器"></a>根据镜像新建并启动容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -it [options] &lt;image_id&gt; bash</span><br></pre></td></tr></table></figure>
+<p>说明：-it为为容器分配一个输入终端，以交互式模式运行,bash为调用镜像里的bash<br>可选选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--name 为容器指定名字</span><br><span class="line">-p 端口映射</span><br><span class="line">-v 给容器挂载存储卷</span><br><span class="line">--net 指定容器网络</span><br><span class="line">--runtime&#x3D;nvidia 可调用gpu</span><br></pre></td></tr></table></figure><br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -it -p 8022:22 --name=tensorflow --runtime=nvidia -v /home/yu/code:/home --net=host ufoym/deepo bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除所有镜像和容器"><a href="#删除所有镜像和容器" class="headerlink" title="删除所有镜像和容器"></a>删除所有镜像和容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker rmi `sudo docker images -q`</span><br><span class="line">$ sudo docker rm `sudo docker ps -a -q`</span><br></pre></td></tr></table></figure>
+<h2 id="导出容器和保存加载镜像"><a href="#导出容器和保存加载镜像" class="headerlink" title="导出容器和保存加载镜像"></a>导出容器和保存加载镜像</h2><p>容器导出为镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 容器导出为镜像</span></span><br><span class="line">$ docker commit &lt;continer_name&gt; &lt;image_name&gt;</span><br><span class="line"><span class="comment"># 镜像导出为文件</span></span><br><span class="line">$ docker save image_name&gt; /dir/name.tar</span><br><span class="line"><span class="comment"># 文件导入为镜像</span></span><br><span class="line">$ docker load &lt; /dir/filename</span><br></pre></td></tr></table></figure></p>
+<h2 id="docker和宿主机的文件拷贝"><a href="#docker和宿主机的文件拷贝" class="headerlink" title="docker和宿主机的文件拷贝"></a>docker和宿主机的文件拷贝</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker cp &lt;container_name&gt;:/dir/filename /hostdir/</span><br><span class="line">$ docker cp /hostdir/filename &lt;container_name&gt;:/dir</span><br></pre></td></tr></table></figure>
 <p>不管容器有没有启动，拷贝命令都会生效</p>
 
       
@@ -236,6 +212,6 @@ docker和nvidia-docker 安装
 
 <div id="bg"></div>
 
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

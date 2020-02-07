@@ -79,7 +79,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/02/07/GAN%20VAE%20and%20Flow/" data-id="ck6c7ln340000ae5we0bj8yii" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/02/07/GAN%20VAE%20and%20Flow/" data-id="ck6c7p7g60001bw5whhsgg4ku" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -100,7 +100,7 @@ y=\Phi^{-1}\left(\int_{0}^{x} \rho(t) d t\right)=f(x)</script><p>可以看到$Y 
 <script type="math/tex; mode=display">
 D_{\mathrm{KL}}(P \| Q)=\int_{-\infty}^{\infty} p(x) \ln \frac{p(x)}{q(x)} \mathrm{d} x=E_{x \sim P(x)}[logP(x)-logQ(x)]</script><p>给定一个概率分布$D$,已知其概率密度函数(连续分布)或概率质量函数()离散分布为$f_D$，以及一个分布参数$\theta$，我们可以从这个分布中抽出一个具有$n$个值的采样$X_1,X_2,…,X_n$，利用$f_D$计算出其似然函数：</p>
 <script type="math/tex; mode=display">
-\mathbf{L}\left(\theta | x_{1}, \ldots, x_{n}\right)=f_{\theta}\left(x_{1}, \ldots, x_{n}\right)</script><p> 若$D$是离散分布，$f_{\theta}$即是在参数为$\theta$时观测到这一采样的概率。若其是连续分布，$f_{\theta}$则为$X_1,X_2,…,X_n$联合分布的概率密度函数在观测值处的取值。一旦我们获得$X_1,X_2,…,X_n$，我们就能求得一个关于$\theta$的估计。最大似然估计会寻找关于的最可能的值（即，在所有可能的取值中，寻找一个值使这个采样的“可能性”最大化）。从数学上来说，我们可以在的所有可能取值中寻找一个值使得似然函数取到最大值。这个使可能性最大的值即称为的最大似然估计。由定义，最大似然估计是样本的函数。</p>
+\mathbf{L}\left(\theta | x_{1}, \ldots, x_{n}\right)=f_{\theta}\left(x_{1}, \ldots, x_{n}\right)</script><p> 若$D$是离散分布，$f<em>{\theta}$即是在参数为$\theta$时观测到这一采样的概率。若其是连续分布，$f</em>{\theta}$则为$X_1,X_2,…,X_n$联合分布的概率密度函数在观测值处的取值。一旦我们获得$X_1,X_2,…,X_n$，我们就能求得一个关于$\theta$的估计。最大似然估计会寻找关于的最可能的值（即，在所有可能的取值中，寻找一个值使这个采样的“可能性”最大化）。从数学上来说，我们可以在的所有可能取值中寻找一个值使得似然函数取到最大值。这个使可能性最大的值即称为的最大似然估计。由定义，最大似然估计是样本的函数。</p>
 <p>VAE做最大似然估计，也就是要最大化概率：</p>
 <script type="math/tex; mode=display">
 P(X)=\sum_{i} P\left(X | z_{i} ; \theta\right) P\left(z_{i}\right)</script><p>这里可以理解为使用积分创造更多的分布，一般选择$P(Z)$服从一个高斯分布，而$p(X|z)$可以是任意分布，例如条件高斯分布或狄拉克分布，理论上讲，这个积分形式的分布可以拟合任意分布。</p>
@@ -109,7 +109,7 @@ P(X)=\sum_{i} P\left(X | z_{i} ; \theta\right) P\left(z_{i}\right)</script><p>�
 \log P(X)-\mathcal{D}[Q(z | X) \| P(z | X)]=E_{z \sim Q}[\log P(X | z)]-\mathcal{D}[Q(z | X) \| P(z)] \tag{1}</script><p>VAE并没有选择直接去优化$P(X)$，而是选择去优化他的一个变分下界（公式1右端）。</p>
 <p>而VAE的自编码器性质也从这个公式里开始体现出来：我们可以将$\mathcal{D}[Q(z | X) | P(z)]$视作编码器的优化，使由真实数据编码出的隐变量分布$Q(z|X)$去尽量近似$P(z)$（标准高斯分布），而将$E_{z \sim Q}[\log P(X | z)]$视作解码器的优化，使得服从分布$Q$的隐变量$z$解码出的$x$尽可能地服从真是数据分布，而将$\mathcal{D}[Q(z | X) | P(z | X)]$视作误差项。</p>
 <p>但VAE也因为它并没有直接去优化$P(X)$，而选择去优化它的变分下界，使得他只是一个近似模型，无法保证良好的生成效果。</p>
-<h2 id="VAE的优化过程"><a href="#VAE的优化过程" class="headerlink" title="VAE的优化过程"></a>VAE的优化过程</h2><p>首先要确定概率密度$Q(z|X)$的形式，一般选择正态分布，即$\mathcal{N}\left(\mu, \sigma^{2}\right)$，其中$\mu\left(X ; \theta_{\mu}\right) $和$\sigma^{2}\left(X ; \theta_{\sigma}\right)$通过两个神经网络(编码器)训练出来。公式中的$\mathcal{D}[Q(z | X) | P(z)]$变为$D\left[\mathcal{N}\left(\mu\left(X ; \theta_{\mu}\right), \sigma^{2}\left(X ; \theta_{\sigma}\right)\right) | \mathcal{N}(0, I)\right]$，这个时候就可以通过两个正态分布的KL散度的计算公式来计算这一项。</p>
+<h2 id="VAE的优化过程"><a href="#VAE的优化过程" class="headerlink" title="VAE的优化过程"></a>VAE的优化过程</h2><p>首先要确定概率密度$Q(z|X)$的形式，一般选择正态分布，即$\mathcal{N}\left(\mu, \sigma^{2}\right)$，其中$\mu\left(X ; \theta<em>{\mu}\right) $和$\sigma^{2}\left(X ; \theta</em>{\sigma}\right)$通过两个神经网络(编码器)训练出来。公式中的$\mathcal{D}[Q(z | X) | P(z)]$变为$D\left[\mathcal{N}\left(\mu\left(X ; \theta<em>{\mu}\right), \sigma^{2}\left(X ; \theta</em>{\sigma}\right)\right) | \mathcal{N}(0, I)\right]$，这个时候就可以通过两个正态分布的KL散度的计算公式来计算这一项。</p>
 <p>对于第一项$E_{z \sim Q}[\log P(X | z)]$，对于一个batch来说，可以在$Q$中采样，然后将单个样本的$\log P(X|z)$求和取平均数作为期望的估计。但这样出现一个问题：把$Q(z|X)$弄丢了，也就是每次训练的时候梯度不传进$Q$里，论文里采用了一个称为重参数化技巧(reparamenterization trick)的方法，如图：</p>
 <p><img src="https://i.loli.net/2020/02/07/a8ofIEU4XyZdRL2.png" alt="image.png"></p>
 <p>至此，整个VAE网络就可以训练了。</p>
@@ -177,7 +177,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/02/07/Emacs%E7%AC%94%E8%AE%B0/" data-id="ck6c7ln3b0001ae5wcj82dlbl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/02/07/Emacs%E7%AC%94%E8%AE%B0/" data-id="ck6c7p7g00000bw5w9drj6kjr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -265,7 +265,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" data-id="ck6c7ln3y000aae5wcj3e4c7t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" data-id="ck6c7p7gw0009bw5wbbkmcs4v" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -314,7 +314,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck6c7ln3v0008ae5w93qg6i58" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck6c7p7gu0008bw5we4qd00vg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -360,7 +360,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/shell%E8%84%9A%E6%9C%AC/" data-id="ck6c7ln3s0006ae5w6e4vcrac" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/shell%E8%84%9A%E6%9C%AC/" data-id="ck6c7p7go0006bw5weqoy5vbp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -403,7 +403,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/16/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-id="ck6c7ln3x0009ae5w10ki585b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/16/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-id="ck6c7p7gx000abw5w8tgu3zdj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -498,7 +498,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/docker%E4%BD%BF%E7%94%A8/" data-id="ck6c7ln3j0004ae5w3zpmfy5a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/docker%E4%BD%BF%E7%94%A8/" data-id="ck6c7p7gf0004bw5wafmq2ete" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -550,7 +550,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" data-id="ck6c7ln3d0002ae5wc2eehpgb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" data-id="ck6c7p7g80002bw5wfi4hbbl7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -622,7 +622,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" data-id="ck6c7ln3g0003ae5we3z11sg2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" data-id="ck6c7p7gc0003bw5w7s4f3yv3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -671,7 +671,7 @@ p(x)\to \tilde{p}(x)</script><p>这就完成了对模型的构建。</p>
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/11/%E5%AE%89%E5%88%A9%E5%8C%BA/" data-id="ck6c7ln3u0007ae5w3xeuhoog" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/11/%E5%AE%89%E5%88%A9%E5%8C%BA/" data-id="ck6c7p7gt0007bw5w7v1j60ow" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 

@@ -4,7 +4,9 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   
-  <meta name="description" content="Ubuntu命令记录ppa安装NVIDIA驱动1234$ sudo add-apt-repository ppa:graphics-drivers/ppa$ sudo apt-get update$ ubuntu-drivers devices$ sudo apt-get install nvidi" />
+  <meta name="description" content="Ubuntu命令记录
+ ppa安装NVIDIA驱动
+1234$ sudo add-apt-repository ppa:graphics-drivers/ppa$ sudo apt-get update$ ubuntu-drivers devices$ sudo apt-get install nv" />
   
 
   
@@ -15,12 +17,12 @@
   
   <title>Ubuntu命令记录 | 鱼摆摆的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ubuntu命令记录ppa安装NVIDIA驱动1234$ sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa$ sudo apt-get update$ ubuntu-drivers devices$ sudo apt-get install nvidia-driver-xxx .deb安装CUDA  下载deb文件123$ sudo dpkg -i">
+  <meta name="description" content="Ubuntu命令记录  ppa安装NVIDIA驱动 1234$ sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa$ sudo apt-get update$ ubuntu-drivers devices$ sudo apt-get install nvidia-driver-xxx  .deb安装CUDA  下载deb文件 123$ sudo dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu命令记录">
 <meta property="og:url" content="http://yoursite.com/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="鱼摆摆的blog">
-<meta property="og:description" content="Ubuntu命令记录ppa安装NVIDIA驱动1234$ sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa$ sudo apt-get update$ ubuntu-drivers devices$ sudo apt-get install nvidia-driver-xxx .deb安装CUDA  下载deb文件123$ sudo dpkg -i">
+<meta property="og:description" content="Ubuntu命令记录  ppa安装NVIDIA驱动 1234$ sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa$ sudo apt-get update$ ubuntu-drivers devices$ sudo apt-get install nvidia-driver-xxx  .deb安装CUDA  下载deb文件 123$ sudo dp">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-11T13:30:58.260Z">
 <meta property="article:modified_time" content="2020-01-11T13:39:27.524Z">
@@ -38,7 +40,9 @@
   
   <!-- baidu webmaster push -->
   <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
 <body class="home blog custom-background custom-font-enabled single-author">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -83,19 +87,32 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" data-id="ck6c966qt0005p25w2id80n9v" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/" data-id="ck6cyjlhr0003q45wav2vbovf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h1 id="Ubuntu命令记录"><a href="#Ubuntu命令记录" class="headerlink" title="Ubuntu命令记录"></a>Ubuntu命令记录</h1><h2 id="ppa安装NVIDIA驱动"><a href="#ppa安装NVIDIA驱动" class="headerlink" title="ppa安装NVIDIA驱动"></a>ppa安装NVIDIA驱动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:graphics-drivers/ppa</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ ubuntu-drivers devices</span><br><span class="line">$ sudo apt-get install nvidia-driver-xxx</span><br></pre></td></tr></table></figure>
-<h2 id="deb安装CUDA"><a href="#deb安装CUDA" class="headerlink" title=".deb安装CUDA"></a>.deb安装CUDA</h2><p> <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener"> 下载deb文件</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装CUDNN"><a href="#安装CUDNN" class="headerlink" title="安装CUDNN"></a>安装CUDNN</h2><p> <a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">下载符合自己cuda版本的cudnn</a></p>
-<h3 id="安装cudnn"><a href="#安装cudnn" class="headerlink" title="安装cudnn"></a>安装cudnn</h3><p> 安装过程实际是将cudnn的头文件复制到CUDA的头文件目录里<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp cuda/include/* /usr/<span class="built_in">local</span>/cuda-10.0/include/</span><br><span class="line">$ sudo cp cuda/lib64/* /usr/<span class="built_in">local</span>/cuda-10.0/lib64/</span><br><span class="line"><span class="comment"># 添加可执行权限</span></span><br><span class="line">$ sudo chmod +x /usr/<span class="built_in">local</span>/cuda-10.0/include/cudnn.h</span><br><span class="line">$ sudo chmod +x /usr/<span class="built_in">local</span>/cuda-10.0/lib64/libcudnn*</span><br></pre></td></tr></table></figure></p>
-<h3 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h3> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /usr/<span class="built_in">local</span>/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
-<h2 id="指定运行程序使用的GPU"><a href="#指定运行程序使用的GPU" class="headerlink" title="指定运行程序使用的GPU"></a>指定运行程序使用的GPU</h2><p> 在程序中添加<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">'CUDA_VISIBLE_DEVICES]='</span><span class="number">0</span><span class="string">'</span></span><br></pre></td></tr></table></figure><br> 或者在终端中<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ CUDA_VISIBLE_DEVICES=0 python main.py</span><br></pre></td></tr></table></figure></p>
-<h2 id="命令行安装Anaconda"><a href="#命令行安装Anaconda" class="headerlink" title="命令行安装Anaconda"></a>命令行安装Anaconda</h2> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh</span><br><span class="line">$ bash Anaconda3-5.0.1-Linux-x86_64.sh</span><br><span class="line"><span class="comment"># 添加环境变量，可选</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="~/anaconda3/bin:$PATH"'</span> &gt;&gt; ~/.bashrc</span><br><span class="line">$ <span class="built_in">source</span> .bashrc</span><br></pre></td></tr></table></figure>
+        <h1 id="ubuntu命令记录"><a class="markdownIt-Anchor" href="#ubuntu命令记录"></a> Ubuntu命令记录</h1>
+<h2 id="ppa安装nvidia驱动"><a class="markdownIt-Anchor" href="#ppa安装nvidia驱动"></a> ppa安装NVIDIA驱动</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:graphics-drivers/ppa</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ ubuntu-drivers devices</span><br><span class="line">$ sudo apt-get install nvidia-driver-xxx</span><br></pre></td></tr></table></figure>
+<h2 id="deb安装cuda"><a class="markdownIt-Anchor" href="#deb安装cuda"></a> .deb安装CUDA</h2>
+<p><a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener"> 下载deb文件</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install cuda</span><br></pre></td></tr></table></figure>
+<h2 id="安装cudnn"><a class="markdownIt-Anchor" href="#安装cudnn"></a> 安装CUDNN</h2>
+<p><a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">下载符合自己cuda版本的cudnn</a></p>
+<h3 id="安装cudnn-2"><a class="markdownIt-Anchor" href="#安装cudnn-2"></a> 安装cudnn</h3>
+<p>安装过程实际是将cudnn的头文件复制到CUDA的头文件目录里</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp cuda/include/* /usr/<span class="built_in">local</span>/cuda-10.0/include/</span><br><span class="line">$ sudo cp cuda/lib64/* /usr/<span class="built_in">local</span>/cuda-10.0/lib64/</span><br><span class="line"><span class="comment"># 添加可执行权限</span></span><br><span class="line">$ sudo chmod +x /usr/<span class="built_in">local</span>/cuda-10.0/include/cudnn.h</span><br><span class="line">$ sudo chmod +x /usr/<span class="built_in">local</span>/cuda-10.0/lib64/libcudnn*</span><br></pre></td></tr></table></figure>
+<h3 id="检验"><a class="markdownIt-Anchor" href="#检验"></a> 检验</h3>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /usr/<span class="built_in">local</span>/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure>
+<h2 id="指定运行程序使用的gpu"><a class="markdownIt-Anchor" href="#指定运行程序使用的gpu"></a> 指定运行程序使用的GPU</h2>
+<p>在程序中添加</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">'CUDA_VISIBLE_DEVICES]='</span><span class="number">0</span><span class="string">'</span></span><br></pre></td></tr></table></figure>
+<p>或者在终端中</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ CUDA_VISIBLE_DEVICES=0 python main.py</span><br></pre></td></tr></table></figure>
+<h2 id="命令行安装anaconda"><a class="markdownIt-Anchor" href="#命令行安装anaconda"></a> 命令行安装Anaconda</h2>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh</span><br><span class="line">$ bash Anaconda3-5.0.1-Linux-x86_64.sh</span><br><span class="line"><span class="comment"># 添加环境变量，可选</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH="~/anaconda3/bin:$PATH"'</span> &gt;&gt; ~/.bashrc</span><br><span class="line">$ <span class="built_in">source</span> .bashrc</span><br></pre></td></tr></table></figure>
 
       
     </div><!-- .entry-content -->

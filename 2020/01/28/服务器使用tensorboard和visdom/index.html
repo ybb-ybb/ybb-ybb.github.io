@@ -4,8 +4,10 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   
-  <meta name="description" content="服务器使用tensorboard和visdom以tensorboard为例：创建容器时开放6006端口
-12# 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)$ docker run -p &amp;lt;ip&amp;gt;:16006:6006 -it -v " />
+  <meta name="description" content="服务器使用tensorboard和visdom
+ 以tensorboard为例：
+创建容器时开放6006端口
+12# 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)$ docker run -p &amp;lt;ip&amp;gt;:16006:6006 -it " />
   
 
   
@@ -16,12 +18,12 @@
   
   <title>服务器使用tensorboard和visdom | 鱼摆摆的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="服务器使用tensorboard和visdom以tensorboard为例：创建容器时开放6006端口 12# 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)$ docker run -p &lt;ip&gt;:16006:6006 -it -v &#x2F;data:&#x2F;workspace&#x2F;data --runtime&#x3D;nvidia --net&#x3D;host">
+  <meta name="description" content="服务器使用tensorboard和visdom  以tensorboard为例： 创建容器时开放6006端口 12# 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)$ docker run -p &lt;ip&gt;:16006:6006 -it -v &#x2F;data:&#x2F;workspace&#x2F;data --runtime&#x3D;nvidia --net&#x3D;h">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务器使用tensorboard和visdom">
 <meta property="og:url" content="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/index.html">
 <meta property="og:site_name" content="鱼摆摆的blog">
-<meta property="og:description" content="服务器使用tensorboard和visdom以tensorboard为例：创建容器时开放6006端口 12# 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)$ docker run -p &lt;ip&gt;:16006:6006 -it -v &#x2F;data:&#x2F;workspace&#x2F;data --runtime&#x3D;nvidia --net&#x3D;host">
+<meta property="og:description" content="服务器使用tensorboard和visdom  以tensorboard为例： 创建容器时开放6006端口 12# 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)$ docker run -p &lt;ip&gt;:16006:6006 -it -v &#x2F;data:&#x2F;workspace&#x2F;data --runtime&#x3D;nvidia --net&#x3D;h">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-28T03:27:21.351Z">
 <meta property="article:modified_time" content="2020-01-28T02:45:50.000Z">
@@ -39,7 +41,9 @@
   
   <!-- baidu webmaster push -->
   <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
 <body class="home blog custom-background custom-font-enabled single-author">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -84,16 +88,19 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck6c966r40007p25wgfpkcept" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/" data-id="ck6cyjlid000aq45w2rhg9izy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h1 id="服务器使用tensorboard和visdom"><a href="#服务器使用tensorboard和visdom" class="headerlink" title="服务器使用tensorboard和visdom"></a>服务器使用tensorboard和visdom</h1><h2 id="以tensorboard为例："><a href="#以tensorboard为例：" class="headerlink" title="以tensorboard为例："></a>以tensorboard为例：</h2><p>创建容器时开放6006端口</p>
+        <h1 id="服务器使用tensorboard和visdom"><a class="markdownIt-Anchor" href="#服务器使用tensorboard和visdom"></a> 服务器使用tensorboard和visdom</h1>
+<h2 id="以tensorboard为例"><a class="markdownIt-Anchor" href="#以tensorboard为例"></a> 以tensorboard为例：</h2>
+<p>创建容器时开放6006端口</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)</span></span><br><span class="line">$ docker run -p &lt;ip&gt;:16006:6006 -it -v /data:/workspace/data --runtime=nvidia --net=host --name=temp /bin/bash</span><br></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在连接ssh时，将docker容器中的6006端口重新定向到自己机器上</span></span><br><span class="line">$ ssh -p 1001 -L 16006:&lt;ip&gt;:6006 root@10.7.60.40</span><br></pre></td></tr></table></figure></p>
-<p>```</p>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在连接ssh时，将docker容器中的6006端口重新定向到自己机器上</span></span><br><span class="line">$ ssh -p 1001 -L 16006:&lt;ip&gt;:6006 root@10.7.60.40</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class></code></pre>
 
       
     </div><!-- .entry-content -->

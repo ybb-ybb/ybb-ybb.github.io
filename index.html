@@ -3,7 +3,15 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
+  
+  <meta name="description" content="你们不要想喜欢 弄个大新闻 ————长者">
+  
 
+  
+  
+  
+  
+  
   
   <title>鱼摆摆的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,62 +26,61 @@
 <meta name="twitter:title" content="鱼摆摆的blog">
 <meta name="twitter:description" content="你们不要想喜欢 弄个大新闻 ————长者">
   
-    <link rel="alternate" href="/atom.xml" title="鱼摆摆的blog" type="application/atom+xml">
   
-  
-    <link rel="icon" href="/favicon.png">
-  
+    <link rel="icon" href="/css/images/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 </head>
 </html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">鱼摆摆的blog</a>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="鱼摆摆的blog" rel="home">鱼摆摆的blog</a>
       </h1>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value=""></form>
-      </div>
-    </div>
-  </div>
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
 </header>
-      <div class="outer">
-        <section id="main">
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-GAN VAE and Flow" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/10/GAN VAE and Flow/" class="article-date">
-  <time datetime="2020-02-10T13:19:00.000Z" itemprop="datePublished">2020-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-GAN VAE and Flow" class="post-GAN VAE and Flow post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/02/10/GAN VAE and Flow/" data-id="ck7hoor1b0002aw5wbc6le6ei" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>GAN，VAE和FLOW的目标是一致的——希望构建一个从隐变量$Z$生成目标数据$X$的模型，其中先验分布$P(z)$通常被设置为高斯分布。我们希望找到一个变换函数$f(x)$，他能建立一个从$z$到$x$的映射：$f:z\to x$，然后在$P(Z)$中随机采样一个点$z’$，通过映射$f$，就可以找到一个新的样本点$x’$。  </p>
 <p><img src="https://i.loli.net/2020/02/06/LpCERGiuF4ahBDN.png" alt="image.png"></p>
@@ -179,29 +186,37 @@
 </ul>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/02/10/GAN VAE and Flow/" data-id="ck7hoor1b0002aw5wbc6le6ei" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/02/10/GAN VAE and Flow/">
+    <time datetime="2020-02-10T13:19:00.000Z" class="entry-date">
+        2020-02-10
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-Emacs笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/07/Emacs笔记/" class="article-date">
-  <time datetime="2020-02-07T03:16:00.000Z" itemprop="datePublished">2020-02-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-Emacs笔记" class="post-Emacs笔记 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/02/07/Emacs笔记/" data-id="ck7hoor150000aw5wdwn9pap6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="Emacs基本操作"><a href="#Emacs基本操作" class="headerlink" title="Emacs基本操作"></a>Emacs基本操作</h1><p>C = Ctrl, M = Alt</p>
 <h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><table>
@@ -250,29 +265,37 @@
 <p># </p>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/02/07/Emacs笔记/" data-id="ck7hoor150000aw5wdwn9pap6" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/02/07/Emacs笔记/">
+    <time datetime="2020-02-07T03:16:00.000Z" class="entry-date">
+        2020-02-07
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-shell脚本" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/28/shell脚本/" class="article-date">
-  <time datetime="2020-01-28T05:32:00.000Z" itemprop="datePublished">2020-01-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-shell脚本" class="post-shell脚本 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/28/shell脚本/" data-id="ck7hoor1q000caw5wkllw8mu8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <pre><code class="shell"># 指定解释器
 #！/bin/bash
@@ -299,29 +322,37 @@ fi
 </code></pre>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/28/shell脚本/" data-id="ck7hoor1q000caw5wkllw8mu8" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/28/shell脚本/">
+    <time datetime="2020-01-28T05:32:00.000Z" class="entry-date">
+        2020-01-28
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-服务器使用tensorboard和visdom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/28/服务器使用tensorboard和visdom/" class="article-date">
-  <time datetime="2020-01-28T03:27:21.351Z" itemprop="datePublished">2020-01-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-服务器使用tensorboard和visdom" class="post-服务器使用tensorboard和visdom post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/28/服务器使用tensorboard和visdom/" data-id="ck7hoor27000maw5w8z6vppas" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="服务器使用tensorboard和visdom"><a href="#服务器使用tensorboard和visdom" class="headerlink" title="服务器使用tensorboard和visdom"></a>服务器使用tensorboard和visdom</h1><h2 id="以tensorboard为例："><a href="#以tensorboard为例：" class="headerlink" title="以tensorboard为例："></a>以tensorboard为例：</h2><p>创建容器时开放6006端口</p>
 <pre><code class="bash"># 运行容器时将服务器docker容器的6006端口暴漏到自己主机ip下的16006端口(可自己指定)
@@ -333,29 +364,37 @@ $ ssh -p 1001 -L 16006:&lt;ip&gt;:6006 root@10.7.60.40
 </code></pre>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/28/服务器使用tensorboard和visdom/" data-id="ck7hoor27000maw5w8z6vppas" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/28/服务器使用tensorboard和visdom/">
+    <time datetime="2020-01-28T03:27:21.351Z" class="entry-date">
+        2020-01-28
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-科学上网" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/18/科学上网/" class="article-date">
-  <time datetime="2020-01-18T03:16:00.000Z" itemprop="datePublished">2020-01-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-科学上网" class="post-科学上网 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/18/科学上网/" data-id="ck7hoor29000oaw5wnb01k1q5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h1><h2 id="谷歌上网助手插件"><a href="#谷歌上网助手插件" class="headerlink" title="谷歌上网助手插件"></a>谷歌上网助手插件</h2><p>如果只是想访问谷歌服务，可以直接在谷歌浏览器里安装谷歌上网助手插件。</p>
 <p>这个插件只能访问谷歌旗下网站，YouTube等不能访问。</p>
@@ -379,29 +418,37 @@ $ netstat -nat
 <p>解决方案:两个插件不要同时开，或者修改v2ray配置文件的本地端口。</p>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/18/科学上网/" data-id="ck7hoor29000oaw5wnb01k1q5" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/18/科学上网/">
+    <time datetime="2020-01-18T03:16:00.000Z" class="entry-date">
+        2020-01-18
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-服务器使用说明" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/16/服务器使用说明/" class="article-date">
-  <time datetime="2020-01-16T03:38:00.000Z" itemprop="datePublished">2020-01-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-服务器使用说明" class="post-服务器使用说明 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/16/服务器使用说明/" data-id="ck7hoor25000kaw5w4c6b6l4w" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="服务器使用说明"><a href="#服务器使用说明" class="headerlink" title="服务器使用说明"></a>服务器使用说明</h1><h2 id="通知公告区"><a href="#通知公告区" class="headerlink" title="通知公告区"></a>通知公告区</h2><p>服务器ip：</p>
 <ul>
@@ -470,29 +517,37 @@ $ scp -P port root@10.7.60.40:/dir/filename /dir
 <p><img src="https://i.loli.net/2020/01/17/Q87Y6SrfHtEDCp4.png" alt><br><img src="https://i.loli.net/2020/01/17/2pFYIdCS9mLzvQe.png" alt><br><img src="https://i.loli.net/2020/01/17/m4Zdxnk1wSu2HXG.png" alt></p>
 <h2 id="有其他问题connect-me"><a href="#有其他问题connect-me" class="headerlink" title="有其他问题connect me"></a>有其他问题connect me</h2><h2 id="其他内容待补充"><a href="#其他内容待补充" class="headerlink" title="其他内容待补充"></a>其他内容待补充</h2>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/16/服务器使用说明/" data-id="ck7hoor25000kaw5w4c6b6l4w" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/16/服务器使用说明/">
+    <time datetime="2020-01-16T03:38:00.000Z" class="entry-date">
+        2020-01-16
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-OpenPai安装记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/12/OpenPai安装记录/" class="article-date">
-  <time datetime="2020-01-12T02:48:00.000Z" itemprop="datePublished">2020-01-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-OpenPai安装记录" class="post-OpenPai安装记录 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/12/OpenPai安装记录/" data-id="ck7hoor1f0004aw5wjtq89mt2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="OpenPAI安装记录"><a href="#OpenPAI安装记录" class="headerlink" title="OpenPAI安装记录"></a>OpenPAI安装记录</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
 <li>一台master主机和多台worker主机，一台维护机</li>
@@ -604,29 +659,37 @@ http://&lt;master-ip&gt;:80
 </ul>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/12/OpenPai安装记录/" data-id="ck7hoor1f0004aw5wjtq89mt2" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/12/OpenPai安装记录/">
+    <time datetime="2020-01-12T02:48:00.000Z" class="entry-date">
+        2020-01-12
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-docker使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/11/docker使用/" class="article-date">
-  <time datetime="2020-01-11T12:48:00.000Z" itemprop="datePublished">2020-01-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-docker使用" class="post-docker使用 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/11/docker使用/" data-id="ck7hoor1k0008aw5w4bocy5rp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="Docker基本使用"><a href="#Docker基本使用" class="headerlink" title="Docker基本使用"></a>Docker基本使用</h1><h2 id="docker和nvidia-docker-安装"><a href="#docker和nvidia-docker-安装" class="headerlink" title="docker和nvidia-docker 安装"></a>docker和nvidia-docker 安装</h2><p>略<br>安装后查看安装信息和测试docker是否安装正确</p>
 <pre><code class="bash">$ sudo docker --version
@@ -678,29 +741,37 @@ $ docker load &lt; /dir/filename
 <p>不管容器有没有启动，拷贝命令都会生效</p>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/11/docker使用/" data-id="ck7hoor1k0008aw5w4bocy5rp" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/11/docker使用/">
+    <time datetime="2020-01-11T12:48:00.000Z" class="entry-date">
+        2020-01-11
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-Ubuntu命令记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/11/Ubuntu命令记录/" class="article-date">
-  <time datetime="2020-01-11T12:32:00.000Z" itemprop="datePublished">2020-01-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-Ubuntu命令记录" class="post-Ubuntu命令记录 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/11/Ubuntu命令记录/" data-id="ck7hoor1h0006aw5ws1530g8f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="Ubuntu命令记录"><a href="#Ubuntu命令记录" class="headerlink" title="Ubuntu命令记录"></a>Ubuntu命令记录</h1><h2 id="ppa安装NVIDIA驱动"><a href="#ppa安装NVIDIA驱动" class="headerlink" title="ppa安装NVIDIA驱动"></a>ppa安装NVIDIA驱动</h2><pre><code class="bash">  $ sudo add-apt-repository ppa:graphics-drivers/ppa
   $ sudo apt-get update
@@ -737,29 +808,37 @@ $ sudo apt-get install cuda
 </code></pre>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/11/Ubuntu命令记录/" data-id="ck7hoor1h0006aw5ws1530g8f" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/11/Ubuntu命令记录/">
+    <time datetime="2020-01-11T12:32:00.000Z" class="entry-date">
+        2020-01-11
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
   
-    <article id="post-安利区" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/11/安利区/" class="article-date">
-  <time datetime="2020-01-11T02:48:00.000Z" itemprop="datePublished">2020-01-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
+    <article id="post-安利区" class="post-安利区 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="/2020/01/11/安利区/" data-id="ck7hoor1y000gaw5wxjvwnr10" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
       
         <h1 id="一些软件"><a href="#一些软件" class="headerlink" title="一些软件"></a>一些软件</h1><ul>
 <li>softdownloader: 一款布局清爽的下载工具</li>
@@ -786,72 +865,58 @@ $ sudo apt-get install cuda
 </ul>
 
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="/2020/01/11/安利区/" data-id="ck7hoor1y000gaw5wxjvwnr10" class="article-share-link">Share</a>
-      
-      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/01/11/安利区/">
+    <time datetime="2020-01-11T02:48:00.000Z" class="entry-date">
+        2020-01-11
+    </time>
+</a>
+    
+    
     </footer>
-  </div>
-  
 </article>
 
 
+
+
+
+
+  
+  
+    <nav id="pagination">
+      <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      </nav>
+    </nav>
   
 
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
   
     
-  <div class="widget-wrap">
+  
+    
+  <aside class="widget">
     <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li></ul>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">1</span></li></ul>
     </div>
-  </div>
-
+  </aside>
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/悦读/">悦读</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/悦读/" style="font-size: 10px;">悦读</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
       <ul>
         
           <li>
@@ -876,32 +941,37 @@ $ sudo apt-get install cuda
         
       </ul>
     </div>
-  </div>
+  </aside>
 
   
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 鱼摆摆<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/悦读/">悦读</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/悦读/" style="font-size: 10px;">悦读</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 鱼摆摆
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -910,7 +980,9 @@ $ sudo apt-get install cuda
 
 <script src="/js/script.js"></script>
 
+<script src="/js/navigation.js"></script>
 
+<div id="bg"></div>
 
   </div>
 </body>

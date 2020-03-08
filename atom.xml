@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-02-10T13:24:52.000Z</updated>
+  <updated>2020-03-08T10:55:28.061Z</updated>
   <id>/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="/2020/02/10/GAN%20VAE%20and%20Flow/"/>
     <id>/2020/02/10/GAN VAE and Flow/</id>
     <published>2020-02-10T13:19:00.000Z</published>
-    <updated>2020-02-10T13:24:52.000Z</updated>
+    <updated>2020-03-08T10:55:28.061Z</updated>
     
     <summary type="html">
     
@@ -35,6 +35,8 @@
     
     </summary>
     
+      <category term="学习" scheme="/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
     
   </entry>
   
@@ -43,7 +45,7 @@
     <link href="/2020/02/07/Emacs%E7%AC%94%E8%AE%B0/"/>
     <id>/2020/02/07/Emacs笔记/</id>
     <published>2020-02-07T03:16:00.000Z</published>
-    <updated>2020-02-09T03:31:06.275Z</updated>
+    <updated>2020-03-08T10:55:13.085Z</updated>
     
     <summary type="html">
     
@@ -58,6 +60,8 @@
     
     </summary>
     
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
     
   </entry>
   
@@ -66,7 +70,7 @@
     <link href="/2020/01/28/shell%E8%84%9A%E6%9C%AC/"/>
     <id>/2020/01/28/shell脚本/</id>
     <published>2020-01-28T05:32:00.000Z</published>
-    <updated>2020-02-09T03:29:17.111Z</updated>
+    <updated>2020-03-08T10:56:21.581Z</updated>
     
     <summary type="html">
     
@@ -85,6 +89,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
     
   </entry>
   
@@ -93,7 +99,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/"/>
     <id>/2020/01/28/服务器使用tensorboard和visdom/</id>
     <published>2020-01-28T03:27:21.351Z</published>
-    <updated>2020-02-09T13:06:59.486Z</updated>
+    <updated>2020-03-08T10:57:20.733Z</updated>
     
     <summary type="html">
     
@@ -107,6 +113,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
     
   </entry>
   
@@ -115,7 +123,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/18/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     <id>/2020/01/18/科学上网/</id>
     <published>2020-01-18T03:16:00.000Z</published>
-    <updated>2020-02-09T13:06:14.002Z</updated>
+    <updated>2020-03-08T10:57:52.497Z</updated>
     
     <summary type="html">
     
@@ -129,6 +137,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
     
   </entry>
   
@@ -137,7 +147,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/16/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
     <id>/2020/01/16/服务器使用说明/</id>
     <published>2020-01-16T03:38:00.000Z</published>
-    <updated>2020-02-09T02:51:51.863Z</updated>
+    <updated>2020-03-08T10:57:36.445Z</updated>
     
     <summary type="html">
     
@@ -151,6 +161,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
     
   </entry>
   
@@ -159,7 +171,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/12/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/"/>
     <id>/2020/01/12/OpenPai安装记录/</id>
     <published>2020-01-12T02:48:00.000Z</published>
-    <updated>2020-02-09T03:25:32.903Z</updated>
+    <updated>2020-03-08T10:56:11.629Z</updated>
     
     <summary type="html">
     
@@ -173,6 +185,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
     
   </entry>
   
@@ -181,7 +195,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/11/docker%E4%BD%BF%E7%94%A8/"/>
     <id>/2020/01/11/docker使用/</id>
     <published>2020-01-11T12:48:00.000Z</published>
-    <updated>2020-02-09T03:26:31.759Z</updated>
+    <updated>2020-03-08T10:55:00.145Z</updated>
     
     <summary type="html">
     
@@ -195,6 +209,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
     
   </entry>
   
@@ -203,7 +219,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/"/>
     <id>/2020/01/11/Ubuntu命令记录/</id>
     <published>2020-01-11T12:32:00.000Z</published>
-    <updated>2020-02-09T03:49:38.219Z</updated>
+    <updated>2020-03-08T10:56:37.181Z</updated>
     
     <summary type="html">
     
@@ -217,6 +233,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
     
   </entry>
   
@@ -225,7 +243,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/11/%E5%AE%89%E5%88%A9%E5%8C%BA/"/>
     <id>/2020/01/11/安利区/</id>
     <published>2020-01-11T02:48:00.000Z</published>
-    <updated>2020-02-09T03:11:18.479Z</updated>
+    <updated>2020-03-08T10:57:06.433Z</updated>
     
     <summary type="html">
     
@@ -241,6 +259,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="安利" scheme="/categories/%E5%AE%89%E5%88%A9/"/>
+    
     
   </entry>
   
@@ -249,7 +269,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2020/01/11/hello-world/"/>
     <id>/2020/01/11/hello-world/</id>
     <published>2020-01-11T02:16:02.000Z</published>
-    <updated>2020-02-09T03:38:43.739Z</updated>
+    <updated>2020-03-08T10:53:06.177Z</updated>
     
     <summary type="html">
     
@@ -263,6 +283,8 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
+      <category term="其它" scheme="/categories/%E5%85%B6%E5%AE%83/"/>
+    
     
   </entry>
   
@@ -271,7 +293,7 @@ printf &amp;quot;Hello world!&amp;quot;
     <link href="/2018/12/12/Hexo-Theme-Sakura/"/>
     <id>/2018/12/12/Hexo-Theme-Sakura/</id>
     <published>2018-12-12T14:16:01.000Z</published>
-    <updated>2020-02-14T09:11:23.000Z</updated>
+    <updated>2020-03-08T10:56:00.829Z</updated>
     
     <summary type="html">
     
@@ -279,7 +301,7 @@ printf &amp;quot;Hello world!&amp;quot;
     
     </summary>
     
-      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="其它" scheme="/categories/%E5%85%B6%E5%AE%83/"/>
     
     
       <category term="web" scheme="/tags/web/"/>

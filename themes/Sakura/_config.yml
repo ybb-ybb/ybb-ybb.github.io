@@ -1,0 +1,121 @@
+# site name
+#prefixName: 鱼摆摆的blog
+siteName: 鱼摆摆的blog
+# favicon and site master avatar
+favicon: /images/favicon.ico
+avatar: /img/fig.jpg
+url: https://ybb-ybb.github.io
+description: 你们不要想喜欢 弄个大新闻 ——长者
+cdn: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1
+pjax: 1
+# 1开启
+mathjax: 0
+
+notice: ?(￣△￣?) (?￣△￣)?
+lazyloadImg: /img/loader/orange.progress-bar-stripe-loader.svg
+
+menus:
+  首页: { path: /, fa: fa-fort-awesome faa-shake }
+  归档: { path: /archives, fa: fa-archive faa-shake, submenus: { 
+    学习: {path: /categories/学习/, fa: fa-code }, 
+    瞎折腾: {path: /categories/瞎折腾/, fa: fa-file-text-o }, 
+    实验室: {path: /categories/实验室/, fa: fa-cloud-download }, 
+    安利: {path: /categories/安利/, fa: fa-commenting-o },
+    其它: {path: /categories/其它/, fa: fa-book }
+  } }
+  清单: { path: javascript:;, fa: fa-list-ul faa-vertical, submenus: { 
+    书单: {path: /tags/悦读/, fa: fa-th-list faa-bounce }, 
+#    番组: {path: /bangumi/, fa: fa-film faa-vertical }, 
+    歌单: {path: /music/, fa: fa-headphones },
+#    图集: {path: /tags/图集/, fa: fa-photo }
+  } }
+  留言板: { path: /comment/, fa: fa-pencil-square-o faa-tada }
+  友人帐: { path: /links/, fa: fa-link faa-shake }
+#  赞赏: { path: /donate/, fa: fa-heart faa-pulse }
+  关于: { path: /, fa: fa-leaf faa-wrench , submenus: { 
+    我？: {path: /about/, fa: fa-meetup}, 
+    主题: {path: /theme-sakura/, fa: iconfont icon-sakura },
+    Lab: {path: /lab/, fa: fa-cogs },
+  } }
+#  客户端: { path: /client/, fa: fa-android faa-vertical }
+#  RSS: { path: /atom.xml, fa: fa-rss faa-pulse }
+
+
+# Home page sort type: -1: newer first，1: older first.
+homePageSortType: -1
+# Home page article shown number)
+homeArticleShown: 10
+# 背景图片 更好的修改
+bg:
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀180824/19s_by_wlop-dbsw09i.jpg
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/651952.jpg
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/680362.png
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/731440.png
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/820208.png
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/928760.jpg
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/944582.jpg
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/954350.jpg
+  - https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/997983.jpg
+
+# 背景图片样式 空 原图效果 filter-dim 阴影 filter-grid 横条 filter-dot 点点
+bgclass: filter-dot
+
+# startdash url, title, desc img
+startdash: 
+  - {url: /theme-sakura/, title: Sakura, desc: 本站 hexo 主题, img: /img/startdash/sakura.md.png}
+#  - {url: http://space.bilibili.com/271849279, title: Bilibili, desc: 博主的b站视频, img: /img/startdash/bilibili.jpg}
+  - {url: /, title: 鱼摆摆的blog, desc: 我的博客, img: /img/startdash/wangshiwu.jpg}
+
+
+
+# your site build time or founded date
+siteBuildingTime: 01/11/2020
+
+#social  url, img PC端配置
+social:
+  github: {url: http://github.com/ybb-ybb, img: /img/social/github.png}
+#  sina: {url: http://weibo.com/mashirozx?is_all=1, img: /img/social/sina.png}
+#  wangyiyun: {url: http://weibo.com/mashirozx?is_all=1, img: /img/social/wangyiyun.png}
+  zhihu: {url: https://i.loli.net/2020/03/08/Xgz72w4JuGZBTNQ.jpg, img: /img/social/zhihu.png}
+#  email: {url: http://weibo.com/mashirozx?is_all=1, img: /img/social/email.svg}
+  Wechat: {url: https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg, img: /img/social/wechat.png}
+  qq: {url: https://i.loli.net/2020/03/07/OdKMwNzHgB7beqp.jpg, img: /img/social/qq.png}
+
+#social  url, img 移动端配置
+msocial:
+  github: {url: http://github.com/ybb-ybb, fa: fa-github, color: 333}
+#  weibo: {url: http://weibo.com/mashirozx?is_all=1, fa: fa-weibo, color: dd4b39}
+#  qq: {url: https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes, fa: fa-qq, color: 25c6fe}
+  wechat: {url: https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg, fa: fa-wechat, color: dd4b39}
+  qq: {url: https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg, fa: fa-qq, color: 25c6fe}
+
+donate: 
+  paypal: https://www.paypal.me/hojuncn 
+  alipay: /img/custom/donate/AliPayQR.jpg
+  wechat: /img/custom/donate/WeChanQR.jpg
+  wechatSQ: /img/custom/donate/WeChanSQ.jpg
+
+# 视频地址为https://cdn.jsdelivr.net/gh/honjun/hojun@1.2/Unbroken.mp4，配置如下
+movies:
+#  url: https://cdn.jsdelivr.net/gh/honjun/hojun@1.2
+  url: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1
+  # 多个视频用逗号隔开，随机获取。支持的格式目前已知MP4,Flv。其他的可以试下，不保证有用
+#  name: Unbroken.mp4
+  name: Imagine_Dragons _Birds.mp4
+
+aplayer: 
+  id: 2114311084
+  server: netease
+  type: playlist
+  fixed: true
+  autoplay: false
+  loop: all
+  order: random
+  preload: auto
+  volume: 0.7
+  mutex: true
+
+# Valine
+valine: true
+v_appId: GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz
+v_appKey: mgOpfzbkHYqU92CV4IDlAUHQ

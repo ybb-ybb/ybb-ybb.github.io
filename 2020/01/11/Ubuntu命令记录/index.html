@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">鱼摆摆的blog</title>
+  <title itemprop="name">NVIDIA,CUDA,CUDNN,Anaconda | 鱼摆摆的blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -94,7 +95,7 @@
             
               
                 <li>
-                  <a href="https://sm.ms/delete/WxQkcE1LwIaRF9MhZij4psnUVe" target="_blank" class="social-github" title="zhihu">
+                  <a href="https://i.loli.net/2020/03/08/Xgz72w4JuGZBTNQ.jpg" target="_blank" class="social-github" title="zhihu">
                     <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/zhihu.png">
                   </a>
                 </li>
@@ -231,6 +232,34 @@
               </li>
             
               <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
                 <a href="/comment/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
@@ -296,6 +325,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      NVIDIA,CUDA,CUDNN,Anaconda</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href="">鱼摆摆</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-1-11<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -303,46 +356,55 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title"></h1>
-            <p class="entry-census">&nbsp;·&nbsp;2020-1-11&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
-          <h1 id="Ubuntu命令记录"><a href="#Ubuntu命令记录" class="headerlink" title="Ubuntu命令记录"></a>Ubuntu命令记录</h1><h2 id="ppa安装NVIDIA驱动"><a href="#ppa安装NVIDIA驱动" class="headerlink" title="ppa安装NVIDIA驱动"></a>ppa安装NVIDIA驱动</h2><pre><code class="bash">  $ sudo add-apt-repository ppa:graphics-drivers/ppa
+          <h1 id="nvidiacudacudnn"><a class="markdownIt-Anchor" href="#nvidiacudacudnn"></a> NVIDIA,CUDA,CUDNN</h1>
+<h2 id="ppa安装nvidia驱动"><a class="markdownIt-Anchor" href="#ppa安装nvidia驱动"></a> ppa安装NVIDIA驱动</h2>
+<pre class="highlight"><code class="bash">  $ sudo add-apt-repository ppa:graphics-drivers/ppa
   $ sudo apt-get update
   $ ubuntu-drivers devices
   $ sudo apt-get install nvidia-driver-xxx
 </code></pre>
-<h2 id="deb安装CUDA"><a href="#deb安装CUDA" class="headerlink" title=".deb安装CUDA"></a>.deb安装CUDA</h2><p> <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener"> 下载deb文件</a></p>
-<pre><code class="&#39;bash">$ sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+<h2 id="自动安装nvidia驱动"><a class="markdownIt-Anchor" href="#自动安装nvidia驱动"></a> 自动安装NVIDIA驱动</h2>
+<pre class="highlight"><code class="bash"><span class="hljs-comment"># 卸载残余驱动</span>
+sudo apt-get --purge remove <span class="hljs-string">"*nvidia*"</span>
+<span class="hljs-comment"># 查看推荐驱动版本</span>
+ubuntu-drivers devices
+<span class="hljs-comment"># 自动安装</span>
+sudo ubuntu-drivers autoinstall
+</code></pre>
+<h2 id="deb安装cuda"><a class="markdownIt-Anchor" href="#deb安装cuda"></a> .deb安装CUDA</h2>
+<p><a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener"> 下载deb文件</a></p>
+<pre class="highlight"><code class="'bash">$ sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
 $ sudo apt-get update
 $ sudo apt-get install cuda
 </code></pre>
-<h2 id="安装CUDNN"><a href="#安装CUDNN" class="headerlink" title="安装CUDNN"></a>安装CUDNN</h2><p> <a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">下载符合自己cuda版本的cudnn</a></p>
-<h3 id="安装cudnn"><a href="#安装cudnn" class="headerlink" title="安装cudnn"></a>安装cudnn</h3><p> 安装过程实际是将cudnn的头文件复制到CUDA的头文件目录里</p>
-<pre><code class="bash"> $ sudo cp cuda/include/* /usr/local/cuda-10.0/include/
- $ sudo cp cuda/lib64/* /usr/local/cuda-10.0/lib64/
- # 添加可执行权限
- $ sudo chmod +x /usr/local/cuda-10.0/include/cudnn.h
- $ sudo chmod +x /usr/local/cuda-10.0/lib64/libcudnn*
+<h2 id="安装cudnn"><a class="markdownIt-Anchor" href="#安装cudnn"></a> 安装CUDNN</h2>
+<p><a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">下载符合自己cuda版本的cudnn</a></p>
+<h3 id="安装cudnn-2"><a class="markdownIt-Anchor" href="#安装cudnn-2"></a> 安装cudnn</h3>
+<p>安装过程实际是将cudnn的头文件复制到CUDA的头文件目录里</p>
+<pre class="highlight"><code class="bash">$ sudo cp cuda/include/* /usr/<span class="hljs-built_in">local</span>/cuda-10.0/include/
+$ sudo cp cuda/lib64/* /usr/<span class="hljs-built_in">local</span>/cuda-10.0/lib64/
+<span class="hljs-comment"># 添加可执行权限</span>
+$ sudo chmod +x /usr/<span class="hljs-built_in">local</span>/cuda-10.0/include/cudnn.h
+$ sudo chmod +x /usr/<span class="hljs-built_in">local</span>/cuda-10.0/lib64/libcudnn*
 </code></pre>
-<h3 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h3><pre><code class="bash"> $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+<h3 id="检验"><a class="markdownIt-Anchor" href="#检验"></a> 检验</h3>
+<pre class="highlight"><code class="bash">$ cat /usr/<span class="hljs-built_in">local</span>/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 </code></pre>
-<h2 id="指定运行程序使用的GPU"><a href="#指定运行程序使用的GPU" class="headerlink" title="指定运行程序使用的GPU"></a>指定运行程序使用的GPU</h2><p> 在程序中添加</p>
-<pre><code class="python"> import os
- os.environ[&#39;CUDA_VISIBLE_DEVICES]=&#39;0&#39;
+<h2 id="指定运行程序使用的gpu"><a class="markdownIt-Anchor" href="#指定运行程序使用的gpu"></a> 指定运行程序使用的GPU</h2>
+<p>在程序中添加</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> os
+os.environ[<span class="hljs-string">'CUDA_VISIBLE_DEVICES]='</span><span class="hljs-number">0</span><span class="hljs-string">'
+</span></code></pre>
+<p>或者在终端中</p>
+<pre class="highlight"><code class="bash">$ CUDA_VISIBLE_DEVICES=0 python main.py
 </code></pre>
-<p> 或者在终端中</p>
-<pre><code class="bash"> $ CUDA_VISIBLE_DEVICES=0 python main.py
-</code></pre>
-<h2 id="命令行安装Anaconda"><a href="#命令行安装Anaconda" class="headerlink" title="命令行安装Anaconda"></a>命令行安装Anaconda</h2><pre><code class="bash"> $ wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
- $ bash Anaconda3-5.0.1-Linux-x86_64.sh
- # 添加环境变量，可选
- $ echo &#39;export PATH=&quot;~/anaconda3/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc
- $ source .bashrc
+<h2 id="命令行安装anaconda"><a class="markdownIt-Anchor" href="#命令行安装anaconda"></a> 命令行安装Anaconda</h2>
+<pre class="highlight"><code class="bash">$ wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+$ bash Anaconda3-5.0.1-Linux-x86_64.sh
+<span class="hljs-comment"># 添加环境变量，可选</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">'export PATH="~/anaconda3/bin:$PATH"'</span> &gt;&gt; ~/.bashrc
+$ <span class="hljs-built_in">source</span> .bashrc
 </code></pre>
 
         </div>
@@ -375,15 +437,15 @@ $ sudo apt-get install cuda
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/01/11/docker使用/" rel="prev">
+            <a href="/2020/01/16/OpenPai安装记录/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                </h3>
+                OpenPAI安装记录</h3>
                 <hr>
               </div>
             </a>
@@ -395,13 +457,13 @@ $ sudo apt-get install cuda
           
             <a href="/2020/01/11/安利区/" rel="next">
               <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                </h3>
+                安利</h3>
                 <hr>
               </div>
             </a>
@@ -425,11 +487,11 @@ $ sudo apt-get install cuda
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="鱼摆摆" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="" itemprop="url" rel="author">鱼摆摆</a>
             </h3>
           </div>
         </div>
@@ -486,7 +548,7 @@ $ sudo apt-get install cuda
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
         <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
       </div>
-      <p style="color: #666666;">&copy 2018</p>
+      <p style="color: #666666;">&copy 2020 yubaibai</p>
     </div>
     <div class="footer-device">
     <p style="font-family: 'Ubuntu', sans-serif;">
@@ -572,6 +634,30 @@ $(document).ready(function() {
       </div>
     </div>
   </section>
+  <div class="changeSkin-gear no-select">
+  <div class="keys" id="setbtn"> 
+   <span id="open-skinMenu"> 切换主题 | SCHEME TOOL  
+     <i class="iconfont icon-gear inline-block rotating"></i> 
+   </span>
+  </div>
+</div>
+ 
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+ <div class="theme-controls row-container">
+  <ul class="menu-list">
+   <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+   <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+   <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+   <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+   <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+   <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+   <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+   <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+  </ul>
+ </div>
+</div>
+<canvas id="night-mode-cover"></canvas>
+
   <div id="mo-nav" class="">
   <div class="m-avatar">
     <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
@@ -642,6 +728,34 @@ $(document).ready(function() {
                 <a href="/categories/其它/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   其它
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
                 </a>
               </li>
             
@@ -740,7 +854,7 @@ $(document).ready(function() {
 </style>
 <meting-js
 
-    id="2660651585"
+    id="2114311084"
 
     server="netease"
 

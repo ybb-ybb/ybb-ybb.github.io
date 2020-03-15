@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-03-09T13:35:02.659Z</updated>
+  <updated>2020-03-15T04:39:06.210Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>离线下载+在线播放网盘</title>
+    <link href="/2020/03/15/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD+%E5%9C%A8%E7%BA%BF%E6%92%AD%E6%94%BE%E7%BD%91%E7%9B%98/"/>
+    <id>/2020/03/15/离线下载+在线播放网盘/</id>
+    <published>2020-03-15T04:13:00.000Z</published>
+    <updated>2020-03-15T04:39:06.210Z</updated>
+    
+    <summary type="html">
+    
+      用VPS搭建个离线下载和在线观看的网盘
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="OneDrive" scheme="/tags/OneDrive/"/>
+    
+      <category term="离线下载" scheme="/tags/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>tensorboardX</title>
     <link href="/2020/03/09/tensorboardX/"/>
     <id>/2020/03/09/tensorboardX/</id>
     <published>2020-03-09T13:31:11.839Z</published>
-    <updated>2020-03-09T13:35:02.659Z</updated>
+    <updated>2020-03-15T04:35:24.214Z</updated>
     
     <summary type="html">
     
@@ -41,7 +63,7 @@
     <link href="/2020/03/09/Hexo-Theme-Sakura/"/>
     <id>/2020/03/09/Hexo-Theme-Sakura/</id>
     <published>2020-03-09T12:16:01.000Z</published>
-    <updated>2020-03-09T13:38:13.627Z</updated>
+    <updated>2020-03-15T04:21:33.074Z</updated>
     
     <summary type="html">
     
@@ -63,7 +85,7 @@
     <link href="/2020/03/04/Neural%20ODE/"/>
     <id>/2020/03/04/Neural ODE/</id>
     <published>2020-03-04T03:38:00.000Z</published>
-    <updated>2020-03-09T13:33:54.527Z</updated>
+    <updated>2020-03-15T04:22:18.790Z</updated>
     
     <summary type="html">
     
@@ -83,7 +105,7 @@
     <link href="/2020/02/15/GAN%20VAE%20and%20Flow/"/>
     <id>/2020/02/15/GAN VAE and Flow/</id>
     <published>2020-02-15T13:19:00.000Z</published>
-    <updated>2020-03-09T13:36:05.975Z</updated>
+    <updated>2020-03-15T04:19:00.034Z</updated>
     
     <summary type="html">
     
@@ -107,7 +129,7 @@
     <link href="/2020/02/10/shell%E8%84%9A%E6%9C%AC/"/>
     <id>/2020/02/10/shell脚本/</id>
     <published>2020-02-10T05:32:00.000Z</published>
-    <updated>2020-03-09T13:27:53.839Z</updated>
+    <updated>2020-03-15T04:34:47.342Z</updated>
     
     <summary type="html">
     
@@ -127,7 +149,7 @@
     <link href="/2020/02/10/Emacs%E7%AC%94%E8%AE%B0/"/>
     <id>/2020/02/10/Emacs笔记/</id>
     <published>2020-02-10T03:16:00.000Z</published>
-    <updated>2020-03-09T13:27:39.923Z</updated>
+    <updated>2020-03-15T04:18:17.714Z</updated>
     
     <summary type="html">
     
@@ -147,11 +169,11 @@
     <link href="/2020/02/09/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     <id>/2020/02/09/科学上网/</id>
     <published>2020-02-09T03:19:00.000Z</published>
-    <updated>2020-03-09T13:39:13.379Z</updated>
+    <updated>2020-03-15T04:38:26.058Z</updated>
     
     <summary type="html">
     
-      科学上网，个人服务器，仅供实验室使用,输入密码查看
+      科学上网
     
     </summary>
     
@@ -173,7 +195,7 @@
     <link href="/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/"/>
     <id>/2020/01/28/服务器使用tensorboard和visdom/</id>
     <published>2020-01-28T03:27:21.351Z</published>
-    <updated>2020-03-09T13:25:17.135Z</updated>
+    <updated>2020-03-15T04:36:53.050Z</updated>
     
     <summary type="html">
     
@@ -195,7 +217,7 @@
     <link href="/2020/01/24/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
     <id>/2020/01/24/服务器使用说明/</id>
     <published>2020-01-24T03:38:00.000Z</published>
-    <updated>2020-03-09T13:19:27.967Z</updated>
+    <updated>2020-03-15T04:37:55.450Z</updated>
     
     <summary type="html">
     
@@ -215,7 +237,7 @@
     <link href="/2020/01/19/docker%E4%BD%BF%E7%94%A8/"/>
     <id>/2020/01/19/docker使用/</id>
     <published>2020-01-19T12:48:00.000Z</published>
-    <updated>2020-03-09T13:17:56.659Z</updated>
+    <updated>2020-03-15T04:16:56.482Z</updated>
     
     <summary type="html">
     
@@ -235,7 +257,7 @@
     <link href="/2020/01/16/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/"/>
     <id>/2020/01/16/OpenPai安装记录/</id>
     <published>2020-01-16T02:48:00.000Z</published>
-    <updated>2020-03-09T13:40:39.587Z</updated>
+    <updated>2020-03-15T04:33:53.506Z</updated>
     
     <summary type="html">
     
@@ -255,7 +277,7 @@
     <link href="/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/"/>
     <id>/2020/01/11/Ubuntu命令记录/</id>
     <published>2020-01-11T12:32:00.000Z</published>
-    <updated>2020-03-09T13:16:03.363Z</updated>
+    <updated>2020-03-15T04:35:55.578Z</updated>
     
     <summary type="html">
     
@@ -281,7 +303,7 @@
     <link href="/2020/01/11/%E5%AE%89%E5%88%A9%E5%8C%BA/"/>
     <id>/2020/01/11/安利区/</id>
     <published>2020-01-11T02:48:00.000Z</published>
-    <updated>2020-03-09T13:05:16.903Z</updated>
+    <updated>2020-03-15T04:36:19.214Z</updated>
     
     <summary type="html">
     
@@ -301,7 +323,7 @@
     <link href="/2020/01/11/hello-world/"/>
     <id>/2020/01/11/hello-world/</id>
     <published>2020-01-11T02:16:02.000Z</published>
-    <updated>2020-03-09T13:37:22.679Z</updated>
+    <updated>2020-03-15T04:19:40.002Z</updated>
     
     <summary type="html">
     

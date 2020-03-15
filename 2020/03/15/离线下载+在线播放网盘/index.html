@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">OpenPAI安装记录 | 鱼摆摆的blog</title>
+  <title itemprop="name">离线下载+在线播放网盘 | 鱼摆摆的blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -320,11 +320,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz1yILZONABLahhVN5IUAALJUQNebi0AEtqe361.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz1yILZONABLahhVN5IUAALJUQNebi0AEtqe361.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://sjbz-fd.zol-img.com.cn/t_s320x510c/g5/M00/00/01/ChMkJlfJUjCILRIjAAVvLdFcyCoAAU9igIAE3QABW9F591.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://sjbz-fd.zol-img.com.cn/t_s320x510c/g5/M00/00/01/ChMkJlfJUjCILRIjAAVvLdFcyCoAAU9igIAE3QABW9F591.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      OpenPAI安装记录</h1>
+      离线下载+在线播放网盘</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -336,7 +336,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-1-16<span class="bull">
+        2020-3-15<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -350,133 +350,126 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="openpai安装记录"><a class="markdownIt-Anchor" href="#openpai安装记录"></a> OpenPAI安装记录</h1>
-<h2 id="环境准备"><a class="markdownIt-Anchor" href="#环境准备"></a> 环境准备</h2>
-<ul>
-<li>一台master主机和多台worker主机，一台维护机</li>
-<li>所有节点不要安装CUDA驱动，具有统一的登录账户和密码</li>
-<li>开启ssh功能和ntp功能(互相访问，时间同步)</li>
-</ul>
-<h2 id="部署过程"><a class="markdownIt-Anchor" href="#部署过程"></a> 部署过程</h2>
-<h3 id="安装docker-ce"><a class="markdownIt-Anchor" href="#安装docker-ce"></a> 安装docker-ce</h3>
-<pre class="highlight"><code class="bash">$ sudo apt-get -y install docker.io 
-$ sudo docker pull docker.io/openpai/dev-box:v0.14.0
+          <p>主要过程是用Aria2进行下载，然后上传到OneDrive云盘并用OneIndex关联云盘实现网页访问。</p>
+<h1 id="获取onedrive"><a class="markdownIt-Anchor" href="#获取onedrive"></a> 获取OneDrive</h1>
+<h2 id="申请onedrive5t账号"><a class="markdownIt-Anchor" href="#申请onedrive5t账号"></a> 申请OneDrive5T账号</h2>
+<p>两个申请OneDrive云盘5T的方法：</p>
+<p>1、申请微软的<code>Office 365</code>开发者计划，地址：<a href="https://www.moerats.com/archives/696/" target="_blank" rel="noopener">免费获得一年的21TB OneDrive和Microsoft Office 365企业</a><br>
+2、使用热心大佬提供的临时邮箱申请一个，方法如下：</p>
+<pre class="highlight"><code class>1)、进入注册地址https://products.office.com/en-us/student?tab=students
+2)、输入如有乐享提供的临时邮箱，地址：https://51.ruyo.net/8263.html
+3)、填入密码，和从临时邮箱获取的验证码
 </code></pre>
-<h3 id="运行dev-box"><a class="markdownIt-Anchor" href="#运行dev-box"></a> 运行dev-box</h3>
-<pre class="highlight"><code class="bash">$ sudo docker run -itd \
-        -e COLUMNS=<span class="hljs-variable">$COLUMNS</span> -e LINES=<span class="hljs-variable">$LINES</span> -e TERM=<span class="hljs-variable">$TERM</span> \
-        -v /var/run/docker.sock:/var/run/docker.sock \
-        -v /pathConfiguration:/cluster-configuration  \
-        -v /hadoop-binary:/hadoop-binary  \
-        --pid=host \
-        --privileged=<span class="hljs-literal">true</span> \
-        --net=host \
-        --name=dev-box \
-        docker.io/openpai/dev-box:v0.14.0
+<h2 id="授权"><a class="markdownIt-Anchor" href="#授权"></a> 授权</h2>
+<p>授权认证：</p>
+<p>点击右侧URL登录并授权，授权地址→ <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=78d4dc35-7e46-42c6-9023-2d39314433a5&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">国际版 </a>      <a href="https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=dfe36e60-6133-48cf-869f-4d15b8354769&amp;response_type=code&amp;redirect_uri=http://localhost/onedrive-login&amp;response_mode=query&amp;scope=offline_access%20User.Read%20Files.ReadWrite.All" target="_blank" rel="noopener">世纪互联</a></p>
+<p>授权后会获取一个localhost开头打不开的链接，这里只需要记住code，也就是链接中code=和&amp;中间的参数。</p>
+<h1 id="安装aria2"><a class="markdownIt-Anchor" href="#安装aria2"></a> 安装Aria2</h1>
+<p>以下操作都是在服务器端执行</p>
+<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /root
+$ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
+<span class="hljs-comment">#备用地址</span>
+$ wget -N --no-check-certificate https://www.moerats.com/usr/shell/Aria2/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh
 </code></pre>
-<h3 id="登录dev-box"><a class="markdownIt-Anchor" href="#登录dev-box"></a> 登录dev-box</h3>
-<pre class="highlight"><code class="bash">$ sudo docker <span class="hljs-built_in">exec</span> -it dev-box /bin/bash
-$ <span class="hljs-built_in">cd</span> /pai/deployment/quick-start/
+<p>安装后可以使用<code>bash aria2.sh</code>命令修改Aria2的默认下载目录、端口号、密码等</p>
+<h1 id="安装onedriveuploader"><a class="markdownIt-Anchor" href="#安装onedriveuploader"></a> 安装OneDriveUploader</h1>
+<pre class="highlight"><code class="bash">$ wget https://raw.githubusercontent.com/MoeClub/OneList/master/OneDriveUploader/amd64/linux/OneDriveUploader -P /usr/<span class="hljs-built_in">local</span>/bin/
+<span class="hljs-comment"># 授权</span>
+$ chmod +x /usr/<span class="hljs-built_in">local</span>/bin/OneDriveUploader
+<span class="hljs-comment"># 初始化配置</span>
+<span class="hljs-comment">#将moerats替换成授权步骤中获取的code参数</span>
+$ code=<span class="hljs-string">"moerats"</span>
+$ OneDriveUploader -a <span class="hljs-string">"<span class="hljs-variable">${code}</span>"</span>
 </code></pre>
-<h3 id="修改配置信息"><a class="markdownIt-Anchor" href="#修改配置信息"></a> 修改配置信息</h3>
-<pre class="highlight"><code class="bash">$ cp quick-start-example.yaml quick-start.yaml
-$ vim quick-start.yaml
+<p>如果提示 Init config file: /root/auth.json 类似信息，则初始化成功。</p>
+<p>手动上传示例：</p>
+<pre class="highlight"><code class="bash"><span class="hljs-comment"># -c指定初始化文件位置，-s指定上传文件，-r指定网盘目录，不指定默认为根目录</span>
+<span class="hljs-comment"># 将当前目录下的Download文件夹上传到OneDrive网盘Test目录中</span>
+$ OneDriveUploader -c /root/auth.json -s <span class="hljs-string">"Download"</span> -r <span class="hljs-string">"Test"</span>
 </code></pre>
-<p>修改内容：</p>
-<pre class="highlight"><code class="vim">	machine<span class="hljs-variable">s:</span>
- - <span class="hljs-symbol">&lt;ip-of-master&gt;</span>
- - <span class="hljs-symbol">&lt;ip-of-worker1&gt;</span>
- - <span class="hljs-symbol">&lt;ip-of-worder2&gt;</span>
+<h1 id="配置aria2的自动上传"><a class="markdownIt-Anchor" href="#配置aria2的自动上传"></a> 配置Aria2的自动上传</h1>
+<pre class="highlight"><code class="bash"><span class="hljs-comment"># 新建文件</span>
+$ touch rcloneupload.sh
+<span class="hljs-comment"># 修改文件内容</span>
+$ vim rcloneupload.sh
+</code></pre>
+<p>将文件内容修改为下面内容，注意替换Aria2的下载目录</p>
+<pre class="highlight"><code class="shell"><span class="hljs-meta">#</span><span class="bash">!/bin/bash</span>
 
-ssh-username: <span class="hljs-symbol">&lt;username&gt;</span>
-ssh-password: <span class="hljs-symbol">&lt;password&gt;</span>
+GID="$1";
+FileNum="$2";
+File="$3";
+MaxSize="15728640";
+Thread="3";  #默认3线程，自行修改，服务器配置不好的话，不建议太多
+Block="20";  #默认分块20m，自行修改
+RemoteDIR="";  #上传到Onedrive的路径，默认为根目录，如果要上传到MOERATS目录，""里面请填成MOERATS
+LocalDIR="/www/download/";  #Aria2下载目录，记得最后面加上/
+Uploader="/usr/local/bin/OneDriveUploader";  #上传的程序完整路径，默认为本文安装的目录
+Config="/root/auth.json";  #初始化生成的配置auth.json绝对路径，参考第3步骤生成的路径
+
+
+if [[ -z $(echo "$FileNum" |grep -o '[0-9]*' |head -n1) ]]; then FileNum='0'; fi
+if [[ "$FileNum" -le '0' ]]; then exit 0; fi
+if [[ "$#" != '3' ]]; then exit 0; fi
+
+function LoadFile(){
+  if [[ ! -e "${Uploader}" ]]; then return; fi
+  IFS_BAK=$IFS
+  IFS=$'\n'
+  tmpFile="$(echo "${File/#$LocalDIR}" |cut -f1 -d'/')"
+  FileLoad="${LocalDIR}${tmpFile}"
+  if [[ ! -e "${FileLoad}" ]]; then return; fi
+  ItemSize=$(du -s "${FileLoad}" |cut -f1 |grep -o '[0-9]*' |head -n1)
+  if [[ -z "$ItemSize" ]]; then return; fi
+  if [[ "$ItemSize" -ge "$MaxSize" ]]; then
+    echo -ne "\033[33m${FileLoad} \033[0mtoo large to spik.\n";
+    return;
+  fi
+<span class="hljs-meta">  $</span><span class="bash">{Uploader} -c <span class="hljs-string">"<span class="hljs-variable">${Config}</span>"</span> -t <span class="hljs-string">"<span class="hljs-variable">${Thread}</span>"</span> -b <span class="hljs-string">"<span class="hljs-variable">${Block}</span>"</span> -s <span class="hljs-string">"<span class="hljs-variable">${FileLoad}</span>"</span> -r <span class="hljs-string">"<span class="hljs-variable">${RemoteDIR}</span>"</span></span>
+  if [[ $? == '0' ]]; then
+    rm -rf "${FileLoad}";
+  fi
+  IFS=$IFS_BAK
+}
+LoadFile;
 </code></pre>
-<h3 id="生成oepnpai配置文件"><a class="markdownIt-Anchor" href="#生成oepnpai配置文件"></a> 生成OepnPai配置文件</h3>
-<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /pai
-$ python paictl.py config generate -i /pai/deployment/quick-start/quick-start.yaml -o ~/pai-config -f 
-$ <span class="hljs-built_in">cd</span> ~/pai-config/
+<p>授权</p>
+<pre class="highlight"><code class="bash">$ chmod +x rcloneupload.sh
 </code></pre>
-<h3 id="修改kubernetes-configurationyaml"><a class="markdownIt-Anchor" href="#修改kubernetes-configurationyaml"></a> 修改kubernetes-configuration.yaml</h3>
-<p>将docker-registry替换为国内镜像库</p>
-<pre class="highlight"><code class="vim">docker-registry: docker.io/mirrorgooglecontainers
+<p><code>bash aria2.sh</code>修改配置文件，加上一行：</p>
+<pre class="highlight"><code class="shell">on-download-complete=/root/rcloneupload.sh
 </code></pre>
-<h3 id="修改layoutyaml"><a class="markdownIt-Anchor" href="#修改layoutyaml"></a> 修改layout.yaml</h3>
-<p>修改自己机器的配置信息</p>
-<pre class="highlight"><code class="vim">  machine-sku:
-     GENERIC:
-        mem: <span class="hljs-number">256</span>G
-        gpu:
-            <span class="hljs-built_in">type</span>: TITAN V
-            coun<span class="hljs-variable">t:</span> <span class="hljs-number">1</span>
-        cpu:
-            vcore: <span class="hljs-number">4</span>
-        <span class="hljs-keyword">o</span><span class="hljs-variable">s:</span> ubuntu16.<span class="hljs-number">04</span>
-      Worker1:
-        mem: <span class="hljs-number">256</span>G
-        gpu:
-            <span class="hljs-built_in">type</span>: GeForce RTX <span class="hljs-number">2080</span>Ti
-            coun<span class="hljs-variable">t:</span> <span class="hljs-number">4</span>
-        cpu:
-            vcore: <span class="hljs-number">4</span>
-        <span class="hljs-keyword">o</span><span class="hljs-variable">s:</span> ubuntu16.<span class="hljs-number">04</span>
-      Worker2:
-        mem: <span class="hljs-number">256</span>G
-        gpu:
-            <span class="hljs-built_in">type</span>: GeForce RTX <span class="hljs-number">2080</span>Ti
-            coun<span class="hljs-variable">t:</span> <span class="hljs-number">4</span>
-        cpu:
-            vcore: <span class="hljs-number">4</span>
-        <span class="hljs-keyword">o</span><span class="hljs-variable">s:</span> ubuntu16.<span class="hljs-number">04</span>
+<p>重启Aria2生效</p>
+<h2 id="测试一下"><a class="markdownIt-Anchor" href="#测试一下"></a> 测试一下</h2>
+<p>试一下</p>
+<pre class="highlight"><code class>bash /root/rcloneupload.sh
 </code></pre>
-<h3 id="修改services-configurationyaml"><a class="markdownIt-Anchor" href="#修改services-configurationyaml"></a> 修改services-configuration.yaml</h3>
-<p>解除common和data-path两个字段的注释，将data-path赋值到真实位置，作为服务数据存储路径</p>
-<pre class="highlight"><code class="bash">cluster:
- common:
- <span class="hljs-comment">#  cluster-id: pai-example</span>
- <span class="hljs-comment">#</span>
- <span class="hljs-comment">#  # HDFS, zookeeper data path on your cluster machine.</span>
-   data-path: <span class="hljs-string">"/data"</span>
+<p>正常为无反应，如果报错：</p>
+<pre class="highlight"><code class>1、安装dos2unix
+$ apt-get install dos2unix -y
+2、转换格式
+$ dos2unix /root/rcloneupload.sh
 </code></pre>
-<p>tag字段修改为真实版本 v014.0<br>
-可修改cluster-id,后面会用到<br>
-修改rest-server下的用户名和密码，作为登录平台的账户密码</p>
-<p>指定显卡驱动版本，不指定的话默认安装384.11，这个驱动是不支持图灵核心显卡的，安装到后面会出现’nvidia-drm’ not found 错误，驱动版本只能从注释里的版本选择</p>
-<pre class="highlight"><code class="vim">driver<span class="hljs-variable">s:</span>
- <span class="hljs-keyword">set</span>-nvidia-<span class="hljs-keyword">runtime</span>: false
- # You can <span class="hljs-keyword">set</span> drivers <span class="hljs-keyword">version</span> here. If this value <span class="hljs-keyword">is</span> miss, default value will <span class="hljs-keyword">be</span> <span class="hljs-number">384.111</span>
- # Current supported <span class="hljs-keyword">version</span> <span class="hljs-keyword">list</span>
- # <span class="hljs-number">384.111</span>
- # <span class="hljs-number">390.25</span>
- # <span class="hljs-number">410.73</span>
- <span class="hljs-keyword">version</span>: <span class="hljs-string">"410.73"</span>
+<h1 id="aria2离线下载的使用"><a class="markdownIt-Anchor" href="#aria2离线下载的使用"></a> Aria2离线下载的使用</h1>
+<p>谷歌浏览器插件 aria2 for chrome</p>
+<p>进去之后AriaNg设置——&gt;添加新RPC设置，配置如下：</p>
+<p><img src="https://i.loli.net/2020/03/14/87PlEgeI2Nmy3vp.png" alt="image.png"></p>
+<p>然后添加任务即可进行离线下载，并自动上传到OneDrive</p>
+<h1 id="oneindex对接网盘"><a class="markdownIt-Anchor" href="#oneindex对接网盘"></a> OneIndex对接网盘</h1>
+<p>OneIndex可以对接Onedrive网盘，将网盘里的内容直接显示成目录，视频可以在线播放。也可以搭建自己的在线图床/视频播放系统。</p>
+<h2 id="使用docker安装oneindex"><a class="markdownIt-Anchor" href="#使用docker安装oneindex"></a> 使用docker安装Oneindex</h2>
+<pre class="highlight"><code class="bash">$ docker run -d -p 8181:80 --restart=always baiyuetribe/oneindex
 </code></pre>
-<h3 id="部署kubernetes"><a class="markdownIt-Anchor" href="#部署kubernetes"></a> 部署Kubernetes</h3>
-<p>http:<master-ip>:9090查看进度</master-ip></p>
-<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /pai
-$ python paictl.py cluster k8s-bootup -p ~/pai-config
+<p>然后访问<code>ip:8181</code>按照提示操作即可</p>
+<p>效果图：</p>
+<p><img src="https://i.loli.net/2020/03/14/nKqxm6CefrMVaw1.png" alt="image.png"></p>
+<p>如果要进入系统管理页面，访问<code>ip:8181/?/login</code></p>
+<h2 id="可选域名访问"><a class="markdownIt-Anchor" href="#可选域名访问"></a> 可选，域名访问</h2>
+<p>如果有自己的域名，可以通过反向代理进行http访问</p>
+<p><strong>宝塔反代</strong>：先进入宝塔面板，点击左侧网站，添加站点，完成后进入网站设置，点击反向代理，目标URL填入http://127.0.0.1:8181，再启用反向代理即可。</p>
+<p>宝塔界面可一键安装：</p>
+<pre class="highlight"><code class="bash">$ wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; sudo bash install.sh
 </code></pre>
-<h3 id="更改配置文件到kubernetes"><a class="markdownIt-Anchor" href="#更改配置文件到kubernetes"></a> 更改配置文件到kubernetes</h3>
-<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /pai
-python paictl.py config push -p ~/pai-config/ -c ~/.kube/config
-</code></pre>
-<p>若报错，卸载openpai组件和ks组件，检查之前的配置文件，重新安装</p>
-<pre class="highlight"><code class="bash">$ python paictl.py service [delete|start|stop] -c ~/.kube/config [-n name]  
-<span class="hljs-comment"># 卸载openpai组件</span>
-$ python paictl.py service delete -c ~/.kube/config 
-<span class="hljs-comment"># 卸载k8s组件</span>
-$ python paictl.py cluster k8s-clean -p ~/pai-config/ 
-</code></pre>
-<h3 id="启动openpai"><a class="markdownIt-Anchor" href="#启动openpai"></a> 启动Openpai</h3>
-<pre class="highlight"><code class="bash">$ python paictl.py service start -c ~/.kube/config
-</code></pre>
-<h3 id="界面"><a class="markdownIt-Anchor" href="#界面"></a> 界面</h3>
-<pre class="highlight"><code class="http"><span class="hljs-attribute">http://&lt;master-ip&gt;:9090  
-http://&lt;master-ip&gt;:80
-</span></code></pre>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
-<p><a href="https://github.com/kangapp/openPAI" target="_blank" rel="noopener">https://github.com/kangapp/openPAI</a><br>
-<a href="https://github.com/microsoft/pai" target="_blank" rel="noopener">https://github.com/microsoft/pai</a><br>
-<a href="https://zhuanlan.zhihu.com/p/64061072" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64061072</a></p>
 
         </div>
         <!-- .entry-content -->
@@ -505,36 +498,19 @@ http://&lt;master-ip&gt;:80
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/01/19/docker使用/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKweiIFY_6AA3VjT9w7FMAALGfwFCj8AADdWl862.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKweiIFY_6AA3VjT9w7FMAALGfwFCj8AADdWl862.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                docker基本使用</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/01/11/Ubuntu命令记录/" rel="next">
+            <a href="/2020/03/09/tensorboardX/" rel="next">
               <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3b3f12a16aeec8a136227cc63.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3b3f12a16aeec8a136227cc63.jpg">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cn.bing.com/th?id=OIP.zf9Kbmc7ZO-U-o-2ObYf4AHaFj&pid=Api&rs=1" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cn.bing.com/th?id=OIP.zf9Kbmc7ZO-U-o-2ObYf4AHaFj&pid=Api&rs=1">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                NVIDIA,CUDA,CUDNN,Anaconda</h3>
+                tensorboardX</h3>
                 <hr>
               </div>
             </a>

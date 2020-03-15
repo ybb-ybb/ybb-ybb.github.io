@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">OpenPAI安装记录 | 鱼摆摆的blog</title>
+  <title itemprop="name">Tag: 离线下载 | 鱼摆摆的blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -314,267 +314,64 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz1yILZONABLahhVN5IUAALJUQNebi0AEtqe361.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz1yILZONABLahhVN5IUAALJUQNebi0AEtqe361.jpg">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      OpenPAI安装记录</h1>
-      <p class="entry-census">
-        <span>
-          <a href="">
-            <img src="">
-          </a>
-        </span>
-        <span>
-          <a href="">鱼摆摆</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-1-16<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="离线下载.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">离线下载</h1>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h1 id="openpai安装记录"><a class="markdownIt-Anchor" href="#openpai安装记录"></a> OpenPAI安装记录</h1>
-<h2 id="环境准备"><a class="markdownIt-Anchor" href="#环境准备"></a> 环境准备</h2>
-<ul>
-<li>一台master主机和多台worker主机，一台维护机</li>
-<li>所有节点不要安装CUDA驱动，具有统一的登录账户和密码</li>
-<li>开启ssh功能和ntp功能(互相访问，时间同步)</li>
-</ul>
-<h2 id="部署过程"><a class="markdownIt-Anchor" href="#部署过程"></a> 部署过程</h2>
-<h3 id="安装docker-ce"><a class="markdownIt-Anchor" href="#安装docker-ce"></a> 安装docker-ce</h3>
-<pre class="highlight"><code class="bash">$ sudo apt-get -y install docker.io 
-$ sudo docker pull docker.io/openpai/dev-box:v0.14.0
-</code></pre>
-<h3 id="运行dev-box"><a class="markdownIt-Anchor" href="#运行dev-box"></a> 运行dev-box</h3>
-<pre class="highlight"><code class="bash">$ sudo docker run -itd \
-        -e COLUMNS=<span class="hljs-variable">$COLUMNS</span> -e LINES=<span class="hljs-variable">$LINES</span> -e TERM=<span class="hljs-variable">$TERM</span> \
-        -v /var/run/docker.sock:/var/run/docker.sock \
-        -v /pathConfiguration:/cluster-configuration  \
-        -v /hadoop-binary:/hadoop-binary  \
-        --pid=host \
-        --privileged=<span class="hljs-literal">true</span> \
-        --net=host \
-        --name=dev-box \
-        docker.io/openpai/dev-box:v0.14.0
-</code></pre>
-<h3 id="登录dev-box"><a class="markdownIt-Anchor" href="#登录dev-box"></a> 登录dev-box</h3>
-<pre class="highlight"><code class="bash">$ sudo docker <span class="hljs-built_in">exec</span> -it dev-box /bin/bash
-$ <span class="hljs-built_in">cd</span> /pai/deployment/quick-start/
-</code></pre>
-<h3 id="修改配置信息"><a class="markdownIt-Anchor" href="#修改配置信息"></a> 修改配置信息</h3>
-<pre class="highlight"><code class="bash">$ cp quick-start-example.yaml quick-start.yaml
-$ vim quick-start.yaml
-</code></pre>
-<p>修改内容：</p>
-<pre class="highlight"><code class="vim">	machine<span class="hljs-variable">s:</span>
- - <span class="hljs-symbol">&lt;ip-of-master&gt;</span>
- - <span class="hljs-symbol">&lt;ip-of-worker1&gt;</span>
- - <span class="hljs-symbol">&lt;ip-of-worder2&gt;</span>
-
-ssh-username: <span class="hljs-symbol">&lt;username&gt;</span>
-ssh-password: <span class="hljs-symbol">&lt;password&gt;</span>
-</code></pre>
-<h3 id="生成oepnpai配置文件"><a class="markdownIt-Anchor" href="#生成oepnpai配置文件"></a> 生成OepnPai配置文件</h3>
-<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /pai
-$ python paictl.py config generate -i /pai/deployment/quick-start/quick-start.yaml -o ~/pai-config -f 
-$ <span class="hljs-built_in">cd</span> ~/pai-config/
-</code></pre>
-<h3 id="修改kubernetes-configurationyaml"><a class="markdownIt-Anchor" href="#修改kubernetes-configurationyaml"></a> 修改kubernetes-configuration.yaml</h3>
-<p>将docker-registry替换为国内镜像库</p>
-<pre class="highlight"><code class="vim">docker-registry: docker.io/mirrorgooglecontainers
-</code></pre>
-<h3 id="修改layoutyaml"><a class="markdownIt-Anchor" href="#修改layoutyaml"></a> 修改layout.yaml</h3>
-<p>修改自己机器的配置信息</p>
-<pre class="highlight"><code class="vim">  machine-sku:
-     GENERIC:
-        mem: <span class="hljs-number">256</span>G
-        gpu:
-            <span class="hljs-built_in">type</span>: TITAN V
-            coun<span class="hljs-variable">t:</span> <span class="hljs-number">1</span>
-        cpu:
-            vcore: <span class="hljs-number">4</span>
-        <span class="hljs-keyword">o</span><span class="hljs-variable">s:</span> ubuntu16.<span class="hljs-number">04</span>
-      Worker1:
-        mem: <span class="hljs-number">256</span>G
-        gpu:
-            <span class="hljs-built_in">type</span>: GeForce RTX <span class="hljs-number">2080</span>Ti
-            coun<span class="hljs-variable">t:</span> <span class="hljs-number">4</span>
-        cpu:
-            vcore: <span class="hljs-number">4</span>
-        <span class="hljs-keyword">o</span><span class="hljs-variable">s:</span> ubuntu16.<span class="hljs-number">04</span>
-      Worker2:
-        mem: <span class="hljs-number">256</span>G
-        gpu:
-            <span class="hljs-built_in">type</span>: GeForce RTX <span class="hljs-number">2080</span>Ti
-            coun<span class="hljs-variable">t:</span> <span class="hljs-number">4</span>
-        cpu:
-            vcore: <span class="hljs-number">4</span>
-        <span class="hljs-keyword">o</span><span class="hljs-variable">s:</span> ubuntu16.<span class="hljs-number">04</span>
-</code></pre>
-<h3 id="修改services-configurationyaml"><a class="markdownIt-Anchor" href="#修改services-configurationyaml"></a> 修改services-configuration.yaml</h3>
-<p>解除common和data-path两个字段的注释，将data-path赋值到真实位置，作为服务数据存储路径</p>
-<pre class="highlight"><code class="bash">cluster:
- common:
- <span class="hljs-comment">#  cluster-id: pai-example</span>
- <span class="hljs-comment">#</span>
- <span class="hljs-comment">#  # HDFS, zookeeper data path on your cluster machine.</span>
-   data-path: <span class="hljs-string">"/data"</span>
-</code></pre>
-<p>tag字段修改为真实版本 v014.0<br>
-可修改cluster-id,后面会用到<br>
-修改rest-server下的用户名和密码，作为登录平台的账户密码</p>
-<p>指定显卡驱动版本，不指定的话默认安装384.11，这个驱动是不支持图灵核心显卡的，安装到后面会出现’nvidia-drm’ not found 错误，驱动版本只能从注释里的版本选择</p>
-<pre class="highlight"><code class="vim">driver<span class="hljs-variable">s:</span>
- <span class="hljs-keyword">set</span>-nvidia-<span class="hljs-keyword">runtime</span>: false
- # You can <span class="hljs-keyword">set</span> drivers <span class="hljs-keyword">version</span> here. If this value <span class="hljs-keyword">is</span> miss, default value will <span class="hljs-keyword">be</span> <span class="hljs-number">384.111</span>
- # Current supported <span class="hljs-keyword">version</span> <span class="hljs-keyword">list</span>
- # <span class="hljs-number">384.111</span>
- # <span class="hljs-number">390.25</span>
- # <span class="hljs-number">410.73</span>
- <span class="hljs-keyword">version</span>: <span class="hljs-string">"410.73"</span>
-</code></pre>
-<h3 id="部署kubernetes"><a class="markdownIt-Anchor" href="#部署kubernetes"></a> 部署Kubernetes</h3>
-<p>http:<master-ip>:9090查看进度</master-ip></p>
-<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /pai
-$ python paictl.py cluster k8s-bootup -p ~/pai-config
-</code></pre>
-<h3 id="更改配置文件到kubernetes"><a class="markdownIt-Anchor" href="#更改配置文件到kubernetes"></a> 更改配置文件到kubernetes</h3>
-<pre class="highlight"><code class="bash">$ <span class="hljs-built_in">cd</span> /pai
-python paictl.py config push -p ~/pai-config/ -c ~/.kube/config
-</code></pre>
-<p>若报错，卸载openpai组件和ks组件，检查之前的配置文件，重新安装</p>
-<pre class="highlight"><code class="bash">$ python paictl.py service [delete|start|stop] -c ~/.kube/config [-n name]  
-<span class="hljs-comment"># 卸载openpai组件</span>
-$ python paictl.py service delete -c ~/.kube/config 
-<span class="hljs-comment"># 卸载k8s组件</span>
-$ python paictl.py cluster k8s-clean -p ~/pai-config/ 
-</code></pre>
-<h3 id="启动openpai"><a class="markdownIt-Anchor" href="#启动openpai"></a> 启动Openpai</h3>
-<pre class="highlight"><code class="bash">$ python paictl.py service start -c ~/.kube/config
-</code></pre>
-<h3 id="界面"><a class="markdownIt-Anchor" href="#界面"></a> 界面</h3>
-<pre class="highlight"><code class="http"><span class="hljs-attribute">http://&lt;master-ip&gt;:9090  
-http://&lt;master-ip&gt;:80
-</span></code></pre>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
-<p><a href="https://github.com/kangapp/openPAI" target="_blank" rel="noopener">https://github.com/kangapp/openPAI</a><br>
-<a href="https://github.com/microsoft/pai" target="_blank" rel="noopener">https://github.com/microsoft/pai</a><br>
-<a href="https://zhuanlan.zhihu.com/p/64061072" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64061072</a></p>
-
-        </div>
-        <!-- .entry-content -->
-        <!-- <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/custom/donate/WeChanQR.jpg"></li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/01/19/docker使用/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKweiIFY_6AA3VjT9w7FMAALGfwFCj8AADdWl862.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKweiIFY_6AA3VjT9w7FMAALGfwFCj8AADdWl862.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                docker基本使用</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2020/01/11/Ubuntu命令记录/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3b3f12a16aeec8a136227cc63.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3b3f12a16aeec8a136227cc63.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                NVIDIA,CUDA,CUDNN,Anaconda</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "WkB5pg4GayKX0zctOl4BpfWA-gzGzoHsz",
-        appKey: "os0xe9xmnbkH2BsB7jdySUeJ",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="鱼摆摆" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author">鱼摆摆</a>
-            </h3>
-          </div>
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2020/03/15/离线下载+在线播放网盘/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i></p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+        <img width="150" height="150" src="https://sjbz-fd.zol-img.com.cn/t_s320x510c/g5/M00/00/01/ChMkJlfJUjCILRIjAAVvLdFcyCoAAU9igIAE3QABW9F591.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2020/03/15/离线下载+在线播放网盘/">
+    离线下载+在线播放网盘</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2020-3-15</div>
+    <p>
+    用VPS搭建个离线下载和在线观看的网盘</p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2020/03/15/离线下载+在线播放网盘/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
+
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
-
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

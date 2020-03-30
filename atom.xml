@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-03-15T04:39:06.210Z</updated>
+  <updated>2020-03-30T13:08:35.000Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git！</title>
+    <link href="/2020/03/30/Git/"/>
+    <id>/2020/03/30/Git/</id>
+    <published>2020-03-30T10:49:00.000Z</published>
+    <updated>2020-03-30T13:08:35.000Z</updated>
+    
+    <summary type="html">
+    
+      Git的一点教程
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="Git" scheme="/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>离线下载+在线播放网盘</title>

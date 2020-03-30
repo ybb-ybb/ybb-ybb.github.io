@@ -6,7 +6,7 @@ author: 鱼摆摆
 comments: true
 tags: 
  - emacs
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://cn.bing.com/th?id=OIP.rD93aM9L7Wx4Nqd_HYIRIQHaFj&pid=Api&rs=1
 categories: 瞎折腾
 ---
 # Emacs基本操作

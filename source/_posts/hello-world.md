@@ -6,7 +6,7 @@ author: 鱼摆摆
 comments: true
 tags: 
  - hexo
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: http://pic5.nipic.com/20100104/4118837_205419006186_2.jpg
 categories: 其它
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).

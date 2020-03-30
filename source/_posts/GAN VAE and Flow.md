@@ -8,7 +8,7 @@ tags:
  - gan
  - vae
  - flow
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: http://img.article.pchome.net/00/32/50/36/pic_lib/wm/ghibli_22.jpg
 categories: 学习
 ---
 

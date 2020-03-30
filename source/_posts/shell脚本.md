@@ -6,7 +6,7 @@ author: 鱼摆摆
 comments: true
 tags: 
  - shell
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://pic2.zhimg.com/v2-f8bf1cd16fc87ffff201ec9661e543cd_1200x500.jpg
 categories: 瞎折腾
 ---
 ```shell

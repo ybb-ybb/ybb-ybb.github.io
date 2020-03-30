@@ -7,7 +7,7 @@ author: 鱼摆摆
 comments: true
 tags: 
  - neural ode
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://cn.bing.com/th?id=OIP.zf9Kbmc7ZO-U-o-2ObYf4AHaFj&pid=Api&rs=1
 categories: 学习
 ---
 

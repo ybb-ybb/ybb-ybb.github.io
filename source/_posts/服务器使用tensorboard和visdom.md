@@ -8,7 +8,7 @@ comments: true
 tags: 
  - 服务器
  - 实验室
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://cn.bing.com/th?id=OIP.bDfxJo0jUHFW9aIYlvoG_AHaFb&pid=Api&rs=1
 categories: 实验室
 ---
 # 服务器使用tensorboard和visdom

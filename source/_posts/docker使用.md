@@ -6,7 +6,7 @@ author: 鱼摆摆
 comments: true
 tags: 
  - docker
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJlbKweiIFY_6AA3VjT9w7FMAALGfwFCj8AADdWl862.jpg
 categories: 瞎折腾
 ---
 # Docker基本使用

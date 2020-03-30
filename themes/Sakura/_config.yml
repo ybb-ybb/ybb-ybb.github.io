@@ -33,7 +33,7 @@ menus:
   友人帐: { path: /links/, fa: fa-link faa-shake }
 #  赞赏: { path: /donate/, fa: fa-heart faa-pulse }
   关于: { path: /, fa: fa-leaf faa-wrench , submenus: { 
-    我？: {path: /about/, fa: fa-meetup}, 
+#    我？: {path: /about/, fa: fa-meetup}, 
     主题: {path: /theme-sakura/, fa: iconfont icon-sakura },
     Lab: {path: /lab/, fa: fa-cogs },
   } }
@@ -117,5 +117,5 @@ aplayer:
 
 # Valine
 valine: true
-v_appId: GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz
-v_appKey: mgOpfzbkHYqU92CV4IDlAUHQ
+v_appId: WkB5pg4GayKX0zctOl4BpfWA-gzGzoHsz
+v_appKey: os0xe9xmnbkH2BsB7jdySUeJ

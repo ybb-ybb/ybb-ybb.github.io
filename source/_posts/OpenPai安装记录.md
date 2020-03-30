@@ -6,7 +6,7 @@ author: 鱼摆摆
 comments: true
 tags: 
  - openpai
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz1yILZONABLahhVN5IUAALJUQNebi0AEtqe361.jpg
 categories: 瞎折腾
 ---
 # OpenPAI安装记录

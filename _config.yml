@@ -116,3 +116,7 @@ markdown_it_plus:
   quotes: “”‘’
   pre_class: highlight
 
+# 加密
+encrypt:
+    enable: true
+

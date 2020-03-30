@@ -9,7 +9,7 @@ tags:
  - cuda
  - cudnn
  - anaconda
-photos: https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg
+photos: https://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/7af40ad162d9f2d3b3f12a16aeec8a136227cc63.jpg
 categories: 瞎折腾
 ---
 # NVIDIA,CUDA,CUDNN

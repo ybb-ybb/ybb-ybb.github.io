@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">Numpy | 鱼摆摆的blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "鱼摆摆的blog";
+  mashiro_option.author_name = "鱼摆摆的blog";
+  mashiro_option.site_url = "https://ybb-ybb.github.io";
+  mashiro_option.v_appId = "WkB5pg4GayKX0zctOl4BpfWA-gzGzoHsz";
+  mashiro_option.v_appKey = "os0xe9xmnbkH2BsB7jdySUeJ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀180824/19s_by_wlop-dbsw09i.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/651952.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/680362.png,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/731440.png,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/820208.png,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/928760.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/944582.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/954350.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/997983.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ybb-ybb.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>你们不要想喜欢 弄个大新闻 ——长者</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/ybb-ybb" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://i.loli.net/2020/03/08/Xgz72w4JuGZBTNQ.jpg" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg" target="_blank" class="social-github" title="Wechat">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/wechat.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://i.loli.net/2020/03/07/OdKMwNzHgB7beqp.jpg" target="_blank" class="social-github" title="qq">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/qq.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">鱼摆摆的blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/学习/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          学习
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/瞎折腾/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          瞎折腾
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/实验室/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          实验室
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/安利/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          安利
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/其它/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          其它
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://w.wallhaven.cc/full/r2/wallhaven-r2lmz7.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/r2/wallhaven-r2lmz7.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Numpy</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href="">鱼摆摆</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-24<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="基础篇"><a class="markdownIt-Anchor" href="#基础篇"></a> 基础篇</h1>
+<h2 id="创建数组"><a class="markdownIt-Anchor" href="#创建数组"></a> 创建数组：</h2>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># 通过list创建</span>
+&gt;&gt;&gt;np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+       [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
+<span class="hljs-comment"># 通过arange创建</span>
+&gt;&gt;&gt;np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0.1</span>)
+array([<span class="hljs-number">0.</span> , <span class="hljs-number">0.1</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.6</span>, <span class="hljs-number">0.7</span>, <span class="hljs-number">0.8</span>, <span class="hljs-number">0.9</span>])
+<span class="hljs-comment"># arange+广播</span>
+&gt;&gt;&gt;np.arange(<span class="hljs-number">1</span>,<span class="hljs-number">60</span>,<span class="hljs-number">10</span>).reshape(<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>)+np.arange(<span class="hljs-number">0</span>,<span class="hljs-number">6</span>)
+array([[ <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>,  <span class="hljs-number">3</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>],
+       [<span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>],
+       [<span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>, <span class="hljs-number">24</span>, <span class="hljs-number">25</span>, <span class="hljs-number">26</span>],
+       [<span class="hljs-number">31</span>, <span class="hljs-number">32</span>, <span class="hljs-number">33</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">36</span>],
+       [<span class="hljs-number">41</span>, <span class="hljs-number">42</span>, <span class="hljs-number">43</span>, <span class="hljs-number">44</span>, <span class="hljs-number">45</span>, <span class="hljs-number">46</span>],
+       [<span class="hljs-number">51</span>, <span class="hljs-number">52</span>, <span class="hljs-number">53</span>, <span class="hljs-number">54</span>, <span class="hljs-number">55</span>, <span class="hljs-number">56</span>]])
+<span class="hljs-comment"># linspace通过等差数列创建数组</span>
+&gt;&gt;&gt;np.linspace(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">10</span>)
+array([<span class="hljs-number">0.</span>        , <span class="hljs-number">0.11111111</span>, <span class="hljs-number">0.22222222</span>, <span class="hljs-number">0.33333333</span>, <span class="hljs-number">0.44444444</span>,
+       <span class="hljs-number">0.55555556</span>, <span class="hljs-number">0.66666667</span>, <span class="hljs-number">0.77777778</span>, <span class="hljs-number">0.88888889</span>, <span class="hljs-number">1.</span>        ])
+<span class="hljs-comment"># 特殊形式数组</span>
+&gt;&gt;&gt;np.zeros((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),np.int)
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]])
+&gt;&gt;&gt;np.ones((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),np.int)
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+       [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+<span class="hljs-comment"># 长度为10，元素值为0-1的随机数数组</span>
+&gt;&gt;&gt;np.random.rand(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+array([[<span class="hljs-number">0.96064533</span>, <span class="hljs-number">0.55490284</span>, <span class="hljs-number">0.13219661</span>],
+       [<span class="hljs-number">0.3036712</span> , <span class="hljs-number">0.95073354</span>, <span class="hljs-number">0.39364538</span>]])
+<span class="hljs-comment"># 通过frombuffer,fromstring,fromfile和fromfunction等函数创建数组</span>
+&gt;&gt;&gt;np.fromfunction(<span class="hljs-keyword">lambda</span> x,y:(x+<span class="hljs-number">1</span>)*(y+<span class="hljs-number">1</span>),(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))
+array([[<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3.</span>],
+       [<span class="hljs-number">2.</span>, <span class="hljs-number">4.</span>, <span class="hljs-number">6.</span>]])
+<span class="hljs-comment"># a和b之间的随机整数</span>
+&gt;&gt;&gt;np.random.randint(low=<span class="hljs-number">0</span>,high=<span class="hljs-number">20</span>,size=<span class="hljs-number">5</span>)
+array([ <span class="hljs-number">7</span>, <span class="hljs-number">19</span>, <span class="hljs-number">12</span>, <span class="hljs-number">18</span>, <span class="hljs-number">12</span>])
+
+</code></pre>
+<h2 id="索引和切片"><a class="markdownIt-Anchor" href="#索引和切片"></a> 索引和切片</h2>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;a=np.arange(<span class="hljs-number">5</span>)
+&gt;&gt;&gt;a[<span class="hljs-number">2</span>]
+<span class="hljs-number">2</span>
+&gt;&gt;&gt;a[:<span class="hljs-number">2</span>]
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])
+&gt;&gt;&gt;a[:<span class="hljs-number">-1</span>]
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-comment"># 加入步长</span>
+&gt;&gt;&gt;a[<span class="hljs-number">0</span>:<span class="hljs-number">4</span>:<span class="hljs-number">2</span>]
+array([<span class="hljs-number">0</span>, <span class="hljs-number">2</span>])
+&gt;&gt;&gt;a[::<span class="hljs-number">-1</span>]
+array([<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>])
+<span class="hljs-comment"># 布尔索引</span>
+&gt;&gt;&gt;mask=np.array([<span class="hljs-literal">True</span>,<span class="hljs-literal">True</span>,<span class="hljs-literal">False</span>,<span class="hljs-literal">False</span>,<span class="hljs-literal">True</span>])
+&gt;&gt;&gt;a[mask]
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>])
+&gt;&gt;&gt;a[a&gt;<span class="hljs-number">2</span>]
+array([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+<span class="hljs-comment"># 索引轴缺失</span>
+&gt;&gt;&gt;a=np.arange(<span class="hljs-number">6</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+&gt;&gt;&gt;a[<span class="hljs-number">-1</span>]
+array([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+&gt;&gt;&gt;a[<span class="hljs-number">-1</span>,:]
+array([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+<span class="hljs-comment"># 使用...补全索引轴</span>
+&gt;&gt;&gt;a=np.arange(<span class="hljs-number">24</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+&gt;&gt;&gt;a
+array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>,  <span class="hljs-number">3</span>],
+        [ <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>],
+        [ <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>]],
+       [[<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>],
+        [<span class="hljs-number">16</span>, <span class="hljs-number">17</span>, <span class="hljs-number">18</span>, <span class="hljs-number">19</span>],
+        [<span class="hljs-number">20</span>, <span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>]]])
+&gt;&gt;&gt;a[<span class="hljs-number">0</span>,...,<span class="hljs-number">1</span>]
+array([<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>])
+</code></pre>
+<h2 id="转置及reshape"><a class="markdownIt-Anchor" href="#转置及reshape"></a> 转置及reshape</h2>
+<p><strong>reshape:</strong></p>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># None可将一维行向量转置为列向量</span>
+&gt;&gt;&gt;a=np.random.rand(<span class="hljs-number">6</span>)
+&gt;&gt;&gt;a
+array([<span class="hljs-number">0.25779506</span>, <span class="hljs-number">0.22348449</span>, <span class="hljs-number">0.19464385</span>, <span class="hljs-number">0.26307378</span>, <span class="hljs-number">0.76859958</span>,
+       <span class="hljs-number">0.80357972</span>])
+&gt;&gt;&gt;a[:,<span class="hljs-literal">None</span>]
+array([[<span class="hljs-number">0.25779506</span>],
+       [<span class="hljs-number">0.22348449</span>],
+       [<span class="hljs-number">0.19464385</span>],
+       [<span class="hljs-number">0.26307378</span>],
+       [<span class="hljs-number">0.76859958</span>],
+       [<span class="hljs-number">0.80357972</span>]])
+<span class="hljs-comment"># 等价于reshape</span>
+&gt;&gt;&gt;a.reshape(<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>)
+array([[<span class="hljs-number">0.25779506</span>],
+       [<span class="hljs-number">0.22348449</span>],
+       [<span class="hljs-number">0.19464385</span>],
+       [<span class="hljs-number">0.26307378</span>],
+       [<span class="hljs-number">0.76859958</span>],
+       [<span class="hljs-number">0.80357972</span>]])
+&gt;&gt;&gt;a.reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+array([[<span class="hljs-number">0.25779506</span>, <span class="hljs-number">0.22348449</span>, <span class="hljs-number">0.19464385</span>],
+       [<span class="hljs-number">0.26307378</span>, <span class="hljs-number">0.76859958</span>, <span class="hljs-number">0.80357972</span>]])
+<span class="hljs-comment"># flatten()返回一维数组</span>
+&gt;&gt;&gt;a=np.arange(<span class="hljs-number">6</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+&gt;&gt;&gt;a.flatten()
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+<span class="hljs-comment"># 等价于ravel或reshape(-1)</span>
+&gt;&gt;&gt;np.ravel(a)
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+</code></pre>
+<p><strong>transpose:</strong></p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;a=np.arange(<span class="hljs-number">24</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+&gt;&gt;&gt;a
+array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>,  <span class="hljs-number">3</span>],
+        [ <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>],
+        [ <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>]],
+       [[<span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>],
+        [<span class="hljs-number">16</span>, <span class="hljs-number">17</span>, <span class="hljs-number">18</span>, <span class="hljs-number">19</span>],
+        [<span class="hljs-number">20</span>, <span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>]]])
+&gt;&gt;&gt;a,shape
+(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+&gt;&gt;&gt;a.transpose(<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)
+array([[[ <span class="hljs-number">0</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">8</span>],
+        [<span class="hljs-number">12</span>, <span class="hljs-number">16</span>, <span class="hljs-number">20</span>]],
+       [[ <span class="hljs-number">1</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">9</span>],
+        [<span class="hljs-number">13</span>, <span class="hljs-number">17</span>, <span class="hljs-number">21</span>]],
+       [[ <span class="hljs-number">2</span>,  <span class="hljs-number">6</span>, <span class="hljs-number">10</span>],
+        [<span class="hljs-number">14</span>, <span class="hljs-number">18</span>, <span class="hljs-number">22</span>]],
+       [[ <span class="hljs-number">3</span>,  <span class="hljs-number">7</span>, <span class="hljs-number">11</span>],
+        [<span class="hljs-number">15</span>, <span class="hljs-number">19</span>, <span class="hljs-number">23</span>]]])
+&gt;&gt;&gt;a.transpose(<span class="hljs-number">2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>).shape
+(<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+</code></pre>
+<h1 id="ufun"><a class="markdownIt-Anchor" href="#ufun"></a> Ufun</h1>
+<p>numpy数学函数：</p>
+<p>注：不提供axis时，按整个数组计算</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>np.sin(x)</td>
+<td>sin(x)</td>
+</tr>
+<tr>
+<td>np.cos(x)</td>
+<td>cos(x)</td>
+</tr>
+<tr>
+<td>np.tan(x</td>
+<td>tan(x)</td>
+</tr>
+<tr>
+<td>np.arcsin(x)</td>
+<td>arcsin(x)</td>
+</tr>
+<tr>
+<td>np.arccos(x)</td>
+<td>arccos(x)</td>
+</tr>
+<tr>
+<td>np.arctan(x)</td>
+<td>arctan(x)</td>
+</tr>
+<tr>
+<td>np.arctan2(x,y)</td>
+<td>arctan(x/y)</td>
+</tr>
+<tr>
+<td>np.deg2rad(x)</td>
+<td>角度转弧度</td>
+</tr>
+<tr>
+<td>np.rad2deg(x)</td>
+<td>弧度转角度</td>
+</tr>
+<tr>
+<td>np.prod(x,axis=None)</td>
+<td>乘积</td>
+</tr>
+<tr>
+<td>np.sum(x,axis=None)</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>np.exp(x)</td>
+<td>exp(x)</td>
+</tr>
+<tr>
+<td>np.log(x)</td>
+<td>ln(x)</td>
+</tr>
+<tr>
+<td>np.sqrt(x)</td>
+<td>开根</td>
+</tr>
+<tr>
+<td>np.square(x)</td>
+<td>平方</td>
+</tr>
+<tr>
+<td>np.absolute(x)</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>np.fabs(x)</td>
+<td>绝对值</td>
+</tr>
+<tr>
+<td>np.sign(x)</td>
+<td>符号</td>
+</tr>
+<tr>
+<td>np.maximum(x,y)</td>
+<td>逐元素取最大值</td>
+</tr>
+<tr>
+<td>np.minimum(x,y)</td>
+<td>逐元素取最小值</td>
+</tr>
+<tr>
+<td>np.mean(x,axis=None)</td>
+<td>均值</td>
+</tr>
+<tr>
+<td>np.std(x,axis=None)</td>
+<td>标准差</td>
+</tr>
+<tr>
+<td>np.var(x,axis=None)</td>
+<td>方差</td>
+</tr>
+<tr>
+<td>np.average(x,weight)</td>
+<td>(加权)平均</td>
+</tr>
+<tr>
+<td>np.argmax(x,axis=None)</td>
+<td>最大值索引</td>
+</tr>
+<tr>
+<td>np.argmin(x,axis=None)</td>
+<td>最小值索引</td>
+</tr>
+<tr>
+<td>np.sort(x,axis=None)</td>
+<td>从小到大排序</td>
+</tr>
+<tr>
+<td>np.argsort(x,axis=None)</td>
+<td>从小到大排序的索引</td>
+</tr>
+</tbody>
+</table>
+<p><strong>利用frompyfunc自定义Ufun：</strong></p>
+<p><code>np.frompyfunc(func,n_in,n_out)</code></p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pow2</span><span class="hljs-params">(x)</span>:</span>
+<span class="hljs-meta">... </span>   <span class="hljs-keyword">return</span> x**<span class="hljs-number">2</span>
+&gt;&gt;&gt;fun_pow2=np.frompyfunc(pow2,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)
+&gt;&gt;&gt;a=np.arange(<span class="hljs-number">5</span>)
+&gt;&gt;&gt;fun_pow2(a)
+array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>], dtype=object)
+</code></pre>
+<h1 id="广播操作"><a class="markdownIt-Anchor" href="#广播操作"></a> 广播操作</h1>
+<blockquote>
+<p>广播是针对形状不同的数组的运算采取的操作。<br>
+当我们使用ufunc函数对两个数组进行计算时，ufunc函数会对这两个数组的对应元素进行计算，因此它要求这两个数组有相同的大小(shape相同)。如果两个数组的shape不同的话（行列规模不等），会进行如下的广播(broadcasting)处理：<br>
+1）. 让所有输入数组都向其中shape最长的数组看齐，shape中不足的部分都通过在前面加1补齐。因此输出数组的shape是输入数组shape的各个轴上的最大值（往最大轴长上靠）。<br>
+2）. 如果输入数组的某个轴和输出数组的对应轴的长度相同或者其长度为1时，这个数组能够用来计算，否则出错。<br>
+3）. 当输入数组的某个轴的长度为1时，沿着此轴运算时都用此轴上的第一组值。</p>
+</blockquote>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;np.arange(<span class="hljs-number">2</span>)[:,<span class="hljs-literal">None</span>]+np.arange(<span class="hljs-number">3</span>)
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+       [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]])
+</code></pre>
+<h1 id="四则运算"><a class="markdownIt-Anchor" href="#四则运算"></a> 四则运算</h1>
+<p><strong>+，-，*，/ ，</strong>  为逐元素四则运算**</p>
+<p><strong>矩阵乘法，注意要符合矩阵乘法规则:</strong></p>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># 2*3矩阵</span>
+&gt;&gt;&gt;a=np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]])
+<span class="hljs-comment"># 3*2矩阵</span>
+&gt;&gt;&gt;b=np.array([[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">8</span>]])
+&gt;&gt;&gt;a.dot(b)
+array([[<span class="hljs-number">34</span>, <span class="hljs-number">40</span>],
+       [<span class="hljs-number">79</span>, <span class="hljs-number">94</span>]])
+</code></pre>
+<p>**内积：**对于两个一维数组，计算的是这两个数组对应下标元素的乘积和；对于多维数组a和b，它计算的结果数组中的每个元素都是数组a和b的最后一维的内积，因此数组a和b的最后一维的长度必须相同。</p>
+<p>计算公式为：<strong>inner(a, b)[i,j,k,m] = sum(a[i,j,:]*b[k,m,:])</strong></p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;a=np.arange(<span class="hljs-number">12</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)
+&gt;&gt;&gt;b=np.arange(<span class="hljs-number">12</span>,<span class="hljs-number">24</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>)
+&gt;&gt;&gt;np.inner(a,b)
+array([[[[ <span class="hljs-number">13</span>,  <span class="hljs-number">15</span>,  <span class="hljs-number">17</span>],
+         [ <span class="hljs-number">19</span>,  <span class="hljs-number">21</span>,  <span class="hljs-number">23</span>]],
+        [[ <span class="hljs-number">63</span>,  <span class="hljs-number">73</span>,  <span class="hljs-number">83</span>],
+         [ <span class="hljs-number">93</span>, <span class="hljs-number">103</span>, <span class="hljs-number">113</span>]],
+        [[<span class="hljs-number">113</span>, <span class="hljs-number">131</span>, <span class="hljs-number">149</span>],
+         [<span class="hljs-number">167</span>, <span class="hljs-number">185</span>, <span class="hljs-number">203</span>]]],
+       [[[<span class="hljs-number">163</span>, <span class="hljs-number">189</span>, <span class="hljs-number">215</span>],
+         [<span class="hljs-number">241</span>, <span class="hljs-number">267</span>, <span class="hljs-number">293</span>]],
+        [[<span class="hljs-number">213</span>, <span class="hljs-number">247</span>, <span class="hljs-number">281</span>],
+         [<span class="hljs-number">315</span>, <span class="hljs-number">349</span>, <span class="hljs-number">383</span>]],
+        [[<span class="hljs-number">263</span>, <span class="hljs-number">305</span>, <span class="hljs-number">347</span>],
+         [<span class="hljs-number">389</span>, <span class="hljs-number">431</span>, <span class="hljs-number">473</span>]]]])
+</code></pre>
+<p>**外积：**只按照一维数组进行计算，如果传入为多维数组，先展开再计算</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;np.outer([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>])
+array([[ <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>],
+       [ <span class="hljs-number">8</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>],
+       [<span class="hljs-number">12</span>, <span class="hljs-number">15</span>, <span class="hljs-number">18</span>, <span class="hljs-number">21</span>]])
+</code></pre>
+<h1 id="其它一些"><a class="markdownIt-Anchor" href="#其它一些"></a> 其它一些</h1>
+<p><strong>np.ndenumerate</strong>返回索引及数组值的迭代对象</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;<span class="hljs-keyword">for</span> index, x <span class="hljs-keyword">in</span> np.ndenumerate(c):
+<span class="hljs-meta">... </span>   print(index, x)
+((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">1</span>)
+((<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), <span class="hljs-number">2</span>)
+((<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), <span class="hljs-number">3</span>)
+((<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-number">4</span>)
+
+&gt;&gt;&gt;np.ndenumerate(c)
+&lt;numpy.lib.index_tricks.ndenumerate at <span class="hljs-number">0x7f21cc0dbb90</span>&gt;
+
+&gt;&gt;&gt;np.ndenumerate(c).next()
+((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), <span class="hljs-number">1</span>)
+</code></pre>
+<p><strong>np.random.choice</strong>从一维数组或int对象随机选择元素</p>
+<p>np.random.choice(a,size=None,replace=True,p=None)</p>
+<p>a:一维数据或int对象；replace=True：可重复选择；p：选取的概率</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;np.random.choice(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,p=[<span class="hljs-number">0.1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.3</span>,<span class="hljs-number">0.6</span>,<span class="hljs-number">0</span>])
+Out[<span class="hljs-number">4</span>]: array([<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>], dtype=int64)
+</code></pre>
+<p><strong>np.nonezeros</strong>返回非0元素的索引</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;np.nonzero([[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>]])
+(array([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], dtype=int64), array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>], dtype=int64))
+</code></pre>
+<p><strong>np.intersect1d</strong>求两个数组的交集：</p>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>np.intersect1d([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]) 
+array([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>])
+<span class="hljs-comment"># 利用reduce取多个交</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+<span class="hljs-meta">&gt;&gt;&gt; </span>reduce(np.intersect1d, ([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>]))
+array([<span class="hljs-number">3</span>])
+</code></pre>
+<p><strong>np.where</strong>找到矩阵中满足条件的元素的索引</p>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>x = np.arange(<span class="hljs-number">9.</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>np.where( x &gt; <span class="hljs-number">5</span> )
+(array([<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]), array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]))
+<span class="hljs-meta">&gt;&gt;&gt; </span>x[np.where( x &gt; <span class="hljs-number">3.0</span> )]               <span class="hljs-comment"># 返回大于3的值.</span>
+array([ <span class="hljs-number">4.</span>,  <span class="hljs-number">5.</span>,  <span class="hljs-number">6.</span>,  <span class="hljs-number">7.</span>,  <span class="hljs-number">8.</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>np.where( x == <span class="hljs-number">3.0</span> )             <span class="hljs-comment"># 返回等于3的值的索引.</span>
+(array([<span class="hljs-number">1</span>], dtype=int64), array([<span class="hljs-number">0</span>], dtype=int64))
+</code></pre>
+<p>**np.indices:**获取数组shape属性的所有索引，其shpe为(dim,shape)</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;np.indices((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)).shape
+(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+&gt;&gt;&gt;np.indices((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))[<span class="hljs-number">0</span>]
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+       [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+&gt;&gt;&gt;np.indices((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))[<span class="hljs-number">1</span>]
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]])
+<span class="hljs-comment"># 用于索引</span>
+&gt;&gt;&gt;a=np.arange(<span class="hljs-number">6</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+&gt;&gt;&gt;b=np.indices((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))[<span class="hljs-number">0</span>]
+&gt;&gt;&gt;a[b]
+array([[[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+        [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+        [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]],
+       [[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+        [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+        [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]])
+&gt;&gt;&gt;c=np.indices((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))[<span class="hljs-number">1</span>]
+&gt;&gt;&gt;a[:,c]
+array([[[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+        [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]],
+       [[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+        [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]])
+<span class="hljs-comment"># 配合布尔索引进行mask操作</span>
+&gt;&gt;&gt;a[b&gt;<span class="hljs-number">0</span>]
+array([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+&gt;&gt;&gt;b&gt;<span class="hljs-number">0</span>
+array([[<span class="hljs-literal">False</span>, <span class="hljs-literal">False</span>, <span class="hljs-literal">False</span>],
+       [ <span class="hljs-literal">True</span>,  <span class="hljs-literal">True</span>,  <span class="hljs-literal">True</span>]])
+</code></pre>
+<p>**np.repeat:**对数组进行扩展</p>
+<p>np.repeat(a,repeats,axis=None)</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;a=np.array([[<span class="hljs-number">10</span>,<span class="hljs-number">20</span>],[<span class="hljs-number">30</span>,<span class="hljs-number">40</span>]])
+&gt;&gt;&gt;np.repeat(a,[<span class="hljs-number">3</span>,<span class="hljs-number">2</span>],axis=<span class="hljs-number">0</span>)
+array([[<span class="hljs-number">10</span>, <span class="hljs-number">20</span>],
+       [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>],
+       [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>],
+       [<span class="hljs-number">30</span>, <span class="hljs-number">40</span>],
+       [<span class="hljs-number">30</span>, <span class="hljs-number">40</span>]])
+</code></pre>
+<p>**np.tile:**对整个数组进行复制拼接</p>
+<p>np.tile(a,reps)</p>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>a=np.array([<span class="hljs-number">10</span>,<span class="hljs-number">20</span>])
+&gt;&gt;&gt;np.tile(a, (<span class="hljs-number">3</span>,<span class="hljs-number">2</span>))
+array([[<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>],  
+       [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>],  
+       [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>]])  
+</code></pre>
+<p>**np.pad:**数组填充(padding)操作</p>
+<p>np.pad(array,pad_width,mode,**kwags)</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;A = np.arange(<span class="hljs-number">95</span>,<span class="hljs-number">99</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)
+&gt;&gt;&gt;np.pad(A,((<span class="hljs-number">3</span>,<span class="hljs-number">2</span>),(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)),<span class="hljs-string">'constant'</span>,constant_values = (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))
+array([[ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],
+       [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],
+       [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],
+       [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>, <span class="hljs-number">95</span>, <span class="hljs-number">96</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],
+       [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>, <span class="hljs-number">97</span>, <span class="hljs-number">98</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],
+       [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>],
+       [ <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>]])
+</code></pre>
+<p>**np.flip:**沿着指定轴翻转</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;A = np.arange(<span class="hljs-number">4</span>).reshape((<span class="hljs-number">2</span>,<span class="hljs-number">2</span>))
+&gt;&gt;&gt;np.flip(A,<span class="hljs-number">0</span>)
+array([[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+       [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]])
+</code></pre>
+<p>**np.unravel_index:**返回indices的下标</p>
+<p>np.unravel_index(indices,dims,order=‘C’)</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;np.unravel_index([<span class="hljs-number">22</span>, <span class="hljs-number">41</span>, <span class="hljs-number">37</span>], (<span class="hljs-number">7</span>,<span class="hljs-number">6</span>))
+(array([<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>]), array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>]))
+&gt;&gt;&gt;a=np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>]])
+&gt;&gt;&gt;np.argmax(a)
+<span class="hljs-number">3</span>
+&gt;&gt;&gt;np.unravel_index(np.argmax(a),a.shape)
+(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<p>**np.unique:**去除数组中重复数字，并进行排序后输出</p>
+<pre class="highlight"><code class="python">&gt;&gt;&gt;a=np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>]])
+&gt;&gt;&gt;np.unique(a)
+array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/05/01/统计学习/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/ym/wallhaven-ympdrg.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/ym/wallhaven-ympdrg.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                统计学习</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/04/16/矩阵求导/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/ox/wallhaven-ox83gp.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/ox/wallhaven-ox83gp.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                矩阵求导</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "WkB5pg4GayKX0zctOl4BpfWA-gzGzoHsz",
+        appKey: "os0xe9xmnbkH2BsB7jdySUeJ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="鱼摆摆" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">鱼摆摆</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 鱼摆摆<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2020 yubaibai</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1","name":"Imagine_Dragons _Birds.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1","name":"Imagine_Dragons _Birds.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div class="changeSkin-gear no-select">
+  <div class="keys" id="setbtn"> 
+   <span id="open-skinMenu"> 切换主题 | SCHEME TOOL  
+     <i class="iconfont icon-gear inline-block rotating"></i> 
+   </span>
+  </div>
+</div>
+ 
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+ <div class="theme-controls row-container">
+  <ul class="menu-list">
+   <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+   <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+   <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+   <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+   <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+   <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+   <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+   <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+  </ul>
+ </div>
+</div>
+<canvas id="night-mode-cover"></canvas>
+
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">鱼摆摆的blog</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/ybb-ybb" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg" class="fa fa-wechat" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/学习/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  学习
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/瞎折腾/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  瞎折腾
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/实验室/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  实验室
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/安利/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  安利
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/其它/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  其它
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2114311084"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

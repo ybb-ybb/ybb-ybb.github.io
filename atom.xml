@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-06-26T06:24:41.865Z</updated>
+  <updated>2020-06-27T02:01:32.151Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十大排序算法</title>
+    <link href="/2020/06/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>/2020/06/27/排序算法/</id>
+    <published>2020-06-27T01:44:00.000Z</published>
+    <updated>2020-06-27T02:01:32.151Z</updated>
+    
+    <summary type="html">
+    
+      python实现一下十大排序算法
+    
+    </summary>
+    
+      <category term="学习" scheme="/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>screen</title>
@@ -411,32 +433,6 @@
     
     
       <category term="openpai" scheme="/tags/openpai/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NVIDIA,CUDA,CUDNN,Anaconda</title>
-    <link href="/2020/01/11/Ubuntu%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/"/>
-    <id>/2020/01/11/Ubuntu命令记录/</id>
-    <published>2020-01-11T12:32:00.000Z</published>
-    <updated>2020-03-15T04:35:55.578Z</updated>
-    
-    <summary type="html">
-    
-      NVIDIA,CUDA,CUDNN,Anaconda
-    
-    </summary>
-    
-      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
-    
-    
-      <category term="nvidia" scheme="/tags/nvidia/"/>
-    
-      <category term="cuda" scheme="/tags/cuda/"/>
-    
-      <category term="cudnn" scheme="/tags/cudnn/"/>
-    
-      <category term="anaconda" scheme="/tags/anaconda/"/>
     
   </entry>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-06-27T02:10:11.063Z</updated>
+  <updated>2020-07-01T06:43:29.889Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="/2020/07/01/FFJORD/"/>
+    <id>/2020/07/01/FFJORD/</id>
+    <published>2020-07-01T06:43:29.889Z</published>
+    <updated>2020-07-01T06:43:29.889Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>十大排序算法</title>
@@ -249,7 +263,7 @@
     <link href="/2020/03/04/Neural%20ODE/"/>
     <id>/2020/03/04/Neural ODE/</id>
     <published>2020-03-04T03:38:00.000Z</published>
-    <updated>2020-03-15T04:22:18.790Z</updated>
+    <updated>2020-07-02T08:52:50.662Z</updated>
     
     <summary type="html">
     
@@ -269,7 +283,7 @@
     <link href="/2020/02/15/GAN%20VAE%20and%20Flow/"/>
     <id>/2020/02/15/GAN VAE and Flow/</id>
     <published>2020-02-15T13:19:00.000Z</published>
-    <updated>2020-03-15T04:19:00.034Z</updated>
+    <updated>2020-07-01T11:08:38.809Z</updated>
     
     <summary type="html">
     
@@ -413,26 +427,6 @@
     
     
       <category term="docker" scheme="/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenPAI安装记录</title>
-    <link href="/2020/01/16/OpenPai%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/"/>
-    <id>/2020/01/16/OpenPai安装记录/</id>
-    <published>2020-01-16T02:48:00.000Z</published>
-    <updated>2020-03-15T04:33:53.506Z</updated>
-    
-    <summary type="html">
-    
-      OpenPAI安装记录
-    
-    </summary>
-    
-      <category term="瞎折腾" scheme="/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
-    
-    
-      <category term="openpai" scheme="/tags/openpai/"/>
     
   </entry>
   

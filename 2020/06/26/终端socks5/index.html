@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">screen | 鱼摆摆的blog</title>
+  <title itemprop="name">终端使用socks5代理 | 鱼摆摆的blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -320,11 +320,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://w.wallhaven.cc/full/13/wallhaven-13vym3.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/13/wallhaven-13vym3.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://w.wallhaven.cc/full/6k/wallhaven-6k3oox.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/6k/wallhaven-6k3oox.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      screen</h1>
+      终端使用socks5代理</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -336,7 +336,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-5-28<span class="bull">
+        2020-6-26<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -350,35 +350,24 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h1>
-<pre class="highlight"><code class="bash">$ sudo apt-get install screen
+          <h1 id="proxychains安装"><a class="markdownIt-Anchor" href="#proxychains安装"></a> proxychains安装</h1>
+<pre class="highlight"><code class="bash"><span class="hljs-comment"># git仓库中编译安装</span>
+$ git <span class="hljs-built_in">clone</span> https://github.com/rofl0r/proxychains-ng.git
+$ <span class="hljs-built_in">cd</span> proxychains-ng
+$ ./configure
+$ make &amp;&amp; make install
+$ cp ./src/proxychains.conf /etc/proxychains.conf
+$ <span class="hljs-built_in">cd</span> .. &amp;&amp; rm -rf proxychains-ng
+<span class="hljs-comment"># 或直接安装</span>
+$ brew install proxychains-ng
 </code></pre>
-<h1 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h1>
-<pre class="highlight"><code class="bash"><span class="hljs-comment"># 创建一个名为screen-name的会话</span>
-$ screen -S screen-name
-<span class="hljs-comment"># 离开会话: ctrl+a+d</span>
-<span class="hljs-comment"># 恢复创建的会话</span>
-$ screen -r screen-name
-<span class="hljs-comment"># 或，如果只有一个会话</span>
-$ screen -r
-<span class="hljs-comment"># 查看已经创建的会话</span>
-$ screen -ls
-<span class="hljs-comment"># 退出会话</span>
-$ <span class="hljs-built_in">exit</span>
+<h1 id="编辑proxychains配置"><a class="markdownIt-Anchor" href="#编辑proxychains配置"></a> 编辑proxychains配置</h1>
+<pre class="highlight"><code class="bash">$ vim /etc/proxychains.conf
 </code></pre>
-<h1 id="其它命令"><a class="markdownIt-Anchor" href="#其它命令"></a> 其它命令</h1>
-<blockquote>
-<p>Ctrl + a，d 			#暂离当前会话<br>
-Ctrl + a，c 			#在当前screen会话中创建一个子会话<br>
-Ctrl + a，w			#子会话列表<br>
-Ctrl + a，p			#上一个子会话<br>
-Ctrl + a，n       	#下一个子会话<br>
-Ctrl + a，0-9    	 #在第0窗口至第9子会话间切换</p>
-</blockquote>
-<h1 id="鼠标回滚"><a class="markdownIt-Anchor" href="#鼠标回滚"></a> 鼠标回滚</h1>
-<p>screen模式下，无法在终端中使用鼠标滚轴进行翻页，解决：</p>
-<pre class="highlight"><code class="tex">ctrl + a +[ 进入回滚模式
-ctrl + c 切换回之前模式
+<p>将<code>sock4 127.0.0.1 9095</code> 改为<code>socks5 12.0.0.1 1080</code> (配置同ssr或v2ray客户端一致)</p>
+<h1 id="使用方法"><a class="markdownIt-Anchor" href="#使用方法"></a> 使用方法</h1>
+<p>在需要代理的命令前加上 <code>proxychains4</code> ，如</p>
+<pre class="highlight"><code class="bash">$ proxychains4 wget http://xxx.com/xxx.zip
 </code></pre>
 
         </div>
@@ -411,15 +400,15 @@ ctrl + c 切换回之前模式
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/06/26/终端socks5/" rel="prev">
+            <a href="/2020/06/27/排序算法/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/6k/wallhaven-6k3oox.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/6k/wallhaven-6k3oox.jpg">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://visualhunt.com/photos/1/view-of-graffiti-on-wall.jpg?s=s" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://visualhunt.com/photos/1/view-of-graffiti-on-wall.jpg?s=s">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                终端使用socks5代理</h3>
+                十大排序算法</h3>
                 <hr>
               </div>
             </a>
@@ -429,15 +418,15 @@ ctrl + c 切换回之前模式
           
             <div class="post-nepre half next">
           
-            <a href="/2020/05/10/感知机/" rel="next">
+            <a href="/2020/05/28/screen/" rel="next">
               <div class="background">
-                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/r2/wallhaven-r2lm57.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/r2/wallhaven-r2lm57.jpg">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/13/wallhaven-13vym3.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/13/wallhaven-13vym3.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                感知机</h3>
+                screen</h3>
                 <hr>
               </div>
             </a>

@@ -68,6 +68,8 @@ $$
 - 应用在流模型上会极大简化变分公式的计算，在下文中详细讲解
 - 在时间上的连续性，好理解不展开
 
+对于ODEnet在流模型上的应用，可以看一下论文FFJORD。
+
 # 反向传播
 
 在训练连续神经网络的过程中，正向传播可以使用ODE slove。但对ODE solve求导来进行反向传播求解梯度是很困难的，本篇文章使用Pontryagin的伴随方法(adjoint method) 来求解梯度，该方法不仅在计算和内存上有更大优势，同时还能够精确地控制数值误差。
@@ -84,7 +86,7 @@ $$
 a(t) = - \partial L / \partial \mathbf{z}(t)
 $$
 
-这个$a(t)$ 可以由另一个ODE给定(证明补充在后面)：
+这个$a(t)$ 实际等价于反向传播算法中的梯度，可以由另一个ODE给定(证明补充在后面)：
 $$
 \frac{d a(t)}{d t}=-a(t)^{\top} \frac{\partial f(\mathbf{z}(t), t, \theta)}{\partial \mathbf{z}}\tag{2}
 $$
@@ -98,9 +100,7 @@ $$
 
 ![image.png](https://i.loli.net/2020/02/27/BkJK7O1DlC2feSX.png)
 
-emmm……文章写的是三个，我感觉算法里是四个……
 
-也有可能三个是说三个梯度吧=_=
 
 简单解释如何理解上面这个算法：
 

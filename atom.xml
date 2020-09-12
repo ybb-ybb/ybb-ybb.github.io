@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-09-12T01:45:02.065Z</updated>
+  <updated>2020-09-12T06:49:14.673Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>neptune</title>
+    <link href="/2020/09/12/Neptune/"/>
+    <id>/2020/09/12/Neptune/</id>
+    <published>2020-09-12T06:42:00.000Z</published>
+    <updated>2020-09-12T06:49:14.673Z</updated>
+    
+    <summary type="html">
+    
+      neptune可视化和实验监测
+    
+    </summary>
+    
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="实验室" scheme="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+      <category term="neptune" scheme="/tags/neptune/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -413,26 +435,6 @@
       <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="实验室" scheme="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务器使用教程</title>
-    <link href="/2020/01/24/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
-    <id>/2020/01/24/服务器使用说明/</id>
-    <published>2020-01-24T03:38:00.000Z</published>
-    <updated>2020-09-12T06:39:40.625Z</updated>
-    
-    <summary type="html">
-    
-      服务器使用教程，输入密码查看
-    
-    </summary>
-    
-      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
-    
-    
-      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   

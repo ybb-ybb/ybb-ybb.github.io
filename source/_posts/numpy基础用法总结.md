@@ -7,7 +7,7 @@ comments: true
 tags: 
  - python
  - numpy
-photos: https://w.wallhaven.cc/full/r2/wallhaven-r2lmz7.jpg
+photos: https://w.wallhaven.cc/full/6k/wallhaven-6k3oox.jpg
 categories: 学习
 ---
 

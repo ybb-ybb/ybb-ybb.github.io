@@ -22,10 +22,9 @@ $ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ## docker hub
 [链接:dockerhub](https://hub.docker.com/)  
 在dockerhub上搜索自己需要的镜像
-![dockerhub_001](docker使用/选区_001.png)   
-选择自己要用的镜像，点进去，点Tags会出现不同的版本  
-![dockerhub_002](docker使用/选区_002.png)   
+选择自己要用的镜像，点进去，点Tags会出现不同的版本     
 复制命令，在终端中执行，就可以将镜像下载到本地
+
 ## docker基本命令
 ```bash
 # 查看主机下有多少镜像

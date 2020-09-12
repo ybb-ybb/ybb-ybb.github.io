@@ -115,46 +115,6 @@
   </entry>
   
   <entry>
-    <title>感知机</title>
-    <link href="/2020/05/10/%E6%84%9F%E7%9F%A5%E6%9C%BA/"/>
-    <id>/2020/05/10/感知机/</id>
-    <published>2020-05-10T02:02:00.000Z</published>
-    <updated>2020-06-26T06:41:58.121Z</updated>
-    
-    <summary type="html">
-    
-      感知机
-    
-    </summary>
-    
-      <category term="学习" scheme="/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="感知机" scheme="/tags/%E6%84%9F%E7%9F%A5%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>统计学习</title>
-    <link href="/2020/05/01/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    <id>/2020/05/01/统计学习/</id>
-    <published>2020-05-01T07:13:00.000Z</published>
-    <updated>2020-06-26T06:44:23.473Z</updated>
-    
-    <summary type="html">
-    
-      统计学习
-    
-    </summary>
-    
-      <category term="学习" scheme="/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="统计学习" scheme="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Numpy</title>
     <link href="/2020/04/24/numpy%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/"/>
     <id>/2020/04/24/numpy基础用法总结/</id>
@@ -431,6 +391,48 @@
       <category term="科学上网" scheme="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     
       <category term="翻墙" scheme="/tags/%E7%BF%BB%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器使用tensorboard和visdom</title>
+    <link href="/2020/01/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8tensorboard%E5%92%8Cvisdom/"/>
+    <id>/2020/01/28/服务器使用tensorboard和visdom/</id>
+    <published>2020-01-28T03:27:21.351Z</published>
+    <updated>2020-03-15T04:36:53.050Z</updated>
+    
+    <summary type="html">
+    
+      服务器服务器使用tensorboard和visdom教程
+    
+    </summary>
+    
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="实验室" scheme="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器使用教程</title>
+    <link href="/2020/01/24/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>/2020/01/24/服务器使用说明/</id>
+    <published>2020-01-24T03:38:00.000Z</published>
+    <updated>2020-09-12T06:39:40.625Z</updated>
+    
+    <summary type="html">
+    
+      服务器使用教程，输入密码查看
+    
+    </summary>
+    
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   

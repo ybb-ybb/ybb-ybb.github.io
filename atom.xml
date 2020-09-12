@@ -310,30 +310,6 @@
   
   <entry>
     <title>gan,vae和flow</title>
-    <link href="/2020/02/15/FFJORD/"/>
-    <id>/2020/02/15/FFJORD/</id>
-    <published>2020-02-15T13:19:00.000Z</published>
-    <updated>2020-07-02T13:39:09.290Z</updated>
-    
-    <summary type="html">
-    
-      VAE、GAN和FLOW_based_model的综述和对比
-    
-    </summary>
-    
-      <category term="学习" scheme="/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="gan" scheme="/tags/gan/"/>
-    
-      <category term="vae" scheme="/tags/vae/"/>
-    
-      <category term="flow" scheme="/tags/flow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gan,vae和flow</title>
     <link href="/2020/02/15/GAN%20VAE%20and%20Flow/"/>
     <id>/2020/02/15/GAN VAE and Flow/</id>
     <published>2020-02-15T13:19:00.000Z</published>
@@ -441,6 +417,26 @@
       <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
       <category term="实验室" scheme="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器使用教程</title>
+    <link href="/2020/01/24/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>/2020/01/24/服务器使用说明/</id>
+    <published>2020-01-24T03:38:00.000Z</published>
+    <updated>2020-09-12T11:35:21.066Z</updated>
+    
+    <summary type="html">
+    
+      服务器使用教程，输入密码查看
+    
+    </summary>
+    
+      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   

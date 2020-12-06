@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">python应用 | 鱼摆摆的blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "鱼摆摆的blog";
+  mashiro_option.author_name = "鱼摆摆的blog";
+  mashiro_option.site_url = "https://ybb-ybb.github.io";
+  mashiro_option.v_appId = "WkB5pg4GayKX0zctOl4BpfWA-gzGzoHsz";
+  mashiro_option.v_appKey = "os0xe9xmnbkH2BsB7jdySUeJ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀180824/19s_by_wlop-dbsw09i.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/651952.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/680362.png,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/731440.png,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/820208.png,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/928760.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/944582.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/954350.jpg,https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/鬼刀/997983.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://ybb-ybb.github.io">
+          <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>你们不要想喜欢 弄个大新闻 ——长者</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/ybb-ybb" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://i.loli.net/2020/03/08/Xgz72w4JuGZBTNQ.jpg" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg" target="_blank" class="social-github" title="Wechat">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/wechat.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://i.loli.net/2020/03/07/OdKMwNzHgB7beqp.jpg" target="_blank" class="social-github" title="qq">
+                    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/social/qq.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">鱼摆摆的blog</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/学习/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          学习
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/瞎折腾/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          瞎折腾
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/实验室/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          实验室
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/安利/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          安利
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/其它/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          其它
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://w.wallhaven.cc/full/nm/wallhaven-nmwp71.jpg);" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/nm/wallhaven-nmwp71.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      python应用</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href="">鱼摆摆</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-12-6<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="collections"><a class="markdownIt-Anchor" href="#collections"></a> collections</h1>
+<h2 id="defaultdict"><a class="markdownIt-Anchor" href="#defaultdict"></a> defaultdict</h2>
+<p>defaultdict解决的是dict中常见的key为空的情况</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+d = defaultdict(list)
+
+<span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> data:
+    d[k].append(v)
+</code></pre>
+<p>使用defaultdict之后，如果key不存在，会自动返回预先设置的默认值。defaultdict传入的默认值可以使一个类型或一个方法。</p>
+<h2 id="counter"><a class="markdownIt-Anchor" href="#counter"></a> Counter</h2>
+<p>计数和排序功能</p>
+<pre class="highlight"><code class="python">words = [<span class="hljs-string">'apple'</span>, <span class="hljs-string">'apple'</span>, <span class="hljs-string">'pear'</span>, <span class="hljs-string">'watermelon'</span>, <span class="hljs-string">'pear'</span>, <span class="hljs-string">'peach'</span>]
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
+counter = Counter(words)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(counter)
+Counter({<span class="hljs-string">'apple'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'pear'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'watermelon'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'peach'</span>: <span class="hljs-number">1</span>})
+</code></pre>
+<p>Counter也提供了most_common方法，可以筛选topk</p>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>counter.most_common(<span class="hljs-number">1</span>)
+[(<span class="hljs-string">'apple'</span>, <span class="hljs-number">2</span>)]
+</code></pre>
+<h2 id="deque"><a class="markdownIt-Anchor" href="#deque"></a> deque</h2>
+<p>双端队列，支持队首和队尾的元素插入和弹出</p>
+<p>常用API：<code>clear,copy,count,extend,append,pop,appendleft,popleft</code></p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+dque = deque(maxlen=<span class="hljs-number">10</span>)
+<span class="hljs-comment"># 假设我们想要从文件当中获取最后10条数据</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> f.read():
+    dque.append(i)
+</code></pre>
+<h2 id="orderdict"><a class="markdownIt-Anchor" href="#orderdict"></a> Orderdict</h2>
+<p>python2中的字典类型为无序，但python3中为有序。</p>
+<p>Orderdict是有序字典</p>
+<h1 id="heapq"><a class="markdownIt-Anchor" href="#heapq"></a> Heapq</h1>
+<p>全称: heqp queue，即堆和队列</p>
+<h2 id="nlargest和nsmallest筛选topk"><a class="markdownIt-Anchor" href="#nlargest和nsmallest筛选topk"></a> nlargest和nsmallest：筛选topk</h2>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> heapq
+
+nums = [<span class="hljs-number">14</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">28</span>, <span class="hljs-number">1</span>, <span class="hljs-number">21</span>, <span class="hljs-number">16</span>, <span class="hljs-number">22</span>, <span class="hljs-number">17</span>, <span class="hljs-number">28</span>]
+heapq.nlargest(<span class="hljs-number">3</span>, nums)
+<span class="hljs-comment"># [28, 28, 22]</span>
+heapq.nsmallest(<span class="hljs-number">3</span>, nums)
+<span class="hljs-comment"># [1, 5, 14]</span>
+</code></pre>
+<p>可以通过关键词参数key自定义排序规则</p>
+<pre class="highlight"><code class="python">laptops = [
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'ThinkPad'</span>, <span class="hljs-string">'amount'</span>: <span class="hljs-number">100</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">91.1</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Mac'</span>, <span class="hljs-string">'amount'</span>: <span class="hljs-number">50</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">543.22</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Surface'</span>, <span class="hljs-string">'amount'</span>: <span class="hljs-number">200</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">21.09</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Alienware'</span>, <span class="hljs-string">'amount'</span>: <span class="hljs-number">35</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">31.75</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Lenovo'</span>, <span class="hljs-string">'amount'</span>: <span class="hljs-number">45</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">16.35</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Huawei'</span>, <span class="hljs-string">'amount'</span>: <span class="hljs-number">75</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">115.65</span>}
+]
+
+cheap = heapq.nsmallest(<span class="hljs-number">3</span>, portfolio, key=<span class="hljs-keyword">lambda</span> s: s[<span class="hljs-string">'price'</span>])
+expensive = heapq.nlargest(<span class="hljs-number">3</span>, portfolio, key=<span class="hljs-keyword">lambda</span> s: s[<span class="hljs-string">'price'</span>])
+</code></pre>
+<h2 id="优先队列"><a class="markdownIt-Anchor" href="#优先队列"></a> 优先队列</h2>
+<p>heapq.heapify方法输入一个数组，返回的结果是这个数组生成的堆(等价于优先队列)</p>
+<pre class="highlight"><code class="python">heap = [<span class="hljs-number">5</span>,<span class="hljs-number">8</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>]
+hq.heapify(heap)
+<span class="hljs-meta">&gt;&gt;&gt; </span>heap
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>]
+</code></pre>
+<p>可以直接使用heapq的heappop方法和heappush方法维护这个堆。</p>
+<p>heapq.push传入两个参数，一个是存储元素的数组，另一个是要存储的元素。</p>
+<p>时间复杂度：nlogn</p>
+<h1 id="自定义排序"><a class="markdownIt-Anchor" href="#自定义排序"></a> 自定义排序</h1>
+<h2 id="字典排序"><a class="markdownIt-Anchor" href="#字典排序"></a> 字典排序</h2>
+<pre class="highlight"><code class="python">kids = [
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'xiaoming'</span>, <span class="hljs-string">'score'</span>: <span class="hljs-number">99</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">12</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'xiaohong'</span>, <span class="hljs-string">'score'</span>: <span class="hljs-number">75</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">13</span>},
+    {<span class="hljs-string">'name'</span>: <span class="hljs-string">'xiaowang'</span>, <span class="hljs-string">'score'</span>: <span class="hljs-number">88</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">15</span>}
+]
+<span class="hljs-comment"># 按照score来排序</span>
+sorted(kids, key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-string">'score'</span>])
+<span class="hljs-comment"># 多关键词排序</span>
+sorted(kids, key=<span class="hljs-keyword">lambda</span> x: (x[<span class="hljs-string">'score'</span>], x[<span class="hljs-string">'age'</span>]))
+</code></pre>
+<p>python中自带的库可以代替匿名函数</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> operator <span class="hljs-keyword">import</span> itemgetter
+
+sorted(kids, key=itemgetter(<span class="hljs-string">'score'</span>))
+sorted(kids, key=itemgetter(<span class="hljs-string">'score'</span>, <span class="hljs-string">'age'</span>))
+</code></pre>
+<h2 id="对象排序"><a class="markdownIt-Anchor" href="#对象排序"></a> 对象排序</h2>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Kid</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name, score, age)</span>:</span>
+        self.name = name
+        self.score = score
+        self.age = age
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'Kid, name: {}, score: {}, age:{}'</span>.format(self.name, self.score, self.age)
+<span class="hljs-comment"># 为了方便观察打印结果，我们重载了__repr__方法，可以指定在print的时候的输出结果</span>
+</code></pre>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> operator <span class="hljs-keyword">import</span> attrgetter
+kids = [Kid(<span class="hljs-string">'xiaoming'</span>, <span class="hljs-number">99</span>, <span class="hljs-number">12</span>), Kid(<span class="hljs-string">'xiaohong'</span>, <span class="hljs-number">75</span>, <span class="hljs-number">13</span>), Kid(<span class="hljs-string">'xiaowang'</span>, <span class="hljs-number">88</span>, <span class="hljs-number">15</span>)]
+
+sorted(kids, key=attrgetter(<span class="hljs-string">'score'</span>))
+sorted(kids, key=<span class="hljs-keyword">lambda</span> x: x.score)
+</code></pre>
+<h2 id="自定义排序-2"><a class="markdownIt-Anchor" href="#自定义排序-2"></a> 自定义排序</h2>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># 若x&lt;y,返回一个负数，若x&gt;y,返回一个正数，否则返回0</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cmp</span><span class="hljs-params">(kid1, kid2)</span>:</span>
+    <span class="hljs-keyword">if</span> kid1.score == kid2.score:
+        <span class="hljs-keyword">return</span> kid1.age - kid2.age
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> kid1.score - kid2.score
+      
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cmp_to_key
+
+sorted(kids, key=cmp_to_key(cmp))
+</code></pre>
+<p>也可以在类中重载比较函数<code>__lt__</code>，更改其默认排序方式</p>
+<pre class="highlight"><code class="python">lass Kid:
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name, score, age)</span>:</span>
+        self.name = name
+        self.score = score
+        self.age = age
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'Kid, name: {}, score: {}, age:{}'</span>.format(self.name, self.score, self.age)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__lt__</span><span class="hljs-params">(self, other)</span>:</span>
+        <span class="hljs-keyword">return</span> self.score &gt; other.score <span class="hljs-keyword">or</span> (self.score == other.score <span class="hljs-keyword">and</span> self.age &lt; other.age)
+</code></pre>
+<h1 id="mapreduce和filter"><a class="markdownIt-Anchor" href="#mapreduce和filter"></a> map,reduce和filter</h1>
+<h2 id="map"><a class="markdownIt-Anchor" href="#map"></a> map</h2>
+<p>map执行的是一个映射，会将一个序列通过一个函数映射到另一个序列，从而避免显式迭代。</p>
+<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dis</span><span class="hljs-params">(point)</span>:</span>
+    <span class="hljs-keyword">return</span> math.sqrt(point[<span class="hljs-number">0</span>]**<span class="hljs-number">2</span> + point[<span class="hljs-number">1</span>]**<span class="hljs-number">2</span>)
+points = [[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>]]
+<span class="hljs-comment"># map的输出值是一个迭代器，将其转换为list类型</span>
+print(list(map(dis, points)))
+<span class="hljs-comment"># 用匿名函数简化</span>
+map(<span class="hljs-keyword">lambda</span> x: math.sqrt(x[<span class="hljs-number">0</span>]**<span class="hljs-number">2</span> + x[<span class="hljs-number">1</span>] ** <span class="hljs-number">2</span>), points)
+</code></pre>
+<h2 id="reduce"><a class="markdownIt-Anchor" href="#reduce"></a> reduce</h2>
+<p>reduce是依次调用，将两个元素归并成一个结果</p>
+<p>reduce(f, [a, b, c, d])的返回值为f(f(f(a, b), c), d)</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword">return</span> a + b
+    
+print(reduce(f, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]))
+<span class="hljs-number">10</span>
+</code></pre>
+<h2 id="filter"><a class="markdownIt-Anchor" href="#filter"></a> filter</h2>
+<p>过滤掉所有为False的元素</p>
+<pre class="highlight"><code class="python">arr = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>]
+list(filter(<span class="hljs-keyword">lambda</span> x: x % <span class="hljs-number">2</span> &gt; <span class="hljs-number">0</span>, arr))
+</code></pre>
+<h2 id="compress"><a class="markdownIt-Anchor" href="#compress"></a> compress</h2>
+<p>根据一个序列的条件过滤另一个序列</p>
+<pre class="highlight"><code class="python">student = [<span class="hljs-string">'xiaoming'</span>, <span class="hljs-string">'xiaohong'</span>, <span class="hljs-string">'xiaoli'</span>, <span class="hljs-string">'emily'</span>]
+scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">40</span>]
+<span class="hljs-keyword">from</span> itemtools <span class="hljs-keyword">import</span> compress
+
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">pass</span> = [i &gt; <span class="hljs-number">60</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> scores]
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(<span class="hljs-keyword">pass</span>)
+[<span class="hljs-literal">False</span>, <span class="hljs-literal">True</span>, <span class="hljs-literal">True</span>, <span class="hljs-literal">False</span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(compress(student, <span class="hljs-keyword">pass</span>))
+[<span class="hljs-string">'xiaohong'</span>, <span class="hljs-string">'xiaoli'</span>]
+</code></pre>
+<h1 id="生成器和迭代器"><a class="markdownIt-Anchor" href="#生成器和迭代器"></a> 生成器和迭代器</h1>
+<h3 id="容器迭代器"><a class="markdownIt-Anchor" href="#容器迭代器"></a> 容器迭代器</h3>
+<p>对于一个可迭代对象(python中的tuple,list,dict等都是可迭代对象)，可以用关键字<code>iter</code>获得一个相应的迭代器。</p>
+<pre class="highlight"><code class="python">arr = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">9</span>]
+it = iter(arr)
+print(next(it))
+print(next(it))
+</code></pre>
+<p>当越界时会抛出<code>StopIteration</code> 的Error。</p>
+<p>也可以使用for去进行迭代。</p>
+<h3 id="自己创建迭代器"><a class="markdownIt-Anchor" href="#自己创建迭代器"></a> 自己创建迭代器</h3>
+<p>在定义类时，添加<code>__iter__</code>和<code>__next__</code>方法，其中<code>__iter__</code>方法用来初始化并返回迭代器。(iterable 的 <code>__iter__</code> 返回 iterator, iterator本身也是一个iterable对象)</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PowTwo</span>:</span>
+    <span class="hljs-string">"""Class to implement an iterator
+    of powers of two"""</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, max = <span class="hljs-number">0</span>)</span>:</span>
+        self.max = max
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        self.n = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__next__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self.n &lt;= self.max:
+            result = <span class="hljs-number">2</span> ** self.n
+            self.n += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">return</span> result
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">raise</span> StopIteration
+</code></pre>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>a = PowTwo(<span class="hljs-number">4</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>i = iter(a)
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(i)
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(i)
+<span class="hljs-number">2</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(i)
+<span class="hljs-number">4</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(i)
+<span class="hljs-number">8</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(i)
+<span class="hljs-number">16</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>next(i)
+Traceback (most recent call last):
+...
+StopIteration
+
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> PowTwo(<span class="hljs-number">5</span>):
+<span class="hljs-meta">... </span>    print(i)
+<span class="hljs-meta">... </span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">16</span>
+<span class="hljs-number">32</span>
+</code></pre>
+<h2 id="生成器"><a class="markdownIt-Anchor" href="#生成器"></a> 生成器</h2>
+<h3 id="括号创建法"><a class="markdownIt-Anchor" href="#括号创建法"></a> 括号创建法</h3>
+<pre class="highlight"><code class="python">g = (i * <span class="hljs-number">3</span><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>))
+print(next(g))
+</code></pre>
+<h3 id="函数创建法"><a class="markdownIt-Anchor" href="#函数创建法"></a> 函数创建法</h3>
+<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    n = <span class="hljs-number">0</span>
+    whileTrue:
+        <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">3</span>:
+            <span class="hljs-keyword">yield</span> n
+            n += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            yield10
+            
+            
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    t = test()
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+        print(next(t))
+</code></pre>
+<p>二叉树的遍历：</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, key)</span>:</span>
+        self.key = key
+        self.lchild = <span class="hljs-literal">None</span>
+        self.rchild = <span class="hljs-literal">None</span>
+        self.iterated = <span class="hljs-literal">False</span>
+        self.father = <span class="hljs-literal">None</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">iterate</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self.lchild isnotNone:
+            yieldfrom self.lchild.iterate()
+        <span class="hljs-keyword">yield</span> self.key
+        <span class="hljs-keyword">if</span> self.rchild isnotNone:
+            yieldfrom self.rchild.iterate()
+</code></pre>
+<h1 id="itertools"><a class="markdownIt-Anchor" href="#itertools"></a> Itertools</h1>
+<h2 id="跳过迭代器开头"><a class="markdownIt-Anchor" href="#跳过迭代器开头"></a> 跳过迭代器开头</h2>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># 跳过头部注释#的部分</span>
+<span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> dropwhile
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'xxxx.txt'</span>) <span class="hljs-keyword">as</span> f:
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> dropwhile(<span class="hljs-keyword">lambda</span> line: line.startswith(<span class="hljs-string">'#'</span>), f):
+        print(line)
+<span class="hljs-comment"># 从第三行开始</span>
+<span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> dropwhile
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'xxxx.txt'</span>) <span class="hljs-keyword">as</span> f:
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> islice(f, <span class="hljs-number">3</span>, <span class="hljs-literal">None</span>):
+        print(line)
+</code></pre>
+<h2 id="排列组合"><a class="markdownIt-Anchor" href="#排列组合"></a> 排列组合</h2>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># 排列</span>
+items = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]
+<span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> permutations
+
+<span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> permutations(items):
+    print(p)
+<span class="hljs-comment"># 只保留前两个元素</span>
+<span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> permutations(items, <span class="hljs-number">2</span>):
+    print(p)
+<span class="hljs-comment"># 组合</span>
+<span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> combindations
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> combinations(items):
+    print(c)
+<span class="hljs-comment"># 有放回的组合</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> combinations_with_replacement(items, <span class="hljs-number">3</span>):
+    print(c)
+</code></pre>
+<h2 id="迭代的合并"><a class="markdownIt-Anchor" href="#迭代的合并"></a> 迭代的合并</h2>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> chain
+nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+chars = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> chain(nums, chars):
+    print(i)
+</code></pre>
+<h1 id="打印对象"><a class="markdownIt-Anchor" href="#打印对象"></a> 打印对象</h1>
+<p>直接打印实例时，会返回一个内存地址：</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">point</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        self.x = x
+        self.y = y
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    p = point(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+    print(p)
+&lt;__main__.point object at <span class="hljs-number">0x10a18c210</span>&gt;
+</code></pre>
+<p>重置<code>__str__</code>方法：</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">point</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        self.x = x
+        self.y = y
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'x: %s, y: %s'</span> % (self.x, self.y)
+x: <span class="hljs-number">3</span>, y: <span class="hljs-number">4</span>
+</code></pre>
+<p>重置<code>__repr__</code>方法</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">point</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        self.x = x
+        self.y = y
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'x: %s, y: %s'</span> % (self.x, self.y)
+x: <span class="hljs-number">3</span>, y: <span class="hljs-number">4</span>
+</code></pre>
+<p>注：<code>__str__</code> 侧重于展示，<code>__repr__</code> 侧重于交互式中的报告</p>
+<h2 id="format方法"><a class="markdownIt-Anchor" href="#format方法"></a> format方法</h2>
+<pre class="highlight"><code class="python">print(<span class="hljs-string">'x:{x},y:{y}'</span>.format(x=<span class="hljs-number">3</span>,y=<span class="hljs-number">4</span>))
+</code></pre>
+<p>重载<code>__format__</code>函数：</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">point</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x, y)</span>:</span>
+        self.x = x
+        self.y = y
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'x: %s, y: %s'</span> % (self.x, self.y)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__format__</span><span class="hljs-params">(self, code)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'x: {x}, y: {y}'</span>.format(x = self.x, y = self.y)
+print(<span class="hljs-string">'The point is {}'</span>.format(p))
+The point <span class="hljs-keyword">is</span> x: <span class="hljs-number">3</span>, y: <span class="hljs-number">4</span>
+</code></pre>
+<h1 id="bisect模块进行二分查找"><a class="markdownIt-Anchor" href="#bisect模块进行二分查找"></a> BiseCt模块进行二分查找</h1>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bisect_left()</td>
+<td><strong>查找</strong>目标元素左侧插入点</td>
+</tr>
+<tr>
+<td>bisect_right()</td>
+<td><strong>查找</strong>目标元素右侧插入点</td>
+</tr>
+<tr>
+<td>bisect()</td>
+<td>同 bisect_right()</td>
+</tr>
+<tr>
+<td>insort_left()</td>
+<td>查找目标元素左侧插入点，并保序地<strong>插入</strong>元素</td>
+</tr>
+<tr>
+<td>insort_right()</td>
+<td>查找目标元素右侧插入点，并保序地<strong>插入</strong>元素</td>
+</tr>
+<tr>
+<td>insort()</td>
+<td>同 insort_right()</td>
+</tr>
+</tbody>
+</table>
+<h1 id="any-all"><a class="markdownIt-Anchor" href="#any-all"></a> Any, All</h1>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span>any([<span class="hljs-number">0</span>,<span class="hljs-number">1</span>])
+<span class="hljs-literal">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>any([<span class="hljs-number">0</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">''</span>])
+<span class="hljs-literal">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>all([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>])
+<span class="hljs-literal">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>all([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'d'</span>])
+<span class="hljs-literal">False</span>
+</code></pre>
+<h1 id="正则表达式"><a class="markdownIt-Anchor" href="#正则表达式"></a> 正则表达式</h1>
+<h2 id="字符匹配"><a class="markdownIt-Anchor" href="#字符匹配"></a> 字符匹配</h2>
+<p>在正则表达式中，<code>\d</code>可以匹配一个数字，<code>\s</code>可以匹配一个空格，<code>\w</code>可以匹配一个字母或数字，<code>.</code>可以匹配任意字符，<code>*</code>可以匹配任意个字符(包括0个)，<code>+</code>表示至少一个字符，<code>{n}</code>表示n个字符，<code>{n,m}</code>表示n-m个字符。</p>
+<p>例如：<code>\d{3}\s+\d{3,8}</code>匹配  [三个数字+至少一个空格+3—8个数字]</p>
+<h2 id="精确匹配"><a class="markdownIt-Anchor" href="#精确匹配"></a> 精确匹配</h2>
+<p>要做更精确地匹配，可以用<code>[]</code>表示范围，比如：</p>
+<ul>
+<li><code>[0-9a-zA-Z\_]</code>可以匹配一个数字、字母或者下划线；</li>
+<li><code>[0-9a-zA-Z\_]+</code>可以匹配至少由一个数字、字母或者下划线组成的字符串，比如<code>'a100'</code>，<code>'0_Z'</code>，<code>'Py3000'</code>等等；</li>
+<li><code>[a-zA-Z\_][0-9a-zA-Z\_]*</code>可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串，也就是Python合法的变量；</li>
+<li><code>[a-zA-Z\_][0-9a-zA-Z\_]{0, 19}</code>更精确地限制了变量的长度是1-20个字符（前面1个字符+后面最多19个字符）。</li>
+</ul>
+<p><code>A|B</code>可以匹配A或B，所以<code>(P|p)ython</code>可以匹配<code>'Python'</code>或者<code>'python'</code>。</p>
+<p><code>^</code>表示行的开头，<code>^\d</code>表示必须以数字开头。</p>
+<p><code>$</code>表示行的结束，<code>\d$</code>表示必须以数字结束。</p>
+<h2 id="re模块"><a class="markdownIt-Anchor" href="#re模块"></a> re模块</h2>
+<p>先看看如何判断正则表达式是否匹配：</p>
+<pre class="highlight"><code class>&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match(r'^\d{3}\-\d{3,8}$', '010-12345')
+&lt;_sre.SRE_Match object; span=(0, 9), match='010-12345'&gt;
+&gt;&gt;&gt; re.match(r'^\d{3}\-\d{3,8}$', '010 12345')
+&gt;&gt;&gt;
+</code></pre>
+<p><code>match()</code>方法判断是否匹配，如果匹配成功，返回一个<code>Match</code>对象，否则返回<code>None</code>。常见的判断方法就是：</p>
+<pre class="highlight"><code class>test = '用户输入的字符串'
+if re.match(r'正则表达式', test):
+    print('ok')
+else:
+    print('failed')
+</code></pre>
+<p><strong>切分字符串：</strong></p>
+<p>用正则表达式切分字符串比用固定的字符更灵活</p>
+<pre class="highlight"><code class>&gt;&gt;&gt; 'a b   c'.split(' ')
+['a', 'b', '', '', 'c']
+</code></pre>
+<pre class="highlight"><code class>&gt;&gt;&gt; re.split(r'\s+', 'a b   c')
+['a', 'b', 'c']
+</code></pre>
+<pre class="highlight"><code class>&gt;&gt;&gt; re.split(r'[\s\,]+', 'a,b, c  d')
+['a', 'b', 'c', 'd']
+</code></pre>
+<pre class="highlight"><code class>&gt;&gt;&gt; re.split(r'[\s\,\;]+', 'a,b;; c  d')
+['a', 'b', 'c', 'd']
+</code></pre>
+<p><strong>分组</strong></p>
+<p>除了简单地判断是否匹配之外，正则表达式还有提取子串的强大功能。用<code>()</code>表示的就是要提取的分组（Group）。比如：</p>
+<p><code>^(\d{3})-(\d{3,8})$</code>分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：</p>
+<pre class="highlight"><code class>&gt;&gt;&gt; m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+&gt;&gt;&gt; m
+&lt;_sre.SRE_Match object; span=(0, 9), match='010-12345'&gt;
+&gt;&gt;&gt; m.group(0)
+'010-12345'
+&gt;&gt;&gt; m.group(1)
+'010'
+&gt;&gt;&gt; m.group(2)
+'12345'
+</code></pre>
+<p>如果正则表达式中定义了组，就可以在<code>Match</code>对象上用<code>group()</code>方法提取出子串来。</p>
+<p>注意到<code>group(0)</code>永远是原始字符串，<code>group(1)</code>、<code>group(2)</code>……表示第1、2、……个子串。</p>
+<pre class="highlight"><code class>&gt;&gt;&gt; t = '19:05:30'
+&gt;&gt;&gt; m = re.match(r'^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$', t)
+&gt;&gt;&gt; m.groups()
+('19', '05', '30')
+</code></pre>
+<p>这个正则表达式可以直接识别合法的时间。但是有些时候，用正则表达式也无法做到完全验证，比如识别日期：</p>
+<pre class="highlight"><code class>'^(0[1-9]|1[0-2]|[0-9])-(0[1-9]|1[0-9]|2[0-9]|3[0-1]|[0-9])$'
+</code></pre>
+<p>对于<code>'2-30'</code>，<code>'4-31'</code>这样的非法日期，用正则还是识别不了，或者说写出来非常困难，这时就需要程序配合识别了。</p>
+<p><strong>贪婪匹配</strong></p>
+<p>正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。举例如下，匹配出数字后面的<code>0</code>：</p>
+<pre class="highlight"><code class>&gt;&gt;&gt; re.match(r'^(\d+)(0*)$', '102300').groups()
+('102300', '')
+</code></pre>
+<p>由于<code>\d+</code>采用贪婪匹配，直接把后面的<code>0</code>全部匹配了，结果<code>0*</code>只能匹配空字符串了。</p>
+<p>必须让<code>\d+</code>采用非贪婪匹配（也就是尽可能少匹配），才能把后面的<code>0</code>匹配出来，加个<code>?</code>就可以让<code>\d+</code>采用非贪婪匹配：</p>
+<pre class="highlight"><code class>&gt;&gt;&gt; re.match(r'^(\d+?)(0*)$', '102300').groups()
+('1023', '00')
+</code></pre>
+<p><strong>编译</strong></p>
+<pre class="highlight"><code class>&gt;&gt;&gt; import re
+# 编译:
+&gt;&gt;&gt; re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
+# 使用：
+&gt;&gt;&gt; re_telephone.match('010-12345').groups()
+('010', '12345')
+&gt;&gt;&gt; re_telephone.match('010-8086').groups()
+('010', '8086')
+</code></pre>
+<h1 id="装饰器"><a class="markdownIt-Anchor" href="#装饰器"></a> 装饰器</h1>
+<p>装饰器实质上是一个高阶函数</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapexp</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        print(<span class="hljs-string">'this is a wrapper'</span>)
+        func(*args, **kwargs)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@wrapexp</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exp</span><span class="hljs-params">(a, b, c=<span class="hljs-string">'3'</span>, d=<span class="hljs-string">'f'</span>)</span>:</span>
+    print(a, b, c, d)
+
+&gt;&gt;&gt;args = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]
+&gt;&gt;&gt;dt = {<span class="hljs-string">'c'</span>: <span class="hljs-number">4</span>, <span class="hljs-string">'d'</span>: <span class="hljs-number">5</span>}
+&gt;&gt;&gt;exp(*args, **dt)
+
+this <span class="hljs-keyword">is</span> a wrapper
+<span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>
+</code></pre>
+<p>在这个例子当中，我们定义了一个wrapexp的装饰器。我们在其中的<strong>wrapper方法当中实现了装饰器的逻辑</strong>，wrapexp当中传入的参数func是一个函数，wrapper当中的参数则是func的参数。所以我们在wrapper当中调用func(*args, **kw)，就是调用打上了这个注解的函数本身。</p>
+<p>利用装饰器计算函数耗时：</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">timethis</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(func.__name__, end-start)
+        <span class="hljs-keyword">return</span> result
+    <span class="hljs-keyword">return</span> wrapper
+</code></pre>
+<p>调用装饰器后，函数的元信息会丢失：</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapexp</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        print(<span class="hljs-string">'this is a wrapper'</span>)
+        func(*args, **kwargs)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@wrapexp</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exp</span><span class="hljs-params">(a, b, c=<span class="hljs-string">'3'</span>, d=<span class="hljs-string">'f'</span>)</span>:</span>
+    print(a, b, c, d)
+    
+<span class="hljs-meta">&gt;&gt;&gt; </span>exp.__name__
+<span class="hljs-string">'wrapexp'</span>
+</code></pre>
+<p>Python当中为我们提供了一个专门的装饰器器用来保留函数的元信息，我们只需要在实现装饰器的wrapper函数当中<strong>加上一个注解wraps</strong>即可</p>
+<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapexp</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        print(<span class="hljs-string">'this is a wrapper'</span>)
+        func(*args, **kwargs)
+    <span class="hljs-keyword">return</span> wrapper
+</code></pre>
+<h1 id="divmod"><a class="markdownIt-Anchor" href="#divmod"></a> divmod</h1>
+<p>把除数和余数运算结果结合起来，返回一个包含商和余数的元组(a // b, a % b)。</p>
+<h1 id="chr和ord"><a class="markdownIt-Anchor" href="#chr和ord"></a> chr和ord</h1>
+<p><code>ord()</code> 函数主要用来返回对应字符的ascii码，<code>chr()</code> 主要用来表示ascii码对应的字符他的输入时数字。</p>
+<h1 id="位运算"><a class="markdownIt-Anchor" href="#位运算"></a> 位运算</h1>
+<h1 id="缓存机制与lru_cache"><a class="markdownIt-Anchor" href="#缓存机制与lru_cache"></a> 缓存机制与lru_cache</h1>
+
+        </div>
+        <!-- .entry-content -->
+        <!-- <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/11/21/实验室NAS设备挂载教程/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/m9/wallhaven-m9q71m.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/m9/wallhaven-m9q71m.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                实验室NAS挂载教程</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "WkB5pg4GayKX0zctOl4BpfWA-gzGzoHsz",
+        appKey: "os0xe9xmnbkH2BsB7jdySUeJ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="鱼摆摆" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">鱼摆摆</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 鱼摆摆<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2020 yubaibai</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1","name":"Imagine_Dragons _Birds.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1","name":"Imagine_Dragons _Birds.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div class="changeSkin-gear no-select">
+  <div class="keys" id="setbtn"> 
+   <span id="open-skinMenu"> 切换主题 | SCHEME TOOL  
+     <i class="iconfont icon-gear inline-block rotating"></i> 
+   </span>
+  </div>
+</div>
+ 
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+ <div class="theme-controls row-container">
+  <ul class="menu-list">
+   <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+   <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+   <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+   <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+   <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+   <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+   <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+   <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+  </ul>
+ </div>
+</div>
+<canvas id="night-mode-cover"></canvas>
+
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/ybb-ybb/CDNrepository@1.1/img/fig.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">鱼摆摆的blog</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/ybb-ybb" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg" class="fa fa-wechat" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://i.loli.net/2020/03/07/bI1Wws9Mju3CkoZ.jpg" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/学习/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  学习
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/瞎折腾/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  瞎折腾
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/实验室/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  实验室
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/安利/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  安利
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/其它/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  其它
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2114311084"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-11-23T02:38:17.735Z</updated>
+  <updated>2020-12-06T11:23:15.941Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python应用</title>
+    <link href="/2020/12/06/python%E5%BA%94%E7%94%A8/"/>
+    <id>/2020/12/06/python应用/</id>
+    <published>2020-12-06T03:38:00.000Z</published>
+    <updated>2020-12-06T11:23:15.941Z</updated>
+    
+    <summary type="html">
+    
+      常见的python应用
+    
+    </summary>
+    
+      <category term="学习" scheme="/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>实验室NAS挂载教程</title>
@@ -409,32 +429,6 @@
     
     
       <category term="emacs" scheme="/tags/emacs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>科学上网</title>
-    <link href="/2020/02/09/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    <id>/2020/02/09/科学上网/</id>
-    <published>2020-02-09T03:19:00.000Z</published>
-    <updated>2020-09-12T10:46:07.846Z</updated>
-    
-    <summary type="html">
-    
-      科学上网
-    
-    </summary>
-    
-      <category term="实验室" scheme="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
-    
-    
-      <category term="实验室" scheme="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
-    
-      <category term="服务器" scheme="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-      <category term="科学上网" scheme="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    
-      <category term="翻墙" scheme="/tags/%E7%BF%BB%E5%A2%99/"/>
     
   </entry>
   

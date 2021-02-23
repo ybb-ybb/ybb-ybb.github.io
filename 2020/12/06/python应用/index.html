@@ -419,6 +419,7 @@ hq.heapify(heap)
 <p>可以直接使用heapq的heappop方法和heappush方法维护这个堆。</p>
 <p>heapq.push传入两个参数，一个是存储元素的数组，另一个是要存储的元素。</p>
 <p>时间复杂度：nlogn</p>
+<h1 id="sortedcontainers"><a class="markdownIt-Anchor" href="#sortedcontainers"></a> sortedcontainers</h1>
 <h1 id="自定义排序"><a class="markdownIt-Anchor" href="#自定义排序"></a> 自定义排序</h1>
 <h2 id="字典排序"><a class="markdownIt-Anchor" href="#字典排序"></a> 字典排序</h2>
 <pre class="highlight"><code class="python">kids = [
@@ -590,7 +591,7 @@ print(next(g))
             <span class="hljs-keyword">yield</span> n
             n += <span class="hljs-number">1</span>
         <span class="hljs-keyword">else</span>:
-            yield10
+            <span class="hljs-keyword">yield</span> <span class="hljs-number">10</span>
             
             
 <span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
@@ -653,6 +654,16 @@ chars = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</sp
 
 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> chain(nums, chars):
     print(i)
+</code></pre>
+<h2 id="accumulate"><a class="markdownIt-Anchor" href="#accumulate"></a> accumulate</h2>
+<p>将可迭代对象逐步进行某操作，默认为累加</p>
+<p>itertools.accumulate(iterable[, func])</p>
+<pre class="highlight"><code class="python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> operator
+<span class="hljs-meta">&gt;&gt;&gt; </span>c=accumulate(a,operator.mul)
+<span class="hljs-meta">&gt;&gt;&gt; </span>c
+&lt;itertools.accumulate object at <span class="hljs-number">0x7f3e5c2f4f88</span>&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(c)
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">24</span>, <span class="hljs-number">120</span>]
 </code></pre>
 <h1 id="打印对象"><a class="markdownIt-Anchor" href="#打印对象"></a> 打印对象</h1>
 <p>直接打印实例时，会返回一个内存地址：</p>
@@ -900,6 +911,14 @@ this <span class="hljs-keyword">is</span> a wrapper
 <p><code>ord()</code> 函数主要用来返回对应字符的ascii码，<code>chr()</code> 主要用来表示ascii码对应的字符他的输入时数字。</p>
 <h1 id="位运算"><a class="markdownIt-Anchor" href="#位运算"></a> 位运算</h1>
 <h1 id="缓存机制与lru_cache"><a class="markdownIt-Anchor" href="#缓存机制与lru_cache"></a> 缓存机制与lru_cache</h1>
+<h1 id="进制转换"><a class="markdownIt-Anchor" href="#进制转换"></a> 进制转换</h1>
+<pre class="highlight"><code class="python"><span class="hljs-comment"># 输出x的二进制</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">'{0:b}'</span>.format(<span class="hljs-number">10</span>)
+<span class="hljs-string">'1010'</span>
+<span class="hljs-comment"># 二进制转换回整数</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>int(<span class="hljs-string">'1010'</span>,<span class="hljs-number">2</span>)
+<span class="hljs-number">10</span>
+</code></pre>
 
         </div>
         <!-- .entry-content -->

@@ -606,57 +606,154 @@ a = search(grid, init, goal, cost, heuristic)
 graph = {<span class="hljs-number">0</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], <span class="hljs-number">1</span>: [<span class="hljs-number">3</span>], <span class="hljs-number">2</span>: [<span class="hljs-number">3</span>], <span class="hljs-number">3</span>: [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-number">4</span>: [], <span class="hljs-number">5</span>: []}
 topologicalSort(graph)
 </code></pre>
-<h2 id="最小生成树"><a class="markdownIt-Anchor" href="#最小生成树"></a> 最小生成树：</h2>
+<h1 id="最小生成树"><a class="markdownIt-Anchor" href="#最小生成树"></a> 最小生成树：</h1>
 <h2 id="krusal算法"><a class="markdownIt-Anchor" href="#krusal算法"></a> Krusal算法：</h2>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> List, Tuple
+<p>基本思想为从小到大加入边，是一种贪心算法。</p>
+<p>其算法流程为：</p>
+<ul>
+<li>将图<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>=</mo><mo stretchy="false">{</mo><mi>V</mi><mo separator="true">,</mo><mi>E</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">G = \{V, E\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mclose">}</span></span></span></span> 中的所有边按照长度由小到大进行排序。</li>
+<li>初始化图 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">G&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><mi>V</mi><mo separator="true">,</mo><mi mathvariant="normal">∅</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{V,\varnothing\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord amsrm">∅</span><span class="mclose">}</span></span></span></span> ，从前向后扫描排序后的边，如果扫描到的边 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span>  在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">G&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 中连接了两个相异的连通块,则将它插入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>G</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">G&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 中。</li>
+<li>最后得到的图<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal"> </mi><msup><mi>G</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex"> G&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"> </span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>就是图<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> 的最小生成树。</li>
+<li>实际代码中，首先将这张完全图中的边全部提取到边集数组中，然后对所有边进行排序，从小到大进行枚举，每次贪心选边加入答案。使用并查集维护连通性，若当前边两端不连通即可选择这条边。</li>
+</ul>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DisjointSet</span>:</span>
 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, element_num=None)</span>:</span>
+        self._father = {}
+        self._rank = {}
+        <span class="hljs-comment"># 初始化时每个元素单独成为一个集合</span>
+        <span class="hljs-keyword">if</span> element_num <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(element_num):
+                self.add(i)
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">kruskal</span><span class="hljs-params">(num_nodes: int, num_edges: int, edges: List[Tuple[int, int, int]])</span> -&gt; int:</span>
-    <span class="hljs-string">"""
-    &gt;&gt;&gt; kruskal(4, 3, [(0, 1, 3), (1, 2, 5), (2, 3, 1)])
-    [(2, 3, 1), (0, 1, 3), (1, 2, 5)]
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(self, x)</span>:</span>
+        <span class="hljs-comment"># 添加新集合</span>
+        <span class="hljs-comment"># 如果已经存在则跳过</span>
+        <span class="hljs-keyword">if</span> x <span class="hljs-keyword">in</span> self._father:
+            <span class="hljs-keyword">return</span> 
+        self._father[x] = x
+        self._rank[x] = <span class="hljs-number">0</span>
 
-    &gt;&gt;&gt; kruskal(4, 5, [(0, 1, 3), (1, 2, 5), (2, 3, 1), (0, 2, 1), (0, 3, 2)])
-    [(2, 3, 1), (0, 2, 1), (0, 1, 3)]
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_query</span><span class="hljs-params">(self, x)</span>:</span>
+        <span class="hljs-comment"># 如果father[x] == x，说明x是树根</span>
+        <span class="hljs-keyword">if</span> self._father[x] == x:
+            <span class="hljs-keyword">return</span> x
+        self._father[x] = self._query(self._father[x])
+        <span class="hljs-keyword">return</span> self._father[x]
 
-    &gt;&gt;&gt; kruskal(4, 6, [(0, 1, 3), (1, 2, 5), (2, 3, 1), (0, 2, 1), (0, 3, 2),
-    ... (2, 1, 1)])
-    [(2, 3, 1), (0, 2, 1), (2, 1, 1)]
-    """</span>
-    edges = sorted(edges, key=<span class="hljs-keyword">lambda</span> edge: edge[<span class="hljs-number">2</span>])
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge</span><span class="hljs-params">(self, x, y)</span>:</span>
+        <span class="hljs-keyword">if</span> x <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self._father:
+            self.add(x)
+        <span class="hljs-keyword">if</span> y <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self._father:
+            self.add(y)
+        <span class="hljs-comment"># 查找到两个元素的树根</span>
+        x = self._query(x)
+        y = self._query(y)
+        <span class="hljs-comment"># 如果相等，说明属于同一个集合</span>
+        <span class="hljs-keyword">if</span> x == y:
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-comment"># 否则将树深小的合并到树根大的上</span>
+        <span class="hljs-keyword">if</span> self._rank[x] &lt; self._rank[y]:
+            self._father[x] = y
+        <span class="hljs-keyword">else</span>:
+            self._father[y] = x
+            <span class="hljs-comment"># 如果树深相等，合并之后树深+1</span>
+            <span class="hljs-keyword">if</span> self._rank[x] == self._rank[y]:
+                self._rank[x] += <span class="hljs-number">1</span>
 
-    parent = list(range(num_nodes))
+    <span class="hljs-comment"># 判断是否属于同一个集合</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">same</span><span class="hljs-params">(self, x, y)</span>:</span>
+        <span class="hljs-keyword">return</span> self._query(x) == self._query(y)
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_parent</span><span class="hljs-params">(i)</span>:</span>
-        <span class="hljs-keyword">if</span> i != parent[i]:
-            parent[i] = find_parent(parent[i])
-        <span class="hljs-keyword">return</span> parent[i]
+<span class="hljs-comment"># 构造数据</span>
+edges = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>]]
 
-    minimum_spanning_tree_cost = <span class="hljs-number">0</span>
-    minimum_spanning_tree = []
-
-    <span class="hljs-keyword">for</span> edge <span class="hljs-keyword">in</span> edges:
-        parent_a = find_parent(edge[<span class="hljs-number">0</span>])
-        parent_b = find_parent(edge[<span class="hljs-number">1</span>])
-        <span class="hljs-keyword">if</span> parent_a != parent_b:
-            minimum_spanning_tree_cost += edge[<span class="hljs-number">2</span>]
-            minimum_spanning_tree.append(edge)
-            parent[parent_a] = parent_b
-
-    <span class="hljs-keyword">return</span> minimum_spanning_tree
-
-
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:  <span class="hljs-comment"># pragma: no cover</span>
-    num_nodes, num_edges = list(map(int, input().strip().split()))
-    edges = []
-
-    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(num_edges):
-        node1, node2, cost = [int(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> input().strip().split()]
-        edges.append((node1, node2, cost))
-
-    kruskal(num_nodes, num_edges, edges)
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    disjoinset = DisjointSet(<span class="hljs-number">8</span>)
+    <span class="hljs-comment"># 根据边长对边集排序</span>
+    edges = sorted(edges, key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">2</span>])
+    res = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> u, v, w <span class="hljs-keyword">in</span> edges:
+        <span class="hljs-keyword">if</span> disjoinset.same(u ,v):
+            <span class="hljs-keyword">continue</span>
+        disjoinset.merge(u, v)
+        res += w
+    print(res)
 </code></pre>
 <h2 id="prim算法"><a class="markdownIt-Anchor" href="#prim算法"></a> Prim算法：</h2>
+<p>流程：</p>
+<pre class="highlight"><code class="tex">选择一个点u，当做已经覆盖
+把u所有相连的边加入队列
+循环
+    循环 从队列头部弹出边
+        如果边合法
+            弹出
+            跳出循环
+    获取边的两个端点
+    将未覆盖的端点所有边加入队列
+直到所有点都已经覆盖
+</code></pre>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> heapq
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PriorityQueue</span>:</span>
+  
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._queue = []
+        self._index = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">push</span><span class="hljs-params">(self, item, priority)</span>:</span>
+        <span class="hljs-comment"># 传入两个参数，一个是存放元素的数组，另一个是要存储的元素，这里是一个元组。</span>
+        <span class="hljs-comment"># heap内部默认从小到大排</span>
+        heapq.heappush(self._queue, (priority, self._index, item))
+        self._index += <span class="hljs-number">1</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pop</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> heapq.heappop(self._queue)[<span class="hljs-number">-1</span>]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">empty</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> len(self._queue) == <span class="hljs-number">0</span>
+      
+edges = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">15</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>]]
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    <span class="hljs-comment"># 记录点是否覆盖</span>
+    visited = [<span class="hljs-literal">False</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">11</span>)]
+    visited[<span class="hljs-number">1</span>] = <span class="hljs-literal">True</span>
+    <span class="hljs-comment"># 邻接表，可以理解成二维数组</span>
+    adj_table = [[] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">11</span>)]
+    <span class="hljs-comment"># u和v表示两个端点，w表示线段长度</span>
+    <span class="hljs-comment"># 我们把v和w放入下标u中</span>
+    <span class="hljs-comment"># 把u和w放入下标v中</span>
+    <span class="hljs-keyword">for</span> (u, v, w) <span class="hljs-keyword">in</span> edges:
+        adj_table[u].append([v, w])
+        adj_table[v].append([u, w])
+
+    que = PriorityQueue()
+
+    <span class="hljs-comment"># 我们选择1作为起始点</span>
+    <span class="hljs-comment"># 将与1相邻的所有边加入队列</span>
+    <span class="hljs-keyword">for</span> edge <span class="hljs-keyword">in</span> adj_table[<span class="hljs-number">1</span>]:
+        que.push(edge, edge[<span class="hljs-number">1</span>])
+
+    ret = <span class="hljs-number">0</span>
+    <span class="hljs-comment"># 一共有7个点，我们需要加入6条边</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">7</span>):
+        <span class="hljs-comment"># 如果队列为空，说明无法构成树</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> que.empty():
+            u, w = que.pop()
+            <span class="hljs-comment"># 如果连通的端点已经被覆盖了，则跳过</span>
+            <span class="hljs-keyword">if</span> visited[u]:
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-comment"># 标记成已覆盖</span>
+            visited[u] = <span class="hljs-literal">True</span>
+            ret += w
+            <span class="hljs-comment"># 把与它相连的所有边加入队列</span>
+            <span class="hljs-keyword">for</span> edge <span class="hljs-keyword">in</span> adj_table[u]:
+                que.push(edge, edge[<span class="hljs-number">1</span>])
+            <span class="hljs-keyword">break</span>
+            
+    print(ret)
+</code></pre>
 <pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> sys
 <span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
 
@@ -806,6 +903,57 @@ topologicalSort(graph)
         <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
 </code></pre>
 <h1 id="并查集"><a class="markdownIt-Anchor" href="#并查集"></a> 并查集：</h1>
+<h2 id="并查集-2"><a class="markdownIt-Anchor" href="#并查集-2"></a> 并查集</h2>
+<p>基础代码：</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnionFind</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n: int)</span>:</span>
+        self.parent = list(range(n))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findset</span><span class="hljs-params">(self, x: int)</span> -&gt; int:</span>
+        <span class="hljs-keyword">if</span> self.parent[x] == x:
+            <span class="hljs-keyword">return</span> x
+        self.parent[x] = self.findset(self.parent[x])
+        <span class="hljs-keyword">return</span> self.parent[x]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unite</span><span class="hljs-params">(self, x: int, y: int)</span> -&gt; bool:</span>
+        x, y = self.findset(x), self.findset(y)
+        <span class="hljs-keyword">if</span> x == y:
+            <span class="hljs-keyword">return</span>
+        self.parent[y] = x
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">connected</span><span class="hljs-params">(self, x: int, y: int)</span> -&gt; bool:</span>
+        x, y = self.findset(x), self.findset(y)
+        <span class="hljs-keyword">return</span> x == y
+</code></pre>
+<p>效率优化：永远将深度小的树合并到深度大的树上</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DisjointSetUnion</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.f = dict()
+        self.rank = dict()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span><span class="hljs-params">(self, x: int)</span> -&gt; int:</span>
+        <span class="hljs-keyword">if</span> x <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.f:
+            self.f[x] = x
+            self.rank[x] = <span class="hljs-number">1</span>
+            <span class="hljs-keyword">return</span> x
+        <span class="hljs-keyword">if</span> self.f[x] == x:
+            <span class="hljs-keyword">return</span> x
+        self.f[x] = self.find(self.f[x])
+        <span class="hljs-keyword">return</span> self.f[x]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unionSet</span><span class="hljs-params">(self, x: int, y: int)</span>:</span>
+        fx, fy = self.find(x), self.find(y)
+        <span class="hljs-keyword">if</span> fx == fy:
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">if</span> self.rank[fx] &lt; self.rank[fy]:
+            fx, fy = fy, fx
+        self.rank[fx] += self.rank[fy]
+        self.f[fy] = fx
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">numberOfConnectedComponent</span><span class="hljs-params">(self)</span> -&gt; int:</span>
+        <span class="hljs-keyword">return</span> sum(<span class="hljs-number">1</span> <span class="hljs-keyword">for</span> x, fa <span class="hljs-keyword">in</span> self.f.items() <span class="hljs-keyword">if</span> x == fa)
+</code></pre>
+<p>效率优化：懒惰运算的思想，边查找边路径压缩</p>
 <pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnionFind</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
         <span class="hljs-string">"""
@@ -831,7 +979,7 @@ topologicalSort(graph)
          
         <span class="hljs-keyword">return</span> root
     
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge</span><span class="hljs-params">(self,x,y,val)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge</span><span class="hljs-params">(self,x,y)</span>:</span>
         <span class="hljs-string">"""
         合并两个节点
         """</span>
@@ -853,6 +1001,7 @@ topologicalSort(graph)
         <span class="hljs-keyword">if</span> x <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.father:
             self.father[x] = <span class="hljs-literal">None</span>
 </code></pre>
+<h2 id="带权并查集"><a class="markdownIt-Anchor" href="#带权并查集"></a> 带权并查集</h2>
 <pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnionFind</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
         <span class="hljs-string">"""
@@ -886,47 +1035,39 @@ topologicalSort(graph)
          
         <span class="hljs-keyword">return</span> root
 </code></pre>
-<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DisjointSet</span>:</span>
+<h1 id="trie"><a class="markdownIt-Anchor" href="#trie"></a> Trie</h1>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrieNode</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-comment"># self.father 存储父节点</span>
-        <span class="hljs-comment"># self.rank 存储树深</span>
-        self.father = {}
-        self.rank = defaultdict(int)
+        self.children = collections.defaultdict(TrieNode)
+        self.is_word = <span class="hljs-literal">False</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span><span class="hljs-params">(self, x)</span>:</span>
-        <span class="hljs-comment"># 若x不存在父节点，将其父节点置为自身</span>
-        self.father.setdefault(x, x)
-        <span class="hljs-comment"># 循环或迭代查找父节点</span>
-        <span class="hljs-comment">##########################</span>
-        <span class="hljs-comment"># while x != self.father[x]:</span>
-        <span class="hljs-comment">#     x = self.father[x]</span>
-        <span class="hljs-comment">#########################</span>
-        <span class="hljs-comment"># 迭代过程中采用路径压缩</span>
-        <span class="hljs-keyword">while</span> x != self.father[x]:
-            self.father[x] = self.find(self.father[x])
-            x = self.father[x]
-        <span class="hljs-keyword">return</span> x
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">union</span><span class="hljs-params">(self, A, B)</span>:</span>
-        a, b = self.find(A), self.find(B)
-        <span class="hljs-comment"># 父节点合并，调整深度</span>
-        <span class="hljs-keyword">if</span> a == b:
-            <span class="hljs-keyword">return</span>
-        <span class="hljs-keyword">elif</span> self.rank[a] &lt;= self.rank[b]:
-            self.father[a] = b
-            <span class="hljs-keyword">if</span> self.rank[a] == self.rank[b]:
-                self.rank[b] += <span class="hljs-number">1</span>
-        <span class="hljs-keyword">else</span>:
-            self.father[b] = a
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Trie</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">same</span><span class="hljs-params">(self, x, y)</span>:</span>
-        <span class="hljs-keyword">return</span> self.find(x) == self.find(y)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.root = TrieNode()
 
-    <span class="hljs-comment"># 给定节点列表，建图</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build</span><span class="hljs-params">(self, nodes)</span>:</span>
-        <span class="hljs-keyword">for</span> u, v <span class="hljs-keyword">in</span> nodes:
-            self.union(u, v)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span><span class="hljs-params">(self, word)</span>:</span>
+        curr = self.root
+        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> word:
+            curr = curr.children[c]
+        curr.is_word = <span class="hljs-literal">True</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">search</span><span class="hljs-params">(self, word)</span>:</span>
+        current = self.root
+        <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> word:
+            current = current.children.get(letter)
+            <span class="hljs-keyword">if</span> current <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+        <span class="hljs-keyword">return</span> current.is_word
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">startsWith</span><span class="hljs-params">(self, prefix)</span>:</span>
+        current = self.root
+        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> prefix:
+            current = current.children.get(c)
+            <span class="hljs-keyword">if</span> current <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
 </code></pre>
 
         </div>
@@ -956,9 +1097,26 @@ topologicalSort(graph)
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/02/22/java/string_api/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://w.wallhaven.cc/full/k7/wallhaven-k7wor1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://w.wallhaven.cc/full/k7/wallhaven-k7wor1.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                java-基本数据结构</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/12/06/python应用/" rel="next">
               <div class="background">
